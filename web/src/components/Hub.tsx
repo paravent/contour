@@ -17,6 +17,7 @@ const OFFLINE = [
   {
     n: '03',
     name: 'PALETTE',
+    href: '#/palette',
     art: (
       <div class="palette" aria-hidden="true">
         <span style={{ background: '#1F3B5C' }} /><span style={{ background: '#D9A441' }} /><span style={{ background: '#B5462F' }} /><span style={{ background: '#E8DCC2' }} /><span style={{ background: '#3C5A3A' }} />
@@ -46,6 +47,9 @@ export function Hub() {
   }, [])
 
   const played = day.status !== 'playing'
+  const liveGames = ['contour', ...OFFLINE.flatMap((m) => ('href' in m ? [m.name.toLowerCase()] : []))]
+  const online = liveGames.length
+  const playedToday = liveGames.filter((g) => loadDay(g, today).status !== 'playing').length
 
   return (
     <main class="deck">
@@ -76,20 +80,33 @@ export function Hub() {
       </a>
 
       <div class="module-list">
-        {OFFLINE.map((m) => (
-          <div key={m.n} class="module-row">
-            <span class="dim small">{m.n}</span>
-            <span class="module-row-name">{m.name}</span>
-            {m.art}
-            <span class="dim small">OFFLINE</span>
-          </div>
-        ))}
+        {OFFLINE.map((m) => {
+          if (!('href' in m)) {
+            return (
+              <div key={m.n} class="module-row">
+                <span class="dim small">{m.n}</span>
+                <span class="module-row-name">{m.name}</span>
+                {m.art}
+                <span class="dim small">OFFLINE</span>
+              </div>
+            )
+          }
+          const status = loadDay(m.name.toLowerCase(), today).status
+          return (
+            <a key={m.n} href={m.href} class="module-row live">
+              <span class="dim small">{m.n}</span>
+              <span class="module-row-name cyan">{m.name}</span>
+              {m.art}
+              <span class="tag">{status === 'playing' ? 'RUN' : status === 'won' ? 'SOLVED' : 'REVIEW'}</span>
+            </a>
+          )
+        })}
       </div>
 
       <div class="push" />
       <div class="row between dim small">
-        <span>MODULES 1/4 ONLINE</span>
-        <span>PLAYED TODAY {played ? 1 : 0}/1</span>
+        <span>MODULES {online}/4 ONLINE</span>
+        <span>PLAYED TODAY {playedToday}/{online}</span>
       </div>
     </main>
   )
