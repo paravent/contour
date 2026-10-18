@@ -17,9 +17,10 @@ class NotFound(Exception):
     """The API has no data for this title (a deterministic answer, unlike a network error)."""
 
 
-def _get_json(url: str, attempts: int = 4):
+def _get_json(url: str, attempts: int = 6):
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json"})
     for i in range(attempts):
+        wait = 2 ** i
         try:
             with urllib.request.urlopen(req, timeout=30) as res:
                 return json.loads(res.read().decode("utf-8"))
@@ -29,10 +30,13 @@ def _get_json(url: str, attempts: int = 4):
             # Rate limits and server errors are worth a retry; anything else is a bug.
             if e.code not in (429, 500, 502, 503, 504) or i == attempts - 1:
                 raise
+            if e.code == 429:
+                retry_after = e.headers.get("Retry-After", "")
+                wait = max(5 * 2 ** i, int(retry_after) if retry_after.isdigit() else 0)
         except (urllib.error.URLError, TimeoutError):
             if i == attempts - 1:
                 raise
-        time.sleep(2 ** i)
+        time.sleep(min(wait, 120))
 
 
 def pageviews_url(title: str, start: dt.date, end: dt.date) -> str:
@@ -91,3 +95,31 @@ def parse_info(payload):
 
 def fetch_info(title: str):
     return parse_info(_get_json(info_url(title)))
+
+
+def canonical_titles(titles):
+    """Map each title to the page it ends up at after normalising and redirects, or None if missing.
+
+    One Action API request covers 50 titles, which keeps a whole-pool audit polite.
+    """
+    out = {}
+    for i in range(0, len(titles), 50):
+        batch = titles[i:i + 50]
+        params = {"action": "query", "format": "json", "formatversion": "2", "redirects": "1", "titles": "|".join(batch)}
+        out.update(parse_canonical(_get_json(f"{ACTION_API}?{urllib.parse.urlencode(params)}"), batch))
+    return out
+
+
+def parse_canonical(payload, titles):
+    q = payload.get("query", {})
+    hops = {n["from"]: n["to"] for n in q.get("normalized", []) + q.get("redirects", [])}
+    pages = {p["title"]: p for p in q.get("pages", [])}
+    out = {}
+    for t in titles:
+        seen, cur = set(), t
+        while cur in hops and cur not in seen:
+            seen.add(cur)
+            cur = hops[cur]
+        page = pages.get(cur)
+        out[t] = None if page is None or page.get("missing") or page.get("invalid") else cur
+    return out

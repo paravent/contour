@@ -2,6 +2,7 @@ import { render } from 'preact'
 import { useEffect, useState } from 'preact/hooks'
 import { Contour } from './components/Contour'
 import { Hub } from './components/Hub'
+import { Spike } from './components/Spike'
 import './styles.css'
 
 function App() {
@@ -14,7 +15,9 @@ function App() {
     addEventListener('hashchange', onHash)
     return () => removeEventListener('hashchange', onHash)
   }, [])
-  return route === '#/contour' ? <Contour /> : <Hub />
+  if (route === '#/contour') return <Contour />
+  if (route === '#/spike') return <Spike />
+  return <Hub />
 }
 
 render(<App />, document.getElementById('app')!)

@@ -163,3 +163,14 @@ def test_cli_reports_failures_as_annotations(tmp_path):
                          capture_output=True, text=True)
     assert res.returncode == 1
     assert res.stdout.startswith("::error::spike generator failed:")
+
+
+def test_parse_canonical_follows_normalising_and_redirects():
+    payload = {"query": {
+        "normalized": [{"fromencoded": False, "from": "iPhone", "to": "IPhone"}],
+        "redirects": [{"from": "Beatles", "to": "The Beatles"}],
+        "pages": [{"title": "IPhone", "pageid": 1}, {"title": "The Beatles", "pageid": 2},
+                  {"title": "Nope", "missing": True}],
+    }}
+    assert wiki.parse_canonical(payload, ["iPhone", "Beatles", "Nope", "The Beatles"]) == {
+        "iPhone": "IPhone", "Beatles": "The Beatles", "Nope": None, "The Beatles": "The Beatles"}

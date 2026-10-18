@@ -15,6 +15,7 @@ import datetime as dt
 import json
 import os
 import sys
+import time
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -47,18 +48,22 @@ def generate_day(date, articles, launch, seed, out, cache, **fetchers):
 def check_pool(articles, cache):
     """Fetch every article's current chart and report the ones that can't be used."""
     start, end = window(dt.datetime.now(dt.timezone.utc).date())
+    canonical = wiki.canonical_titles([a.title for a in articles])
     bad = []
     for a in articles:
-        try:
-            info = wiki.fetch_info(a.title)
-            if info["title"] != a.title:
-                bad.append(f"{a.id}(redirects to {info['title']})")
-                continue
-            check_series(load_series(a, start, end, cache), a.id)
-        except wiki.NotFound:
+        if canonical[a.title] is None:
             bad.append(f"{a.id}(no such page)")
+            continue
+        if canonical[a.title] != a.title:
+            bad.append(f"{a.id}(redirects to {canonical[a.title]})")
+            continue
+        try:
+            check_series(load_series(a, start, end, cache), a.id)
         except Rejected as e:
             bad.append(f"{a.id}({str(e).split(': ', 1)[1]})")
+        except Exception as e:  # noqa: BLE001 - keep auditing the rest of the pool
+            bad.append(f"{a.id}({type(e).__name__})")
+        time.sleep(0.2)
     print(f"::notice::spike pool {len(articles) - len(bad)}/{len(articles)} usable for {start}..{end}")
     # One annotation per chunk: CI shows only a handful of annotations per step.
     chunk = []
