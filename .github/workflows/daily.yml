@@ -1,0 +1,86 @@
+# Builds today's puzzles and deploys the site to GitHub Pages.
+# Runs shortly after midnight UTC, again at noon as a safety net, and on every push to main.
+name: Daily puzzles
+
+on:
+  schedule:
+    - cron: '5 0 * * *'
+    - cron: '5 12 * * *'
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      CONTOUR_SEED: ${{ secrets.CONTOUR_SEED }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: generator/requirements.txt
+      - run: pip install -r generator/requirements.txt
+
+      - uses: actions/cache@v4
+        with:
+          path: generator/.cache
+          key: terrain-${{ github.run_id }}
+          restore-keys: terrain-
+
+      # Generate yesterday through a week ahead. A failure here means an upcoming day
+      # has no playable puzzle, and the failed run emails the repo owner.
+      - name: Generate puzzles
+        run: |
+          python generator/generate.py --out "$RUNNER_TEMP/puzzles" --start "$(date -u -d yesterday +%F)" --days 9
+
+      # Publish only the days some timezone is playing right now (UTC-12 to UTC+14).
+      - name: Stage live puzzles
+        run: |
+          mkdir -p web/public/puzzles/contour
+          for offset in -1 0 1; do
+            day=$(date -u -d "$offset day" +%F)
+            if [ -d "$RUNNER_TEMP/puzzles/$day" ]; then
+              cp -r "$RUNNER_TEMP/puzzles/$day" web/public/puzzles/contour/
+            fi
+          done
+          ls web/public/puzzles/contour
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+        working-directory: web
+      - run: npm test
+        working-directory: web
+      - run: npm run build
+        working-directory: web
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

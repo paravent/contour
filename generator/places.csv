@@ -1,0 +1,98 @@
+id,name,country,lat,lon
+fuji,Mount Fuji,JPN,35.361,138.728
+kilimanjaro,Mount Kilimanjaro,TZA,-3.068,37.356
+etna,Mount Etna,ITA,37.751,14.993
+geiranger,Geirangerfjord,NOR,62.103,7.094
+grand-canyon,Grand Canyon,USA,36.106,-112.113
+matterhorn,Matterhorn,CHE,45.976,7.659
+table-mountain,Table Mountain,ZAF,-33.963,18.403
+rainier,Mount Rainier,USA,46.853,-121.760
+teide,Mount Teide,ESP,28.272,-16.642
+taranaki,Mount Taranaki,NZL,-39.297,174.063
+milford-sound,Milford Sound,NZL,-44.641,167.897
+vesuvius,Mount Vesuvius,ITA,40.821,14.426
+mont-blanc,Mont Blanc,FRA,45.833,6.865
+ben-nevis,Ben Nevis,GBR,56.797,-5.004
+olympus,Mount Olympus,GRC,40.086,22.358
+santorini,Santorini,GRC,36.404,25.396
+ararat,Mount Ararat,TUR,39.702,44.298
+damavand,Mount Damavand,IRN,35.955,52.110
+elbrus,Mount Elbrus,RUS,43.355,42.439
+gerlach,Gerlachovsky Peak,SVK,49.164,20.134
+triglav,Triglav,SVN,46.379,13.837
+kotor,Bay of Kotor,MNE,42.470,18.690
+wadi-rum,Wadi Rum,JOR,29.576,35.420
+sinai,Mount Sinai,EGY,28.539,33.975
+ngorongoro,Ngorongoro Crater,TZA,-3.175,35.580
+mount-kenya,Mount Kenya,KEN,-0.152,37.308
+rwenzori,Rwenzori Mountains,UGA,0.386,29.872
+amphitheatre,Drakensberg Amphitheatre,ZAF,-28.690,28.930
+thabana,Thabana Ntlenyana,LSO,-29.467,29.267
+fish-river,Fish River Canyon,NAM,-27.600,17.600
+cameroon,Mount Cameroon,CMR,4.203,9.170
+toubkal,Jebel Toubkal,MAR,31.060,-7.915
+aconcagua,Aconcagua,ARG,-32.653,-70.011
+torres-del-paine,Torres del Paine,CHL,-50.942,-73.406
+fitz-roy,Monte Fitz Roy,ARG,-49.271,-73.043
+cotopaxi,Cotopaxi,ECU,-0.681,-78.438
+chimborazo,Chimborazo,ECU,-1.469,-78.817
+machu-picchu,Machu Picchu,PER,-13.163,-72.545
+colca,Colca Canyon,PER,-15.610,-71.900
+orizaba,Pico de Orizaba,MEX,19.030,-97.269
+popocatepetl,Popocatepetl,MEX,19.023,-98.622
+st-helens,Mount St. Helens,USA,46.191,-122.196
+crater-lake,Crater Lake,USA,42.944,-122.109
+yosemite,Yosemite Valley,USA,37.735,-119.574
+denali,Denali,USA,63.069,-151.007
+robson,Mount Robson,CAN,53.110,-119.156
+moraine-lake,Moraine Lake,CAN,51.322,-116.186
+gros-morne,Gros Morne,CAN,49.590,-57.790
+hekla,Hekla,ISL,63.992,-19.666
+oraefajokull,Oraefajokull,ISL,64.010,-16.650
+trolltunga,Trolltunga,NOR,60.124,6.740
+kebnekaise,Kebnekaise,SWE,67.900,18.517
+picos-de-europa,Picos de Europa,ESP,43.200,-4.850
+everest,Mount Everest,NPL,27.988,86.925
+k2,K2,PAK,35.881,76.513
+nanga-parbat,Nanga Parbat,PAK,35.237,74.589
+annapurna,Annapurna,NPL,28.596,83.820
+kinabalu,Mount Kinabalu,MYS,6.075,116.558
+bromo,Mount Bromo,IDN,-7.942,112.953
+mayon,Mayon Volcano,PHL,13.257,123.685
+fansipan,Fansipan,VNM,22.303,103.775
+kosciuszko,Mount Kosciuszko,AUS,-36.456,148.263
+uluru,Uluru,AUS,-25.344,131.036
+cradle-mountain,Cradle Mountain,AUS,-41.684,145.951
+aoraki,Aoraki / Mount Cook,NZL,-43.595,170.142
+jebel-shams,Jebel Shams,OMN,23.237,57.263
+hallasan,Hallasan,KOR,33.362,126.533
+paektu,Paektu Mountain,PRK,42.005,128.055
+ruapehu,Mount Ruapehu,NZL,-39.281,175.568
+fogo,Pico do Fogo,CPV,14.950,-24.350
+pico-ruivo,Pico Ruivo,PRT,32.759,-16.943
+pico-azores,Mount Pico,PRT,38.468,-28.399
+durmitor,Durmitor,MNE,43.128,19.030
+moldoveanu,Moldoveanu Peak,ROU,45.600,24.736
+musala,Musala,BGR,42.179,23.585
+zugspitze,Zugspitze,DEU,47.421,10.985
+grossglockner,Grossglockner,AUT,47.074,12.694
+snowdon,Snowdon,GBR,53.068,-4.076
+carrauntoohil,Carrauntoohil,IRL,51.999,-9.743
+hood,Mount Hood,USA,45.374,-121.696
+pikes-peak,Pikes Peak,USA,38.841,-105.044
+mauna-kea,Mauna Kea,USA,19.821,-155.468
+kazbek,Mount Kazbek,GEO,42.697,44.518
+aragats,Mount Aragats,ARM,40.532,44.200
+kailash,Mount Kailash,CHN,31.067,81.312
+huangshan,Huangshan,CHN,30.132,118.166
+pico-bolivar,Pico Bolivar,VEN,8.541,-71.046
+roraima,Mount Roraima,VEN,5.143,-60.762
+licancabur,Licancabur,BOL,-22.833,-67.883
+sajama,Nevado Sajama,BOL,-18.108,-68.883
+ojos-del-salado,Ojos del Salado,CHL,-27.109,-68.541
+ras-dashen,Ras Dashen,ETH,13.236,38.372
+erta-ale,Erta Ale,ETH,13.600,40.670
+nyiragongo,Mount Nyiragongo,COD,-1.520,29.250
+mulanje,Mount Mulanje,MWI,-15.950,35.600
+emi-koussi,Emi Koussi,TCD,19.793,18.550
+tahat,Mount Tahat,DZA,23.289,5.534
