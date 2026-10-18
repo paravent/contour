@@ -26,7 +26,7 @@ juneteenth,Juneteenth,Juneteenth,holiday,
 us-independence-day,Independence Day (United States),Independence Day (US),holiday,Fourth of July|July 4th
 guy-fawkes-night,Guy Fawkes Night,Guy Fawkes Night,holiday,Bonfire Night
 boxing-day,Boxing Day,Boxing Day,holiday,
-labor-day,Labor Day,Labor Day,holiday,
+labor-day,Labour Day,Labour Day,holiday,Labor Day
 memorial-day,Memorial Day,Memorial Day,holiday,
 pi-day,Pi Day,Pi Day,holiday,
 earth-day,Earth Day,Earth Day,holiday,
@@ -54,7 +54,7 @@ winter-solstice,Winter solstice,Winter solstice,science,
 summer-solstice,Summer solstice,Summer solstice,science,
 dst,Daylight saving time,Daylight saving time,science,DST|Summer time
 super-bowl,Super Bowl,Super Bowl,sports event,
-halftime-show,Super Bowl halftime show,Super Bowl halftime show,sports event,
+halftime-show,List of Super Bowl halftime shows,Super Bowl halftime show,sports event,
 world-cup,FIFA World Cup,FIFA World Cup,sports event,World Cup
 champions-league,UEFA Champions League,UEFA Champions League,sports event,Champions League
 wimbledon,Wimbledon Championships,Wimbledon,sports event,
@@ -104,7 +104,7 @@ glastonbury,Glastonbury Festival,Glastonbury Festival,event,Glastonbury
 burning-man,Burning Man,Burning Man,event,
 comic-con,San Diego Comic-Con,San Diego Comic-Con,event,Comic-Con
 oscars,Academy Awards,Academy Awards,event,Oscars
-golden-globes,Golden Globe Awards,Golden Globe Awards,event,Golden Globes
+golden-globes,Golden Globes,Golden Globe Awards,event,Golden Globes
 grammys,Grammy Awards,Grammy Awards,event,Grammys
 emmys,Primetime Emmy Awards,Primetime Emmy Awards,event,Emmys
 baftas,British Academy Film Awards,BAFTA Film Awards,event,BAFTAs|British Academy Film Awards
@@ -112,7 +112,7 @@ cannes,Cannes Film Festival,Cannes Film Festival,event,
 nobel-prize,Nobel Prize,Nobel Prize,event,
 person-of-the-year,Time Person of the Year,Time Person of the Year,event,
 ces,Consumer Electronics Show,Consumer Electronics Show,event,CES
-wwdc,Apple Worldwide Developers Conference,Apple WWDC,event,WWDC|Apple Worldwide Developers Conference
+wwdc,Worldwide Developers Conference,Apple WWDC,event,WWDC|Apple Worldwide Developers Conference
 game-awards,The Game Awards,The Game Awards,event,
 macys-parade,Macy's Thanksgiving Day Parade,Macy's Thanksgiving Day Parade,event,
 rose-parade,Rose Parade,Rose Parade,event,
@@ -121,7 +121,6 @@ fringe,Edinburgh Festival Fringe,Edinburgh Festival Fringe,event,Edinburgh Fring
 tomorrowland,Tomorrowland (festival),Tomorrowland,event,
 lollapalooza,Lollapalooza,Lollapalooza,event,
 hajj,Hajj,Hajj,event,
-prime-day,Prime Day,Prime Day,event,Amazon Prime Day
 taylor-swift,Taylor Swift,Taylor Swift,musician,
 beyonce,Beyoncé,Beyoncé,musician,Beyonce
 bad-bunny,Bad Bunny,Bad Bunny,musician,
@@ -282,7 +281,7 @@ mean-girls,Mean Girls,Mean Girls,film,
 groundhog-day-film,Groundhog Day (film),Groundhog Day (film),film,
 jaws,Jaws (film),Jaws,film,
 titanic,Titanic (1997 film),Titanic,film,
-wizard-of-oz,The Wizard of Oz (1939 film),The Wizard of Oz,film,
+wizard-of-oz,The Wizard of Oz,The Wizard of Oz,film,
 back-to-the-future,Back to the Future,Back to the Future,film,
 a-christmas-story,A Christmas Story,A Christmas Story,film,
 gremlins,Gremlins,Gremlins,film,
@@ -328,7 +327,7 @@ doctor-who,Doctor Who,Doctor Who,tv series,
 the-simpsons,The Simpsons,The Simpsons,tv series,Simpsons
 south-park,South Park,South Park,tv series,
 peaky-blinders,Peaky Blinders,Peaky Blinders,tv series,
-andor,Andor (TV series),Andor,tv series,
+andor,Andor,Andor,tv series,
 fallout-tv,Fallout (American TV series),Fallout (TV series),tv series,
 reacher,Reacher (TV series),Reacher,tv series,
 the-pitt,The Pitt,The Pitt,tv series,
@@ -342,7 +341,7 @@ gilmore-girls,Gilmore Girls,Gilmore Girls,tv series,
 taskmaster,Taskmaster (TV series),Taskmaster,tv series,
 the-witcher,The Witcher (TV series),The Witcher,tv series,
 one-piece-tv,One Piece (2023 TV series),One Piece (TV series),tv series,
-slow-horses,Slow Horses (TV series),Slow Horses,tv series,
+slow-horses,Slow Horses,Slow Horses,tv series,
 the-gilded-age,The Gilded Age (TV series),The Gilded Age,tv series,
 minecraft,Minecraft,Minecraft,video game,
 fortnite,Fortnite,Fortnite,video game,
@@ -413,11 +412,11 @@ leprechaun,Leprechaun,Leprechaun,folklore,
 dracula,Dracula,Dracula,folklore,
 loch-ness-monster,Loch Ness Monster,Loch Ness Monster,folklore,Nessie
 sinterklaas,Sinterklaas,Sinterklaas,folklore,
-grinch,The Grinch,The Grinch,folklore,Grinch
+grinch,Grinch,The Grinch,folklore,Grinch
 mistletoe,Mistletoe,Mistletoe,folklore,
 christmas-tree,Christmas tree,Christmas tree,folklore,
 advent-calendar,Advent calendar,Advent calendar,folklore,
-pumpkin-spice,Pumpkin spice,Pumpkin spice,food,
+pumpkin-spice,Pumpkin pie spice,Pumpkin spice,food,
 eggnog,Eggnog,Eggnog,food,
 candy-corn,Candy corn,Candy corn,food,
 hot-cross-bun,Hot cross bun,Hot cross bun,food,

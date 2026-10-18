@@ -58,6 +58,23 @@ jobs:
           done
           ls web/public/puzzles/contour
 
+      # Spike, for the same days. Each chart ends 10 days before its date, so even the
+      # week ahead only uses pageviews Wikimedia has already published.
+      - name: Generate Spike puzzles
+        run: |
+          python generator/generate_spike.py --out "$RUNNER_TEMP/spike" --start "$(date -u -d yesterday +%F)" --days 9
+
+      - name: Stage live Spike puzzles
+        run: |
+          mkdir -p web/public/puzzles/spike
+          for offset in -1 0 1; do
+            day=$(date -u -d "$offset day" +%F)
+            if [ -d "$RUNNER_TEMP/spike/$day" ]; then
+              cp -r "$RUNNER_TEMP/spike/$day" web/public/puzzles/spike/
+            fi
+          done
+          ls web/public/puzzles/spike
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22

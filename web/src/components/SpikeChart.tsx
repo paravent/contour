@@ -59,7 +59,7 @@ export function SpikeChart({ views, start, spikes, showScale, showDates }: Props
       {verticals.map((vx, k) => <line key={k} x1={vx} x2={vx} y1={PAD.top} y2={y(0)} class="spike-grid" />)}
 
       {showDates
-        ? months.map((m) => (
+        ? months.filter((m) => x(m.index) < W - PAD.right - 18).map((m) => (
           <text key={m.index} x={x(m.index) + 2} y={H - 8} class="spike-axis reveal">{m.label}</text>
         ))
         : <text x={PAD.left + plotW / 2} y={H - 8} text-anchor="middle" class="spike-axis">◄ 365 DAYS ►</text>}

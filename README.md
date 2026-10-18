@@ -18,6 +18,18 @@ web/         Preact + Vite: the hub and the game (cyberpunk terminal style)
 - **Daily job.** `.github/workflows/daily.yml` runs just after midnight UTC, at noon UTC, and on every push to `main`. It generates yesterday through a week ahead, which checks that the coming week is playable. It then publishes only yesterday, today and tomorrow (so every timezone has its puzzle) and deploys to GitHub Pages.
 - **Game.** The puzzle changes at the player's local midnight. Progress, stats and streaks live in the browser's local storage, so there are no accounts.
 
+## Spike
+
+The second daily game. You see a year of daily pageviews for one English Wikipedia article, drawn as a neon trace, and have six guesses to name it. Each wrong guess unlocks a clue: the y-axis scale, the dates of the spikes, the article's category and short description, the shape of its name, then its first letter. Guesses come from a type-ahead over the answer pool, and a wrong guess in the right category lights up amber.
+
+- **Data.** Daily views come from the [Wikimedia pageviews API](https://doc.wikimedia.org/generated-data-platform/aqs/analytics-api/) (human readers only) and the description and intro from the Wikipedia Action API. Each chart ends 10 days before its puzzle date, so the daily job's week ahead only uses days that are already published and every run picks the same article.
+- **Pool.** `generator/spike_pool.csv` holds a few hundred well-known articles (exact Wikipedia title, display name, category, aliases). After editing it, refresh the game's search list with `python generator/generate_spike.py --export-pool web/public/data/spike-articles.json`, and audit it against live data with `python generator/generate_spike.py --check-pool`.
+- **Schedule.** Like Contour: a seeded shuffle of the pool, and an article whose chart has missing days, too few readers or no clear spike hands its day to the next one.
+
+```sh
+python generator/generate_spike.py --out web/public/puzzles/spike   # yesterday, today, tomorrow (UTC)
+```
+
 ## One-time setup
 
 1. **Settings → Pages → Build and deployment → Source: GitHub Actions.**
