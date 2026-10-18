@@ -1,0 +1,232 @@
+id,name,country,lat,lon,aliases
+tokyo,Tokyo,JPN,35.690,139.692,
+osaka,Osaka,JPN,34.694,135.502,
+nagoya,Nagoya,JPN,35.181,136.906,
+sapporo,Sapporo,JPN,43.062,141.354,
+fukuoka,Fukuoka,JPN,33.590,130.402,
+seoul,Seoul,KOR,37.566,126.978,
+busan,Busan,KOR,35.180,129.076,Pusan
+pyongyang,Pyongyang,PRK,39.039,125.763,
+beijing,Beijing,CHN,39.904,116.407,Peking
+shanghai,Shanghai,CHN,31.230,121.474,
+guangzhou,Guangzhou,CHN,23.129,113.264,Canton
+shenzhen,Shenzhen,CHN,22.543,114.058,
+chongqing,Chongqing,CHN,29.563,106.551,
+chengdu,Chengdu,CHN,30.573,104.066,
+wuhan,Wuhan,CHN,30.593,114.305,
+xian,Xi'an,CHN,34.342,108.940,Xian
+tianjin,Tianjin,CHN,39.343,117.362,
+harbin,Harbin,CHN,45.803,126.535,
+kunming,Kunming,CHN,25.039,102.718,
+urumqi,Ürümqi,CHN,43.825,87.617,Urumqi
+hong-kong,Hong Kong,HKG,22.302,114.177,
+taipei,Taipei,TWN,25.033,121.565,
+manila,Manila,PHL,14.600,120.984,
+cebu,Cebu City,PHL,10.316,123.885,Cebu
+hanoi,Hanoi,VNM,21.028,105.854,
+ho-chi-minh,Ho Chi Minh City,VNM,10.823,106.630,Saigon
+bangkok,Bangkok,THA,13.756,100.502,
+kuala-lumpur,Kuala Lumpur,MYS,3.139,101.687,
+singapore,Singapore,SGP,1.352,103.820,
+jakarta,Jakarta,IDN,-6.208,106.846,
+surabaya,Surabaya,IDN,-7.258,112.752,
+yangon,Yangon,MMR,16.840,96.173,Rangoon
+phnom-penh,Phnom Penh,KHM,11.556,104.928,
+dhaka,Dhaka,BGD,23.810,90.413,Dacca
+kolkata,Kolkata,IND,22.573,88.364,Calcutta
+delhi,Delhi,IND,28.704,77.102,New Delhi
+mumbai,Mumbai,IND,19.076,72.878,Bombay
+bengaluru,Bengaluru,IND,12.972,77.595,Bangalore
+chennai,Chennai,IND,13.083,80.271,Madras
+hyderabad,Hyderabad,IND,17.385,78.487,
+ahmedabad,Ahmedabad,IND,23.023,72.571,
+kathmandu,Kathmandu,NPL,27.717,85.324,
+colombo,Colombo,LKA,6.927,79.861,
+karachi,Karachi,PAK,24.861,67.010,
+lahore,Lahore,PAK,31.520,74.359,
+islamabad,Islamabad,PAK,33.684,73.048,
+kabul,Kabul,AFG,34.556,69.207,
+tashkent,Tashkent,UZB,41.300,69.240,
+almaty,Almaty,KAZ,43.238,76.946,Alma-Ata
+astana,Astana,KAZ,51.160,71.470,Nur-Sultan
+bishkek,Bishkek,KGZ,42.875,74.570,
+ulaanbaatar,Ulaanbaatar,MNG,47.887,106.906,Ulan Bator
+tehran,Tehran,IRN,35.689,51.389,
+mashhad,Mashhad,IRN,36.297,59.606,
+isfahan,Isfahan,IRN,32.654,51.668,
+baghdad,Baghdad,IRQ,33.315,44.366,
+kuwait-city,Kuwait City,KWT,29.376,47.977,
+riyadh,Riyadh,SAU,24.713,46.675,
+jeddah,Jeddah,SAU,21.485,39.193,
+doha,Doha,QAT,25.285,51.531,
+dubai,Dubai,ARE,25.205,55.271,
+abu-dhabi,Abu Dhabi,ARE,24.454,54.377,
+muscat,Muscat,OMN,23.588,58.383,
+sanaa,Sana'a,YEM,15.369,44.191,Sanaa
+amman,Amman,JOR,31.954,35.911,
+jerusalem,Jerusalem,ISR,31.769,35.216,
+tel-aviv,Tel Aviv,ISR,32.085,34.782,
+beirut,Beirut,LBN,33.894,35.502,
+damascus,Damascus,SYR,33.513,36.292,
+istanbul,Istanbul,TUR,41.008,28.978,Constantinople
+ankara,Ankara,TUR,39.934,32.860,
+izmir,Izmir,TUR,38.424,27.143,Smyrna
+baku,Baku,AZE,40.409,49.867,
+tbilisi,Tbilisi,GEO,41.716,44.783,
+yerevan,Yerevan,ARM,40.179,44.499,
+cairo,Cairo,EGY,30.044,31.236,
+alexandria,Alexandria,EGY,31.200,29.919,
+khartoum,Khartoum,SDN,15.501,32.560,
+addis-ababa,Addis Ababa,ETH,9.030,38.740,
+nairobi,Nairobi,KEN,-1.292,36.822,
+mombasa,Mombasa,KEN,-4.043,39.668,
+kampala,Kampala,UGA,0.348,32.582,
+dar-es-salaam,Dar es Salaam,TZA,-6.792,39.208,
+kigali,Kigali,RWA,-1.944,30.062,
+kinshasa,Kinshasa,COD,-4.441,15.266,
+luanda,Luanda,AGO,-8.839,13.289,
+lusaka,Lusaka,ZMB,-15.387,28.322,
+harare,Harare,ZWE,-17.825,31.034,
+maputo,Maputo,MOZ,-25.969,32.573,
+johannesburg,Johannesburg,ZAF,-26.204,28.047,Joburg
+pretoria,Pretoria,ZAF,-25.747,28.229,Tshwane
+cape-town,Cape Town,ZAF,-33.925,18.424,
+durban,Durban,ZAF,-29.858,31.022,
+antananarivo,Antananarivo,MDG,-18.879,47.508,
+lagos,Lagos,NGA,6.524,3.379,
+abuja,Abuja,NGA,9.077,7.399,
+kano,Kano,NGA,12.002,8.592,
+accra,Accra,GHA,5.604,-0.187,
+abidjan,Abidjan,CIV,5.360,-4.008,
+dakar,Dakar,SEN,14.716,-17.467,
+bamako,Bamako,MLI,12.639,-8.003,
+casablanca,Casablanca,MAR,33.573,-7.590,
+rabat,Rabat,MAR,34.020,-6.841,
+marrakesh,Marrakesh,MAR,31.629,-7.981,Marrakech
+algiers,Algiers,DZA,36.754,3.059,
+tunis,Tunis,TUN,36.806,10.182,
+tripoli,Tripoli,LBY,32.887,13.191,
+moscow,Moscow,RUS,55.756,37.617,
+saint-petersburg,Saint Petersburg,RUS,59.939,30.316,St Petersburg|Leningrad
+novosibirsk,Novosibirsk,RUS,55.008,82.935,
+yekaterinburg,Yekaterinburg,RUS,56.838,60.597,
+kazan,Kazan,RUS,55.796,49.106,
+vladivostok,Vladivostok,RUS,43.116,131.882,
+kyiv,Kyiv,UKR,50.450,30.523,Kiev
+kharkiv,Kharkiv,UKR,49.994,36.230,Kharkov
+odesa,Odesa,UKR,46.482,30.723,Odessa
+minsk,Minsk,BLR,53.904,27.562,
+warsaw,Warsaw,POL,52.230,21.012,Warszawa
+krakow,Kraków,POL,50.065,19.945,Cracow|Krakow
+prague,Prague,CZE,50.076,14.438,Praha
+vienna,Vienna,AUT,48.208,16.374,Wien
+budapest,Budapest,HUN,47.498,19.040,
+bucharest,Bucharest,ROU,44.426,26.103,
+sofia,Sofia,BGR,42.698,23.322,
+belgrade,Belgrade,SRB,44.787,20.457,Beograd
+zagreb,Zagreb,HRV,45.815,15.982,
+athens,Athens,GRC,37.984,23.728,
+thessaloniki,Thessaloniki,GRC,40.640,22.944,Salonica
+rome,Rome,ITA,41.903,12.496,Roma
+milan,Milan,ITA,45.464,9.190,Milano
+naples,Naples,ITA,40.852,14.268,Napoli
+turin,Turin,ITA,45.070,7.687,Torino
+madrid,Madrid,ESP,40.417,-3.704,
+barcelona,Barcelona,ESP,41.385,2.173,
+valencia,Valencia,ESP,39.470,-0.376,
+seville,Seville,ESP,37.389,-5.984,Sevilla
+lisbon,Lisbon,PRT,38.722,-9.139,Lisboa
+porto,Porto,PRT,41.158,-8.629,Oporto
+paris,Paris,FRA,48.857,2.352,
+lyon,Lyon,FRA,45.764,4.836,
+marseille,Marseille,FRA,43.296,5.370,Marseilles
+toulouse,Toulouse,FRA,43.605,1.444,
+brussels,Brussels,BEL,50.850,4.352,Bruxelles
+amsterdam,Amsterdam,NLD,52.368,4.904,
+rotterdam,Rotterdam,NLD,51.924,4.478,
+berlin,Berlin,DEU,52.520,13.405,
+hamburg,Hamburg,DEU,53.551,9.994,
+munich,Munich,DEU,48.135,11.582,München
+cologne,Cologne,DEU,50.938,6.960,Köln
+frankfurt,Frankfurt,DEU,50.110,8.682,
+zurich,Zürich,CHE,47.377,8.541,Zurich
+geneva,Geneva,CHE,46.204,6.143,Genève
+london,London,GBR,51.507,-0.128,
+manchester,Manchester,GBR,53.481,-2.243,
+birmingham,Birmingham,GBR,52.486,-1.890,
+glasgow,Glasgow,GBR,55.864,-4.252,
+edinburgh,Edinburgh,GBR,55.953,-3.188,
+dublin,Dublin,IRL,53.350,-6.260,
+copenhagen,Copenhagen,DNK,55.676,12.568,København
+oslo,Oslo,NOR,59.914,10.752,
+stockholm,Stockholm,SWE,59.329,18.069,
+helsinki,Helsinki,FIN,60.170,24.938,
+riga,Riga,LVA,56.950,24.106,
+reykjavik,Reykjavík,ISL,64.147,-21.942,Reykjavik
+new-york,New York,USA,40.713,-74.006,New York City|NYC
+los-angeles,Los Angeles,USA,34.052,-118.244,LA
+chicago,Chicago,USA,41.878,-87.630,
+houston,Houston,USA,29.760,-95.370,
+phoenix,Phoenix,USA,33.448,-112.074,
+philadelphia,Philadelphia,USA,39.953,-75.165,
+san-antonio,San Antonio,USA,29.424,-98.494,
+dallas,Dallas,USA,32.777,-96.797,
+san-francisco,San Francisco,USA,37.775,-122.419,
+seattle,Seattle,USA,47.606,-122.332,
+denver,Denver,USA,39.739,-104.990,
+las-vegas,Las Vegas,USA,36.170,-115.140,
+salt-lake-city,Salt Lake City,USA,40.761,-111.891,
+atlanta,Atlanta,USA,33.749,-84.388,
+miami,Miami,USA,25.762,-80.192,
+washington,Washington,USA,38.907,-77.037,Washington DC
+boston,Boston,USA,42.360,-71.059,
+detroit,Detroit,USA,42.331,-83.046,
+minneapolis,Minneapolis,USA,44.978,-93.265,
+st-louis,St. Louis,USA,38.627,-90.199,Saint Louis
+new-orleans,New Orleans,USA,29.951,-90.072,
+honolulu,Honolulu,USA,21.307,-157.858,
+anchorage,Anchorage,USA,61.218,-149.900,
+toronto,Toronto,CAN,43.653,-79.383,
+montreal,Montreal,CAN,45.502,-73.567,Montréal
+vancouver,Vancouver,CAN,49.283,-123.121,
+calgary,Calgary,CAN,51.045,-114.072,
+ottawa,Ottawa,CAN,45.422,-75.697,
+winnipeg,Winnipeg,CAN,49.895,-97.138,
+mexico-city,Mexico City,MEX,19.433,-99.133,
+guadalajara,Guadalajara,MEX,20.660,-103.350,
+monterrey,Monterrey,MEX,25.687,-100.316,
+tijuana,Tijuana,MEX,32.514,-117.038,
+cancun,Cancún,MEX,21.162,-86.851,Cancun
+guatemala-city,Guatemala City,GTM,14.634,-90.507,
+havana,Havana,CUB,23.113,-82.366,La Habana
+santo-domingo,Santo Domingo,DOM,18.486,-69.931,
+san-juan,San Juan,PRI,18.466,-66.106,
+panama-city,Panama City,PAN,8.983,-79.517,
+bogota,Bogotá,COL,4.711,-74.072,Bogota
+medellin,Medellín,COL,6.244,-75.581,Medellin
+caracas,Caracas,VEN,10.481,-66.904,
+quito,Quito,ECU,-0.180,-78.468,
+guayaquil,Guayaquil,ECU,-2.171,-79.922,
+lima,Lima,PER,-12.046,-77.043,
+la-paz,La Paz,BOL,-16.500,-68.150,
+santiago,Santiago,CHL,-33.449,-70.669,
+buenos-aires,Buenos Aires,ARG,-34.604,-58.382,
+cordoba-ar,Córdoba,ARG,-31.420,-64.188,Cordoba
+montevideo,Montevideo,URY,-34.901,-56.165,
+asuncion,Asunción,PRY,-25.264,-57.576,Asuncion
+sao-paulo,São Paulo,BRA,-23.551,-46.633,Sao Paulo
+rio-de-janeiro,Rio de Janeiro,BRA,-22.907,-43.173,Rio
+brasilia,Brasília,BRA,-15.794,-47.882,Brasilia
+belo-horizonte,Belo Horizonte,BRA,-19.917,-43.935,
+salvador,Salvador,BRA,-12.978,-38.501,
+fortaleza,Fortaleza,BRA,-3.732,-38.527,
+recife,Recife,BRA,-8.048,-34.877,
+porto-alegre,Porto Alegre,BRA,-30.035,-51.218,
+manaus,Manaus,BRA,-3.119,-60.022,
+sydney,Sydney,AUS,-33.869,151.209,
+melbourne,Melbourne,AUS,-37.814,144.963,
+brisbane,Brisbane,AUS,-27.470,153.025,
+perth,Perth,AUS,-31.950,115.860,
+adelaide,Adelaide,AUS,-34.929,138.601,
+auckland,Auckland,NZL,-36.848,174.763,
+wellington,Wellington,NZL,-41.287,174.776,

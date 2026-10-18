@@ -18,6 +18,23 @@ jobs:
       - run: python -m pytest -q generator/tests
       # One real puzzle end to end, so a broken generator shows up before it reaches main.
       - run: python generator/generate.py --out "$RUNNER_TEMP/puzzles" --start "$(date -u +%F)" --days 1
+      # The same for Night Lights, against the live NASA GIBS imagery.
+      - run: python generator/generate_night_lights.py --out "$RUNNER_TEMP/night-lights" --start "$(date -u +%F)" --days 1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: night-lights-sample
+          path: ${{ runner.temp }}/night-lights
+          retention-days: 7
+      # The same for Spike, against the live Wikimedia APIs.
+      - run: python generator/generate_spike.py --out "$RUNNER_TEMP/spike" --start "$(date -u +%F)" --days 1
+      # Palette: look up every pool entry at its museum (the summary is a notice on the run page),
+      # then build three real days end to end (the dev schedule mixes both museums).
+      - name: Palette pool check
+        if: always()
+        run: python generator/generate_palette.py --check-pool
+      - name: Palette smoke test
+        if: always()
+        run: python generator/generate_palette.py --out "$RUNNER_TEMP/palette" --start "$(date -u +%F)" --days 3
 
       - uses: actions/setup-node@v4
         with:

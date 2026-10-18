@@ -58,6 +58,55 @@ jobs:
           done
           ls web/public/puzzles/contour
 
+      # Night Lights: the same days from NASA's Black Marble night imagery.
+      - name: Generate Night Lights puzzles
+        run: |
+          python generator/generate_night_lights.py --out "$RUNNER_TEMP/night-lights" --start "$(date -u -d yesterday +%F)" --days 9
+
+      - name: Stage live Night Lights puzzles
+        run: |
+          mkdir -p web/public/puzzles/night-lights
+          for offset in -1 0 1; do
+            day=$(date -u -d "$offset day" +%F)
+            if [ -d "$RUNNER_TEMP/night-lights/$day" ]; then
+              cp -r "$RUNNER_TEMP/night-lights/$day" web/public/puzzles/night-lights/
+            fi
+          done
+          ls web/public/puzzles/night-lights
+
+      # Spike, for the same days. Each chart ends 10 days before its date, so even the
+      # week ahead only uses pageviews Wikimedia has already published.
+      - name: Generate Spike puzzles
+        run: |
+          python generator/generate_spike.py --out "$RUNNER_TEMP/spike" --start "$(date -u -d yesterday +%F)" --days 9
+
+      - name: Stage live Spike puzzles
+        run: |
+          mkdir -p web/public/puzzles/spike
+          for offset in -1 0 1; do
+            day=$(date -u -d "$offset day" +%F)
+            if [ -d "$RUNNER_TEMP/spike/$day" ]; then
+              cp -r "$RUNNER_TEMP/spike/$day" web/public/puzzles/spike/
+            fi
+          done
+          ls web/public/puzzles/spike
+
+      # Palette: the same days, from the museum APIs. Images are cached in generator/.cache/palette.
+      - name: Generate Palette puzzles
+        run: |
+          python generator/generate_palette.py --out "$RUNNER_TEMP/palette" --start "$(date -u -d yesterday +%F)" --days 9
+
+      - name: Stage live Palette puzzles
+        run: |
+          mkdir -p web/public/puzzles/palette
+          for offset in -1 0 1; do
+            day=$(date -u -d "$offset day" +%F)
+            if [ -d "$RUNNER_TEMP/palette/$day" ]; then
+              cp -r "$RUNNER_TEMP/palette/$day" web/public/puzzles/palette/
+            fi
+          done
+          ls web/public/puzzles/palette
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
