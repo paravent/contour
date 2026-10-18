@@ -12,6 +12,7 @@ import {
 } from '../lib/puzzle'
 import { type GuessResult, closeness, shareText } from '../lib/share'
 import { type DayState, type Pin, currentStreak, loadDay, loadStats, recordFinish, saveDay } from '../lib/storage'
+import { Briefing, HelpButton } from './Briefing'
 import { CountryInput } from './CountryInput'
 import { PinMap } from './PinMap'
 import { StatusBar } from './StatusBar'
@@ -40,6 +41,8 @@ export function Contour() {
   const [day, setDay] = useState<DayState>(() => loadDay(date))
   const [stats, setStats] = useState(loadStats)
   const [copied, setCopied] = useState(false)
+  const [help, setHelp] = useState(false)
+  const [loadedImage, setLoadedImage] = useState('')
   const now = useClock()
 
   useEffect(() => {
@@ -121,16 +124,36 @@ export function Contour() {
   return (
     <Shell>
       <StatusBar left="CONTOUR://DECK" middle={`SHEET_${String(puzzle.number).padStart(4, '0')}`} right={statusWord} tone={tone} />
+      <Briefing
+        storageKey="contour:briefed"
+        title="CONTOUR"
+        open={help}
+        onClose={() => setHelp(false)}
+        start="BEGIN SCAN"
+        steps={[
+          <>Each day the map shows one real place on Earth, the same for everyone. You only see its terrain, drawn as <span class="cyan">contour lines</span>: each line joins ground of equal height, so tight lines mean steep slopes and rings mean peaks.</>,
+          <>Name the <span class="amber">country</span> it's in. You have 6 guesses.</>,
+          <>Each wrong guess zooms the map out and adds a clue: the <span class="magenta">coastline</span>, then the sea, then <span class="amber">borders</span>, and finally the country's first letter.</>,
+          <>Each wrong guess also shows how far the target is from that country and in which direction.</>,
+          <>Get it right and you unlock the bonus: drop a pin on the exact spot for up to 5,000 points.</>,
+          <>A new map arrives at midnight. Share your result, and keep your streak going.</>,
+        ]}
+      />
 
       {!finished && (
         <div class="row between end">
           <a href="#/" class="title glow-cyan" aria-label="Contour, back to hub">CONTOUR</a>
-          <div class="readout right">
-            <span class="dim small">STREAK</span>
-            <span class="big amber">{String(streak).padStart(3, '0')}</span>
+          <div class="row gap">
+            <div class="readout right">
+              <span class="dim small">STREAK</span>
+              <span class="big amber">{String(streak).padStart(3, '0')}</span>
+            </div>
+            <HelpButton onClick={() => setHelp(true)} />
           </div>
         </div>
       )}
+
+      {!finished && <p class="goal">Which country is this terrain in?</p>}
 
       {finished && (
         <div class="stack tight">
@@ -152,7 +175,15 @@ export function Contour() {
         />
       ) : (
         <div class="map" role="img" aria-label={`Unlabelled contour map, stage ${stageIndex + 1} of ${puzzle.stages.length}`}>
-          <img key={stage.image} class="fade-in" src={dir + stage.image} alt="" draggable={false} />
+          <img
+            key={stage.image}
+            class="fade-in"
+            src={dir + stage.image}
+            alt=""
+            draggable={false}
+            onLoad={() => setLoadedImage(stage.image)}
+          />
+          {loadedImage !== stage.image && <div class="map-loading">SCANNING TERRAIN…</div>}
           <div class="scanlines" />
           <div class="grid" />
           <span class="bracket tl" /><span class="bracket tr" /><span class="bracket bl" /><span class="bracket br" />

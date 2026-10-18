@@ -70,7 +70,7 @@ export function Hub() {
           <div class="scanlines" />
         </div>
         <div class="row between small">
-          <span class="dim">Identify the terrain</span>
+          <span class="dim">Name the country from its terrain</span>
           <span class="amber">STREAK {String(streak).padStart(3, '0')}</span>
         </div>
       </a>
