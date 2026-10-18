@@ -60,5 +60,3 @@
 }
 
 /* the hub's Spike row, once live */
-.module-row.live { box-shadow: inset 2px 0 0 var(--cyan); transition: background 200ms; }
-.module-row.live:hover { background: rgba(45, 226, 208, 0.06); }

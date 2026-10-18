@@ -18,15 +18,6 @@ web/         Preact + Vite: the hub and the game (cyberpunk terminal style)
 - **Daily job.** `.github/workflows/daily.yml` runs just after midnight UTC, at noon UTC, and on every push to `main`. It generates yesterday through a week ahead, which checks that the coming week is playable. It then publishes only yesterday, today and tomorrow (so every timezone has its puzzle) and deploys to GitHub Pages.
 - **Game.** The puzzle changes at the player's local midnight. Progress, stats and streaks live in the browser's local storage, so there are no accounts.
 
-## Night Lights
-
-The fourth game, at `#/night-lights`: find the city from satellite imagery of the Earth at night. The first view is a 50 km close-up of the city's glow; each wrong guess pulls back (110, 240, 500, 1,000, then 2,000 km across) to show neighbouring towns, highways, dark coastlines and other cities, and the last two views add the country, then the city's first letter. Guesses are typed from the city pool, and each wrong one shows how far and in which direction the target lies.
-
-- **Data.** NASA's [Black Marble](https://earthobservatory.nasa.gov/features/NightLights) night-lights composite (Suomi NPP VIIRS, 2016), layer `VIIRS_Black_Marble` from the [GIBS](https://nasa-gibs.github.io/gibs-api-docs/) WMTS service in Web Mercator (`GoogleMapsCompatible_Level8`, zoom 0 to 8, tile paths `{z}/{row}/{col}`). The generator recolours it as gold light on black.
-- **Cities.** `generator/cities.csv` is both the answer pool and the guessable list: about 230 major cities with their country (Natural Earth `ADM0_A3`). After editing it, refresh the web copy with `python generator/generate_night_lights.py --export-cities web/public/data/cities.json` (a test checks they match).
-- **Schedule.** Same seed and launch date as Contour, with its own shuffle. If the first view is too dark (too little of it lit, or the city itself unlit), the day goes to another city further down the shuffle.
-- **Generating.** `python generator/generate_night_lights.py --out web/public/puzzles/night-lights` (yesterday, today and tomorrow UTC; `--start` and `--days` as for Contour). Set `NIGHT_LIGHTS_DEBUG=1` to print per-stage brightness stats and an ASCII preview as GitHub annotations.
-
 ## Spike
 
 The second daily game. You see a year of daily pageviews for one English Wikipedia article, drawn as a neon trace, and have six guesses to name it. Each wrong guess unlocks a clue: the y-axis scale, the dates of the spikes, the article's category and short description, the shape of its name, then its first letter. Guesses come from a type-ahead over the answer pool, and a wrong guess in the right category lights up amber.
@@ -38,6 +29,23 @@ The second daily game. You see a year of daily pageviews for one English Wikiped
 ```sh
 python generator/generate_spike.py --out web/public/puzzles/spike   # yesterday, today, tomorrow (UTC)
 ```
+
+## Palette
+
+The second live game: name a famous painting from its colours. Stage 1 is the painting's five dominant colours as stripes, as wide as their share of the canvas. Each wrong guess sharpens it: 4×4, 8×8, 16×16 and 32×32 pixel grids, then a soft blur. Clues unlock along the way (century, the artist's nationality, then initials), and every miss says whether the answer was painted earlier or later and whether you found the right artist or movement. Guesses come from a type-ahead over the whole pool, searchable by title or artist.
+
+- **Pool.** `generator/paintings.csv` lists public-domain paintings by museum object ID: the [Art Institute of Chicago API](https://api.artic.edu/docs/) (`aic`) or the [Met Collection API](https://metmuseum.github.io/) (`met`), with the title, artist, year, nationality and movement the game shows. `python generator/generate_palette.py --check-pool` looks up every entry and, for a row with no `object_id`, searches the museum for candidates. After editing the CSV, rebuild the game's list with `--guess-list web/public/data/paintings.json`.
+- **Generator.** `generator/generate_palette.py` downloads the day's image (only when the museum marks it public domain and the artist matches the pool), takes the palette with k-means, and writes six small PNG stages, a reveal image and `puzzle.json` to `web/public/puzzles/palette/<date>/`. Scheduling works like Contour's: a seeded shuffle, and a painting that can't be used hands the day to the next one. A network failure fails the run instead of skipping, so every run agrees on the answer.
+- **Credit.** The result screen names the museum and links to the painting's page there.
+
+## Night Lights
+
+The fourth game, at `#/night-lights`: find the city from satellite imagery of the Earth at night. The first view is a 50 km close-up of the city's glow; each wrong guess pulls back (110, 240, 500, 1,000, then 2,000 km across) to show neighbouring towns, highways, dark coastlines and other cities, and the last two views add the country, then the city's first letter. Guesses are typed from the city pool, and each wrong one shows how far and in which direction the target lies.
+
+- **Data.** NASA's [Black Marble](https://earthobservatory.nasa.gov/features/NightLights) night-lights composite (Suomi NPP VIIRS, 2016), layer `VIIRS_Black_Marble` from the [GIBS](https://nasa-gibs.github.io/gibs-api-docs/) WMTS service in Web Mercator (`GoogleMapsCompatible_Level8`, zoom 0 to 8, tile paths `{z}/{row}/{col}`). The generator recolours it as gold light on black.
+- **Cities.** `generator/cities.csv` is both the answer pool and the guessable list: about 230 major cities with their country (Natural Earth `ADM0_A3`). After editing it, refresh the web copy with `python generator/generate_night_lights.py --export-cities web/public/data/cities.json` (a test checks they match).
+- **Schedule.** Same seed and launch date as Contour, with its own shuffle. If the first view is too dark (too little of it lit, or the city itself unlit), the day goes to another city further down the shuffle.
+- **Generating.** `python generator/generate_night_lights.py --out web/public/puzzles/night-lights` (yesterday, today and tomorrow UTC; `--start` and `--days` as for Contour). Set `NIGHT_LIGHTS_DEBUG=1` to print per-stage brightness stats and an ASCII preview as GitHub annotations.
 
 ## One-time setup
 
@@ -52,6 +60,7 @@ python generator/generate_spike.py --out web/public/puzzles/spike   # yesterday,
 ```sh
 pip install -r generator/requirements.txt
 python generator/generate.py --out web/public/puzzles/contour   # yesterday, today, tomorrow (UTC)
+python generator/generate_palette.py --out web/public/puzzles/palette
 
 cd web
 npm install
