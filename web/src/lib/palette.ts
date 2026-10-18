@@ -1,6 +1,6 @@
 import { normalise } from './puzzle'
 
-export type PaletteStage = { image: string; kind: 'stripes' | 'grid' | 'blur'; grid?: [number, number] }
+export type PaletteStage = { image: string; kind: 'stripes' | 'grid' | 'blur' | 'detail'; grid?: [number, number] }
 
 export type PalettePuzzle = {
   game: 'palette'
@@ -27,8 +27,10 @@ export type PaintingAnswer = Painting & { initials: string; museum: string; cred
 
 export const MAX_GUESSES = 6
 
-// Text clues unlock with the stages: century from stage 2, nationality from 4, initials at 6.
-export const CLUE_STAGE = { century: 1, nationality: 3, initials: 5 } as const
+// Guesses already made when each text clue unlocks: the century and the artist's
+// nationality from the start, the movement after one miss, initials after two,
+// and the artist's full name after three.
+export const CLUE_STAGE = { century: 0, nationality: 0, movement: 1, initials: 2, artist: 3 } as const
 
 export function paletteDir(date: string): string {
   return `puzzles/palette/${date}/`
@@ -117,6 +119,14 @@ export function paintingCloseness(r: PaintingResult): Closeness {
   if (r.sameArtist || gap <= 10) return 'near'
   if (r.sameMovement || gap <= 40) return 'mid'
   return 'far'
+}
+
+/** One plain line on what a miss shares with the answer. */
+export function matchHint(r: PaintingResult): string {
+  if (r.correct) return 'MATCH'
+  if (r.sameArtist) return 'RIGHT ARTIST, OTHER PAINTING'
+  const same = [r.sameMovement && 'MOVEMENT', r.sameNationality && 'NATIONALITY'].filter(Boolean)
+  return same.length ? `SAME ${same.join(' & ')}` : 'DIFFERENT ARTIST & STYLE'
 }
 
 /** '12Y LATER', '150Y EARLIER' or 'SAME YEAR': when the answer was painted, relative to the guess. */

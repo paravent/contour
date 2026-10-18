@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { type Painting, century, compare, paintingCloseness, paletteShareText, searchPaintings, yearHint } from './palette'
+import { type Painting, century, compare, matchHint, paintingCloseness, paletteShareText, searchPaintings, yearHint } from './palette'
 
 const p = (id: string, title: string, artist: string, year: number, movement = 'Impressionism', nationality = 'French'): Painting => ({
   id,
@@ -49,6 +49,13 @@ describe('guess feedback', () => {
     expect(paintingCloseness(compare(POOL[0], answer))).toBe('mid') // 17 years apart
     expect(paintingCloseness(compare(POOL[4], answer))).toBe('far')
     expect(paintingCloseness(compare(p('x', 'X', 'Y', 1700, 'Post-Impressionism'), answer))).toBe('mid')
+  })
+  it('says what a miss shares with the answer', () => {
+    expect(matchHint(compare(POOL[3], answer))).toBe('RIGHT ARTIST, OTHER PAINTING')
+    expect(matchHint(compare(POOL[5], answer))).toBe('SAME MOVEMENT')
+    expect(matchHint(compare(POOL[4], answer))).toBe('SAME NATIONALITY')
+    expect(matchHint(compare(p('x', 'X', 'Y', 1890, 'Post-Impressionism', 'Dutch'), answer))).toBe('SAME MOVEMENT & NATIONALITY')
+    expect(matchHint(compare(POOL[0], answer))).toBe('DIFFERENT ARTIST & STYLE')
   })
   it('words the year gap from the answer', () => {
     expect(yearHint(12)).toBe('12Y LATER')

@@ -23,7 +23,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
 from palette_gen import museums  # noqa: E402
-from palette_gen.puzzle import Rejected, build, guess_list, load_pool, puzzle_number, rotation  # noqa: E402
+from palette_gen.puzzle import Rejected, answer_pool, build, guess_list, load_pool, puzzle_number, rotation  # noqa: E402
 
 POOL = HERE / "paintings.csv"
 
@@ -36,7 +36,7 @@ def annotate(kind, message, title=None):
 
 def generate_day(date, paintings, launch, seed, out, cache):
     number = puzzle_number(date, launch)
-    order = rotation(paintings, seed)
+    order = rotation(answer_pool(paintings, date), seed)
     # Puzzle n gets the nth painting in the rotation; one that can't be used hands
     # the day to the next. Rejections are permanent facts about a record (missing,
     # not public domain, wrong artist), so every run agrees on the answer.

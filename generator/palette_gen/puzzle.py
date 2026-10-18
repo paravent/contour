@@ -17,6 +17,11 @@ MIN_SIDE = 400  # px; anything smaller is a thumbnail, not a painting
 MAX_ASPECT = 2.6  # wider or taller than this makes a poor frame
 MIN_COLOURFULNESS = 12  # near-greyscale images make the palette stage pointless
 
+# From this day on, answers come only from the paintings marked famous in the pool
+# (every painting stays guessable) and the stages start from a recognisable pixel grid.
+# Earlier days keep the original rotation and stages, so published puzzles never change.
+EASIER_FROM = dt.date(2026, 10, 20)
+
 
 @dataclass
 class Painting:
@@ -28,6 +33,7 @@ class Painting:
     year: int
     nationality: str
     movement: str
+    famous: bool = False  # in the answer pool from EASIER_FROM; never sent to the browser
 
 
 class Rejected(Exception):
@@ -37,7 +43,10 @@ class Rejected(Exception):
 def load_pool(path: Path):
     with path.open(newline="", encoding="utf-8") as f:
         return [
-            Painting(r["id"], r["museum"], r["object_id"], r["title"], r["artist"], int(r["year"]), r["nationality"], r["movement"])
+            Painting(
+                r["id"], r["museum"], r["object_id"], r["title"], r["artist"], int(r["year"]), r["nationality"], r["movement"],
+                r.get("famous", "").strip().lower() == "yes",
+            )
             for r in csv.DictReader(f)
         ]
 
@@ -49,6 +58,15 @@ def puzzle_number(date: dt.date, launch: dt.date) -> int:
 def rotation(paintings, seed: str):
     """A fixed shuffle of the pool, set by the seed (salted so it differs from Contour's)."""
     return sorted(paintings, key=lambda p: hashlib.sha256(f"{seed}:palette:{p.id}".encode()).hexdigest())
+
+
+def easier(date: dt.date) -> bool:
+    return date >= EASIER_FROM
+
+
+def answer_pool(paintings, date: dt.date):
+    """The paintings that can be a given day's answer."""
+    return [p for p in paintings if p.famous] if easier(date) else list(paintings)
 
 
 def initials(artist: str) -> str:
@@ -104,11 +122,19 @@ def check(painting: Painting, img: Image.Image):
         raise Rejected(f"{painting.id}: image is nearly greyscale")
 
 
-def stages_for(img: Image.Image):
-    """The six stage images, as (filename, PNG bytes, stage description), plus the palette."""
+def stages_for(img: Image.Image, easy: bool = True):
+    """The six stage images, as (filename, image bytes, stage description), plus the palette."""
     colours = render.palette(img)
+    if easy:
+        files = []
+        for i, cells in enumerate(render.GRIDS, start=1):
+            grid = render.pixel_grid(img, cells)
+            files.append((f"stage{i}.png", render.png_bytes(grid), {"kind": "grid", "grid": list(grid.size)}))
+        files.append(("stage5.png", render.png_bytes(render.blurred(img)), {"kind": "blur"}))
+        files.append(("stage6.jpg", render.jpeg_bytes(render.detail(img)), {"kind": "detail"}))
+        return files, colours
     files = [("stage1.png", render.png_bytes(render.stripes(colours)), {"kind": "stripes"})]
-    for i, cells in enumerate(render.GRIDS, start=2):
+    for i, cells in enumerate(render.LEGACY_GRIDS, start=2):
         grid = render.pixel_grid(img, cells)
         files.append((f"stage{i}.png", render.png_bytes(grid), {"kind": "grid", "grid": list(grid.size)}))
     files.append((f"stage{len(files) + 1}.png", render.png_bytes(render.blurred(img)), {"kind": "blur"}))
@@ -118,7 +144,7 @@ def stages_for(img: Image.Image):
 def build_from_image(painting: Painting, img: Image.Image, art: museums.Artwork, date: dt.date, number: int, out_dir: Path):
     """Write one day's puzzle folder from an image already in hand."""
     check(painting, img)
-    files, colours = stages_for(img)
+    files, colours = stages_for(img, easy=easier(date))
     w, h = img.size
 
     secret = {
@@ -127,7 +153,7 @@ def build_from_image(painting: Painting, img: Image.Image, art: museums.Artwork,
         "credit": art.credit,
         "source": art.page_url,
     }
-    del secret["object_id"]
+    del secret["object_id"], secret["famous"]
     puzzle = {
         "game": "palette",
         "number": number,

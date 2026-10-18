@@ -10,6 +10,7 @@ import {
   compare,
   decodePainting,
   loadPaintings,
+  matchHint,
   loadPalettePuzzle,
   paintingCloseness,
   paletteDir,
@@ -117,13 +118,23 @@ export function Palette() {
 
   const clues = [
     { label: 'CENTURY', value: century(answer.year), from: CLUE_STAGE.century },
-    { label: 'ARTIST', value: answer.nationality.toUpperCase(), from: CLUE_STAGE.nationality },
+    { label: 'NATIONALITY', value: answer.nationality.toUpperCase(), from: CLUE_STAGE.nationality },
+    { label: 'MOVEMENT', value: answer.movement.toUpperCase(), from: CLUE_STAGE.movement },
     { label: 'INITIALS', value: answer.initials, from: CLUE_STAGE.initials },
+    { label: 'ARTIST', value: answer.artist.toUpperCase(), from: CLUE_STAGE.artist },
   ]
+  const made = day.guesses.length
+  const stripesFirst = puzzle.stages[0].kind === 'stripes'
+  // The finished screen fades the full image in over the sharpest grid stage.
+  const lastGrid = [...puzzle.stages].reverse().find((s) => s.kind === 'grid') ?? puzzle.stages[0]
 
   const tone = won ? 'solved' : day.status === 'lost' ? 'lost' : 'live'
   const statusWord = won ? 'SOLVED' : day.status === 'lost' ? 'LOST' : 'LIVE'
-  const resolution = stage.kind === 'grid' && stage.grid ? `RES ${stage.grid[0]}×${stage.grid[1]}` : stage.kind === 'blur' ? 'RES SOFT FOCUS' : `PALETTE ${String(puzzle.palette.length).padStart(2, '0')}`
+  const resolution =
+    stage.kind === 'grid' && stage.grid ? `RES ${stage.grid[0]}×${stage.grid[1]}`
+      : stage.kind === 'blur' ? 'RES SOFT FOCUS'
+        : stage.kind === 'detail' ? 'RES NEAR FOCUS'
+          : `PALETTE ${String(puzzle.palette.length).padStart(2, '0')}`
 
   return (
     <Shell>
@@ -135,10 +146,14 @@ export function Palette() {
         onClose={() => setHelp(false)}
         start="BEGIN ANALYSIS"
         steps={[
-          <>Each day hides one famous painting, the same for everyone. You start with only its <span class="cyan">five main colours</span>, as stripes as wide as their share of the canvas.</>,
+          stripesFirst
+            ? <>Each day hides one famous painting, the same for everyone. You start with only its <span class="cyan">five main colours</span>, as stripes as wide as their share of the canvas.</>
+            : <>Each day hides one famous painting, the same for everyone. You start with a <span class="cyan">blocky, low-resolution</span> version of it and its five main colours.</>,
           <>Name the <span class="amber">painting</span>: type a title or an artist and pick from the list. You have 6 guesses.</>,
-          <>Each wrong guess sharpens the image: a <span class="magenta">4×4 grid</span> of blocks, then 8×8, 16×16, 32×32, and finally a soft blur.</>,
-          <>Clues unlock as you go: the century, then the artist's nationality, then their initials. Each miss also says whether the answer was painted <span class="amber">earlier or later</span>, and if you found the right artist or movement.</>,
+          stripesFirst
+            ? <>Each wrong guess sharpens the image: a <span class="magenta">4×4 grid</span> of blocks, then 8×8, 16×16, 32×32, and finally a soft blur.</>
+            : <>Each wrong guess sharpens the image: <span class="magenta">finer blocks</span>, then a soft blur, and finally an almost sharp picture.</>,
+          <>You know the century and the artist's nationality from the start. Each miss unlocks more: the movement, then the artist's initials, then their <span class="amber">full name</span>. Each miss also says whether the answer was painted <span class="amber">earlier or later</span>, and what it shares with your guess.</>,
           <>Every painting is public domain, from the Art Institute of Chicago or the Met. A new canvas arrives at midnight; keep your streak going.</>,
         ]}
       />
@@ -156,7 +171,7 @@ export function Palette() {
         </div>
       )}
 
-      {!finished && <p class="goal">Which painting are these colours from?</p>}
+      {!finished && <p class="goal">{stage.kind === 'stripes' ? 'Which painting are these colours from?' : 'Which painting is this?'}</p>}
 
       {finished && (
         <div class="stack tight">
@@ -176,13 +191,13 @@ export function Palette() {
         <div class="canvas-box" style={box}>
           {finished ? (
             <>
-              <img class="pixelated" src={dir + puzzle.stages[puzzle.stages.length - 2].image} alt="" draggable={false} />
+              <img class="pixelated" src={dir + lastGrid.image} alt="" draggable={false} />
               <img key="reveal" class="reveal" src={dir + puzzle.reveal} alt="" draggable={false} onLoad={() => setLoadedImage(puzzle.reveal)} />
             </>
           ) : (
             <img
               key={stage.image}
-              class={`fade-in ${stage.kind === 'blur' ? '' : 'pixelated'}`}
+              class={`fade-in ${stage.kind === 'blur' || stage.kind === 'detail' ? '' : 'pixelated'}`}
               src={dir + stage.image}
               alt=""
               draggable={false}
@@ -225,9 +240,9 @@ export function Palette() {
       {!finished && (
         <div class="clues">
           {clues.map((c) => (
-            <div key={c.label} class={`clue ${stageIndex >= c.from ? 'open' : ''}`}>
+            <div key={c.label} class={`clue ${made >= c.from ? 'open' : ''}`} style={c.label === 'ARTIST' ? { gridColumn: 'span 2' } : undefined}>
               <span class="dim small">{c.label}</span>
-              <span>{stageIndex >= c.from ? c.value : `LOCKED · ${c.from - stageIndex}`}</span>
+              <span>{made >= c.from ? c.value : `LOCKED · ${c.from - made}`}</span>
             </div>
           ))}
         </div>
@@ -245,7 +260,7 @@ export function Palette() {
               <div class="stack tight right">
                 <span class={`dir ${paintingCloseness(r)}`} title="When today's painting was made, relative to this one">{yearHint(r.yearDelta)}</span>
                 <span class="small">
-                  {r.sameArtist ? <span class="amber">SAME ARTIST</span> : r.sameMovement ? <span class="amber">SAME MOVEMENT</span> : <span class="dim">NO MATCH</span>}
+                  <span class={r.sameArtist || r.sameMovement || r.sameNationality ? 'amber' : 'dim'}>{matchHint(r)}</span>
                 </span>
               </div>
             </div>

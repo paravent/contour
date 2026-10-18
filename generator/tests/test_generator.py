@@ -7,7 +7,8 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from contour_gen import geo  # noqa: E402
-from contour_gen.puzzle import STAGES, jitter, load_places, puzzle_number, rotation  # noqa: E402
+from contour_gen import countries  # noqa: E402
+from contour_gen.puzzle import EASIER_FROM, LEGACY_STAGES, STAGES, jitter, load_places, puzzle_number, rotation, stages_for  # noqa: E402
 from contour_gen.render import _simplify, contour_interval  # noqa: E402
 
 PLACES = Path(__file__).resolve().parents[1] / "places.csv"
@@ -50,7 +51,7 @@ def test_puzzle_number():
 
 def test_contour_interval_keeps_lines_readable():
     elevation = np.linspace(0, 4000, 100).reshape(10, 10)
-    for spec in STAGES:
+    for spec in STAGES + LEGACY_STAGES:
         step = contour_interval(elevation, spec["max_lines"])
         assert 4000 / step <= spec["max_lines"]
     assert contour_interval(np.full((4, 4), -10.0)) is None
@@ -59,3 +60,26 @@ def test_contour_interval_keeps_lines_readable():
 def test_simplify_drops_collinear_points():
     line = np.array([[0, 0], [1, 0.01], [2, 0], [3, 0], [3, 5]], dtype=float)
     assert _simplify(line, 0.5).tolist() == [[0, 0], [3, 0], [3, 5]]
+
+
+def test_stages_switch_to_the_wider_start_on_the_day():
+    assert stages_for(EASIER_FROM - dt.timedelta(days=1)) is LEGACY_STAGES
+    assert stages_for(EASIER_FROM) is STAGES
+    assert len(STAGES) == len(LEGACY_STAGES) == 6
+    widths = [s["width_km"] for s in STAGES]
+    assert widths == sorted(widths) and 30 <= widths[0] <= 50
+    # The pin map is the last stage; keep it the same size so pin scores stay comparable.
+    assert widths[-1] == LEGACY_STAGES[-1]["width_km"]
+    assert STAGES[0]["coast"] and STAGES[1]["sea"]
+    for new, old in zip(STAGES, LEGACY_STAGES):
+        assert new["width_km"] >= old["width_km"]
+        for clue in ("coast", "sea", "borders"):
+            assert new[clue] >= old[clue]
+
+
+def test_continents_skip_open_ocean():
+    def feature(code, continent):
+        return {"properties": {"ADM0_A3": code, "CONTINENT": continent}}
+
+    got = countries.continents([feature("FRA", "Europe"), feature("MDV", "Seven seas (open ocean)")])
+    assert got == {"FRA": "Europe", "MDV": ""}
