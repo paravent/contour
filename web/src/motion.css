@@ -1,0 +1,167 @@
+/* Motion and atmosphere, on every screen size. Everything here stands down under prefers-reduced-motion. */
+
+:root { --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --nav-h: 44px; }
+
+body { background: var(--bg); }
+#app { position: relative; isolation: isolate; }
+.route { position: relative; }
+
+/* ---------- backdrop: today's terrain, drifting ---------- */
+.backdrop { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.topo-drift {
+  position: absolute;
+  inset: -8vh -8vw;
+  animation: drift 90s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.topo { display: block; width: 100%; height: 100%; }
+.topo-lens {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 600ms ease;
+  -webkit-mask-image: radial-gradient(240px circle at var(--gx, 50%) var(--gy, 50%), #000 0%, rgba(0, 0, 0, 0.5) 45%, transparent 100%);
+  mask-image: radial-gradient(240px circle at var(--gx, 50%) var(--gy, 50%), #000 0%, rgba(0, 0, 0, 0.5) 45%, transparent 100%);
+}
+.lens-on .topo-lens { opacity: 1; }
+.backdrop-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60vmax 40vmax at 85% -10%, rgba(255, 46, 136, 0.07), transparent 70%),
+    radial-gradient(70vmax 50vmax at 0% 110%, rgba(45, 226, 208, 0.07), transparent 70%);
+}
+.backdrop-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 140px;
+  background: linear-gradient(to bottom, transparent, rgba(45, 226, 208, 0.045) 85%, rgba(45, 226, 208, 0.18) 99%, transparent);
+  animation: sweep 11s linear infinite;
+  will-change: transform;
+}
+.backdrop-vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 45%, rgba(3, 5, 7, 0.75) 100%); }
+@keyframes drift {
+  from { transform: translate3d(-2.5vw, -1.5vh, 0) rotate(-0.6deg); }
+  to { transform: translate3d(2.5vw, 1.5vh, 0) rotate(0.6deg); }
+}
+@keyframes sweep {
+  0% { transform: translateY(-160px); }
+  70%, 100% { transform: translateY(calc(100vh + 20px)); }
+}
+
+/* ---------- boot sequence ---------- */
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.boot-screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.35) 0, rgba(0, 0, 0, 0.35) 1px, transparent 1px, transparent 3px);
+}
+.boot-inner { width: min(420px, 100%); display: flex; flex-direction: column; gap: 6px; }
+.boot-line { display: flex; justify-content: space-between; gap: 12px; color: var(--dim); animation: boot-line 220ms var(--ease-out) both; }
+.boot-line.cyan { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 3px; color: var(--cyan); text-shadow: 0 0 12px rgba(45, 226, 208, 0.5); margin-bottom: 6px; }
+.boot-bar { height: 2px; margin-top: 10px; background: var(--line); overflow: hidden; }
+.boot-bar span { display: block; height: 100%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); transform-origin: left; transition: transform 160ms linear; }
+.boot-screen.leaving { animation: boot-out 520ms var(--ease-out) forwards; }
+@keyframes boot-line { from { opacity: 0; transform: translateX(-8px); } }
+@keyframes boot-out {
+  0% { clip-path: inset(0 0 0 0); }
+  45% { clip-path: inset(49.6% 0 49.6% 0); opacity: 1; }
+  100% { clip-path: inset(50% 0 50% 0); opacity: 0; }
+}
+/* While booting, the page's entrance animations wait at their first frame. */
+.booting .rise, .booting .glitch-in, .booting .route-enter { animation-play-state: paused; }
+
+/* ---------- screen changes ---------- */
+::view-transition-old(root) { animation: screen-out 240ms ease-in both; }
+::view-transition-new(root) { animation: screen-in 460ms var(--ease-out) both; }
+.gamenav { view-transition-name: gamenav; }
+@keyframes screen-out { to { opacity: 0; transform: scale(0.985); filter: blur(4px); } }
+@keyframes screen-in { from { opacity: 0; transform: translateY(10px) scale(1.01); filter: blur(6px); } }
+.route-enter { animation: screen-in 460ms var(--ease-out) backwards; }
+
+/* ---------- hub entrance ---------- */
+.rise { animation: rise 700ms var(--ease-out) backwards; animation-delay: calc(var(--i, 0) * 80ms + 120ms); }
+@keyframes rise { from { opacity: 0; translate: 0 22px; filter: blur(6px); } }
+.glitch-in { animation: glitch 700ms steps(1) backwards 80ms; }
+@keyframes glitch {
+  0% { opacity: 0; }
+  10% { opacity: 1; clip-path: inset(10% 0 70% 0); transform: translateX(-6px); text-shadow: 3px 0 var(--magenta), -3px 0 var(--cyan); }
+  20% { clip-path: inset(60% 0 10% 0); transform: translateX(5px); }
+  30% { clip-path: inset(30% 0 40% 0); transform: translateX(-3px); }
+  45% { clip-path: inset(0 0 0 0); transform: none; text-shadow: 2px 0 var(--magenta), -2px 0 var(--cyan); }
+  60% { text-shadow: -1px 0 var(--magenta), 1px 0 var(--cyan); }
+  100% { clip-path: none; text-shadow: none; }
+}
+.typed .caret { display: inline-block; width: 7px; height: 1.05em; margin-left: 2px; vertical-align: -2px; background: var(--cyan); animation: blink 1s steps(2, start) infinite; }
+
+/* cards: a spotlight that follows the cursor, a slight lean, and the art drifting the other way */
+.fx { position: relative; isolation: isolate; transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform 500ms var(--ease-out), box-shadow 300ms, border-color 300ms, background 300ms; }
+.fx::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 300ms;
+  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(45, 226, 208, 0.13), transparent 60%);
+}
+.fx:hover::before { opacity: 1; }
+.fx:hover { transition: transform 120ms linear, box-shadow 300ms, border-color 300ms, background 300ms; }
+.fx .module-art img, .fx .module-row-hero > :first-child { transform: translate3d(var(--px, 0), var(--py, 0), 0) scale(1.06); transition: transform 600ms var(--ease-out); }
+
+/* ---------- in game ---------- */
+@keyframes zoom-in { from { opacity: 0; filter: blur(4px); transform: scale(1.05); } to { opacity: 1; } }
+.fade-in { animation: zoom-in 700ms var(--ease-out); }
+.segments > div { transition: background 500ms, box-shadow 500ms, border-color 500ms; }
+.log-row { animation: log-in 420ms var(--ease-out) backwards; }
+@keyframes log-in { from { opacity: 0; transform: translateX(-10px); } }
+
+/* the answer decrypts in, and a solved map locks on */
+.answer { position: relative; animation: decrypt 900ms var(--ease-out) backwards 120ms; }
+@keyframes decrypt {
+  from { clip-path: inset(0 100% 0 0); filter: blur(6px); letter-spacing: 8px; }
+  60% { clip-path: inset(0 0 0 0); filter: blur(0); }
+}
+.deck:has(.answer.glow-cyan, .answer.glow-gold) .map::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: 2px solid var(--cyan);
+  animation: lock-on 1300ms var(--ease-out) 200ms both;
+}
+.night:has(.answer.glow-gold) .map::after { border-color: var(--gold); }
+@keyframes lock-on {
+  0% { opacity: 0; box-shadow: 0 0 0 0 rgba(45, 226, 208, 0.6), inset 0 0 0 0 rgba(45, 226, 208, 0.4); }
+  15% { opacity: 1; }
+  100% { opacity: 0; box-shadow: 0 0 0 36px rgba(45, 226, 208, 0), inset 0 0 80px 10px rgba(45, 226, 208, 0); }
+}
+.terminal { animation: rise 600ms var(--ease-out) backwards 350ms; }
+.exec { transition: filter 200ms, box-shadow 200ms, transform 120ms; }
+.exec:not(:disabled):hover { filter: brightness(1.12); }
+.exec:not(:disabled):active { transform: translateY(1px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .topo-drift, .backdrop-scan, .rise, .glitch-in, .route-enter, .log-row, .answer, .terminal, .boot-line, .typed .caret,
+  .deck:has(.answer) .map::after { animation: none !important; }
+  .backdrop-scan { display: none; }
+  .fx, .fx:hover { transform: none; }
+  .fx .module-art img, .fx .module-row-hero > :first-child { transform: none; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+}

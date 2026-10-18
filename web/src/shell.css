@@ -1,0 +1,332 @@
+/* The shell around the games: the game bar, the hub's extra pieces, and the desktop layout. */
+
+kbd {
+  display: inline-block;
+  min-width: 18px;
+  padding: 1px 5px;
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  font: inherit;
+  font-size: 10px;
+  color: var(--text);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ---------- game bar: home + switcher ---------- */
+.gamenav {
+  position: sticky;
+  top: 0;
+  z-index: 15;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 18px;
+  padding-top: env(safe-area-inset-top);
+  background: rgba(7, 9, 11, 0.78);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.gamenav::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity: 0.35;
+}
+.gamenav-home {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 10px 0 6px;
+  border: 1px solid rgba(45, 226, 208, 0.35);
+  color: var(--cyan);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 2px;
+  transition: border-color 200ms, background 200ms, text-shadow 200ms;
+}
+.gamenav-home:hover { border-color: var(--cyan); background: rgba(45, 226, 208, 0.08); text-shadow: 0 0 12px rgba(45, 226, 208, 0.6); }
+.gamenav-chevron { font-size: 20px; line-height: 1; margin-top: -2px; transition: transform 250ms var(--ease-out); }
+.gamenav-home:hover .gamenav-chevron { transform: translateX(-3px); }
+.gamenav-logo { color: var(--text); }
+.gamenav-tabs { display: flex; flex: 1; justify-content: flex-end; gap: 2px; min-width: 0; }
+.gamenav-tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 32px;
+  padding: 0 7px;
+  color: var(--dim);
+  white-space: nowrap;
+  transition: color 200ms, background 200ms;
+}
+.gamenav-tab:hover { color: var(--text); background: rgba(45, 226, 208, 0.06); }
+.gamenav-tab.on { color: var(--cyan); }
+.gamenav-tab.on::after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  right: 7px;
+  bottom: -6px;
+  height: 2px;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+}
+.gamenav-tab.tab-night-lights.on { color: #f2c66d; }
+.gamenav-tab.tab-night-lights.on::after { background: #f2c66d; box-shadow: 0 0 10px #f2c66d; }
+.gamenav-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--line); flex-shrink: 0; }
+.gamenav-dot.solved { background: var(--cyan); box-shadow: 0 0 6px var(--cyan); }
+.gamenav-dot.lost { background: var(--amber); }
+.gamenav-n, .gamenav-name, .gamenav-esc, .gamenav-logo { display: none; }
+.gamenav-tab { padding: 0 6px; gap: 4px; font-size: 10px; letter-spacing: 0.5px; }
+.gamenav-esc { align-items: center; gap: 6px; color: var(--dim); }
+.gamenav-esc:hover { color: var(--text); }
+.gamenav-tab:focus-visible, .gamenav-home:focus-visible { outline: 2px solid var(--amber); outline-offset: -2px; }
+
+.gamenav ~ .route .deck { min-height: calc(100dvh - var(--nav-h)); }
+
+/* ---------- hub extras (phone keeps its original look) ---------- */
+.hub-stats, .hub-keys, .module-row-hero, .module-art .bracket, .module-art-hud, .module-launch { display: none; }
+.hub-grid { display: contents; }
+.module-art { background: var(--panel); }
+.module-row-art { display: block; width: 64px; }
+.module-row-art > svg { display: block; }
+
+/* ---------- desktop ---------- */
+@media (min-width: 1024px) and (min-height: 600px) {
+  :root { --nav-h: 54px; --gutter: clamp(28px, 3vw, 48px); }
+
+  .gamenav { padding: 0 var(--gutter); gap: 24px; font-size: 12px; }
+  .gamenav-home { font-size: 17px; }
+  .gamenav-logo { display: inline; }
+  .gamenav-hub { display: none; }
+  .gamenav-tab { font-size: 12px; letter-spacing: 1px; }
+  .gamenav-tabs { justify-content: center; gap: 6px; }
+  .gamenav-tab { padding: 0 14px; height: 36px; gap: 8px; }
+  .gamenav-tab.on::after { bottom: -9px; left: 14px; right: 14px; }
+  .gamenav-n { display: inline; color: var(--dim); font-size: 10px; }
+  .gamenav-tab.on .gamenav-n { color: var(--magenta); }
+  .gamenav-name { display: inline; }
+  .gamenav-short { display: none; }
+  .gamenav-esc { display: flex; min-width: 150px; justify-content: flex-end; }
+
+  .title { font-size: 40px; }
+  .answer { font-size: 40px; }
+  .painting-answer { font-size: 32px; }
+  .briefing { max-width: 540px; padding: 26px; }
+
+  /* ===== hub: a full-screen deck of four cards ===== */
+  .deck.hub {
+    max-width: none;
+    height: 100dvh;
+    min-height: 640px;
+    padding: 20px var(--gutter) 22px;
+    gap: 18px;
+  }
+  .hub-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+  .hub .hero { padding: 10px 0 0; gap: 10px; }
+  .hub .hero-title { font-size: clamp(48px, 5.2vw, 84px); letter-spacing: 2px; }
+  .hub-sub { display: none; }
+  .hub-stats { display: flex; gap: 0; border: 1px solid var(--line); background: rgba(11, 15, 18, 0.72); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+  .hub-stat { display: flex; flex-direction: column; justify-content: space-between; gap: 8px; padding: 14px 22px; min-width: 150px; }
+  .hub-stat + .hub-stat { border-left: 1px solid var(--line); }
+  .hub-clock { font-size: 30px; font-weight: 700; letter-spacing: 1px; font-variant-numeric: tabular-nums; text-shadow: 0 0 16px rgba(255, 201, 77, 0.35); }
+  .hub-streak { font-size: 30px; font-weight: 700; color: var(--text); }
+  .hub-cells { display: grid; grid-template-columns: repeat(4, 22px); gap: 5px; padding: 8px 0; }
+  .hub-cells span { height: 14px; border: 1px solid var(--line); }
+  .hub-cells span.won { background: var(--cyan); border-color: var(--cyan); box-shadow: 0 0 8px rgba(45, 226, 208, 0.6); }
+  .hub-cells span.lost { background: var(--amber); border-color: var(--amber); }
+
+  .hub-grid {
+    display: grid;
+    flex: 1;
+    min-height: 0;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 16px;
+  }
+  .hub-grid > .module-card { grid-row: 1 / 3; }
+  .module-list { display: contents; }
+  .module-list > :nth-child(3) { grid-column: 2 / 4; }
+
+  .module-card, .module-row {
+    min-height: 0;
+    border: 1px solid var(--line);
+    background: rgba(11, 15, 18, 0.82);
+    padding: 16px;
+    gap: 12px;
+    box-shadow: none;
+  }
+  .module-card { border-color: rgba(45, 226, 208, 0.55); box-shadow: 0 0 30px rgba(45, 226, 208, 0.12); }
+  .module-card:hover, .module-row.live:hover { border-color: var(--cyan); background: rgba(13, 20, 23, 0.92); box-shadow: 0 0 0 1px rgba(45, 226, 208, 0.25), 0 18px 60px -20px rgba(45, 226, 208, 0.45); }
+  .module-name { font-size: 30px; }
+  .module-card .module-art { flex: 1; height: auto; min-height: 0; }
+  .module-art img { object-fit: cover; }
+  .module-card .small { font-size: 12px; }
+
+  .module-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    grid-template-areas: 'n name tag' 'art art art' 'blurb blurb blurb';
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 12px;
+  }
+  .module-row-n { grid-area: n; }
+  .module-row-text { display: contents; }
+  .module-row-name { grid-area: name; font-family: var(--display); font-weight: 700; font-size: 24px; letter-spacing: 3px; }
+  .module-row-blurb { grid-area: blurb; font-size: 12px; }
+  .module-row .tag { grid-area: tag; }
+  .module-row-art { display: none; }
+  .module-row-hero {
+    grid-area: art;
+    display: block;
+    position: relative;
+    align-self: stretch;
+    min-height: 0;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: #05070a;
+  }
+  .module-art .bracket { display: block; }
+  .module-art .bracket.tl { top: 6px; left: 6px; }
+  .module-art .bracket.tr { top: 6px; right: 6px; }
+  .module-art .bracket.bl { bottom: 6px; left: 6px; }
+  .module-art .bracket.br { bottom: 6px; right: 6px; }
+  .module-art .module-art-hud { display: block; top: 22px; left: 24px; }
+
+  /* "ENTER" slides in on hover */
+  .module-launch {
+    display: block;
+    position: absolute;
+    right: 12px;
+    bottom: 10px;
+    z-index: 2;
+    padding: 5px 10px;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--bg);
+    background: var(--magenta);
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+    opacity: 0;
+    transform: translateX(10px);
+    transition: opacity 250ms, transform 350ms var(--ease-out);
+  }
+  .fx:hover .module-launch, .fx:focus-visible .module-launch { opacity: 1; transform: none; }
+
+  /* card art */
+  .hero-trace { position: absolute; inset: 14% 0 0; width: 100%; height: 86%; }
+  .hero-trace-fill { fill: rgba(45, 226, 208, 0.08); }
+  .hero-trace-line { fill: none; stroke: var(--cyan); stroke-width: 1.6; stroke-dasharray: 1; filter: drop-shadow(0 0 4px rgba(45, 226, 208, 0.8)); animation: trace 2200ms var(--ease-out) 500ms backwards; }
+  .module-row:hover .hero-trace-line { stroke: #6fe3b5; }
+  .hero-palette { position: absolute; inset: 0; display: flex; }
+  .hero-palette span { position: relative; flex-basis: 0; min-width: 0; animation: grow 900ms var(--ease-out) backwards; animation-delay: calc(500ms + var(--i) * 90ms); transform-origin: bottom; }
+  .hero-palette em {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    font-style: normal;
+    font-size: 10px;
+    color: #fff;
+    mix-blend-mode: difference;
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+  .module-row:hover .hero-palette em { opacity: 0.8; }
+  .hero-night { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; animation: city-pulse 6s ease-in-out infinite; }
+  .module-night-lights .module-row-name { color: #f2c66d; }
+  .module-night-lights:hover { border-color: #f2c66d !important; box-shadow: 0 0 0 1px rgba(242, 198, 109, 0.25), 0 18px 60px -20px rgba(242, 198, 109, 0.4) !important; }
+  .module-night-lights.fx::before { background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(242, 198, 109, 0.12), transparent 60%); }
+  @keyframes grow { from { transform: scaleY(0); } }
+  @keyframes city-pulse { 50% { filter: brightness(1.25) saturate(1.1); } }
+
+  .hub > .push { display: none; }
+  .hub-foot { align-items: center; }
+  .hub-keys { display: inline; }
+  .hub-keys kbd { margin: 0 2px; }
+
+  /* ===== games: the visual fills the left, the guess panel sits on the right ===== */
+  .deck:not(.hub):has(.map, .monitor) {
+    --panel-w: clamp(360px, 30vw, 460px);
+    --top: 58px;
+    --stage-w: calc(100vw - var(--panel-w) - var(--gutter) * 3);
+    --stage-h: calc(100dvh - var(--nav-h) - var(--top) - 28px);
+    position: relative;
+    max-width: none;
+    margin: 0;
+    padding: var(--top) var(--gutter) 28px calc(100vw - var(--panel-w) - var(--gutter));
+    gap: 16px;
+  }
+  .deck:not(.hub):has(.map, .monitor) > .statusbar {
+    position: absolute;
+    top: 20px;
+    left: var(--gutter);
+    right: var(--gutter);
+  }
+  /* the right-hand column gets a faint rail so it reads as one panel */
+  .deck:not(.hub):has(.map, .monitor)::before {
+    content: '';
+    position: absolute;
+    top: var(--top);
+    bottom: 28px;
+    left: calc(100vw - var(--panel-w) - var(--gutter) * 2);
+    width: 1px;
+    background: linear-gradient(to bottom, var(--line), transparent);
+  }
+  .deck:not(.hub):has(.map, .monitor) .map,
+  .deck:not(.hub):has(.map, .monitor) .monitor {
+    --ar: 1;
+    --vis-w: min(var(--stage-w), var(--stage-h) * var(--ar));
+    position: absolute;
+    width: var(--vis-w);
+    left: calc(var(--gutter) + (var(--stage-w) - var(--vis-w)) / 2);
+    top: calc(var(--top) + (var(--stage-h) - var(--vis-w) / var(--ar)) / 2);
+    box-shadow: 0 0 0 1px rgba(45, 226, 208, 0.06), 0 30px 120px -40px rgba(45, 226, 208, 0.35);
+  }
+  .deck:not(.hub):has(.map, .monitor) .monitor { --ar: 1.5; }
+  .night .map { box-shadow: 0 30px 120px -40px rgba(242, 198, 109, 0.3); }
+  .hud { font-size: 12px; }
+  .tl-text, .tr-text { top: 14px; }
+  .tl-text, .bl-text { left: 16px; }
+  .tr-text, .br-text { right: 16px; }
+  .bl-text, .br-text { bottom: 14px; }
+  .bracket { width: 26px; height: 26px; }
+  .map-hint { font-size: 13px; bottom: 22px; }
+  .marker.truth { width: 30px; height: 30px; }
+
+  .spike-axis { font-size: 6px; letter-spacing: 0.3px; }
+  .spike-tag { font-size: 8px; }
+  .spike-line { stroke-width: 1; }
+
+  .goal { font-size: 15px; }
+  .log { font-size: 14px; gap: 8px; }
+  .intel { font-size: 13px; }
+  .clues { gap: 8px; }
+  .clue { padding: 8px 10px; }
+  .swatches { gap: 8px; }
+  .chip { height: 22px; }
+}
+
+@media (min-width: 1600px) and (min-height: 600px) {
+  .spike-axis { font-size: 5px; }
+  .spike-tag { font-size: 7px; }
+}
+
+@media (min-width: 1024px) and (min-height: 600px) and (prefers-reduced-motion: reduce) {
+  .hero-trace-line, .hero-palette span, .hero-night { animation: none; }
+}
