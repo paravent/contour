@@ -330,3 +330,35 @@ button { font: inherit; }
 @media (prefers-reduced-motion: reduce) {
   .fade-in, .map-loading { animation: none; }
 }
+
+/* night lights: gold glow on deep black */
+.night { --gold: #f2c66d; }
+.gold { color: var(--gold); }
+.glow-gold { color: var(--gold); text-shadow: 0 0 14px rgba(242, 198, 109, 0.5); }
+.night .title { font-size: 28px; letter-spacing: 3px; }
+.night-map { background: #000; border-color: #2a2414; overflow: hidden; }
+.night-map > img { filter: none; }
+.night .bracket { border-color: var(--gold); }
+.night .scale { background: var(--gold); }
+.night .prompt-field { border-color: var(--gold); box-shadow: inset 0 0 10px rgba(242, 198, 109, 0.16); }
+.night .prompt-field:focus-within { box-shadow: inset 0 0 10px rgba(242, 198, 109, 0.28), 0 0 12px rgba(242, 198, 109, 0.3); }
+.night .suggest button.active, .night .suggest button:hover { background: rgba(242, 198, 109, 0.12); color: var(--gold); }
+.night .segments > div.on, .night .seg-btn.on { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 6px rgba(242, 198, 109, 0.7); }
+.seg-btn { height: 8px; padding: 0; border: 1px solid var(--line); background: transparent; cursor: pointer; }
+.seg-btn:hover { border-color: var(--gold); }
+.seg-btn:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.night .dir.hit { color: var(--gold); }
+.night .sq.hit { background: var(--gold); box-shadow: 0 0 6px rgba(242, 198, 109, 0.7); }
+.night .sq.mid { background: #b07a45; }
+.marker.target { width: 30px; height: 30px; border: 1.5px solid var(--magenta); border-radius: 50%; box-shadow: 0 0 10px rgba(255, 46, 136, 0.6); }
+.credit { margin: 0; line-height: 1.5; }
+.credit a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+.night .dir.near { color: #ff8a4c; }
+.night .dir.mid { color: #b07a45; }
+.night .sq.near { background: #ff8a4c; }
+a.module-row:hover .module-row-name { color: var(--gold, #f2c66d); }
+.night-map .scanlines { opacity: 0.45; }
+.night-map .hud { color: #c9b78f; text-shadow: 0 0 3px #000, 0 0 6px #000, 0 0 10px #000; }
+.night .suggest button { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.night .help { color: var(--gold); }
+.night .help:hover { border-color: var(--gold); }

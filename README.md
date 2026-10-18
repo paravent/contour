@@ -18,6 +18,15 @@ web/         Preact + Vite: the hub and the game (cyberpunk terminal style)
 - **Daily job.** `.github/workflows/daily.yml` runs just after midnight UTC, at noon UTC, and on every push to `main`. It generates yesterday through a week ahead, which checks that the coming week is playable. It then publishes only yesterday, today and tomorrow (so every timezone has its puzzle) and deploys to GitHub Pages.
 - **Game.** The puzzle changes at the player's local midnight. Progress, stats and streaks live in the browser's local storage, so there are no accounts.
 
+## Night Lights
+
+The fourth game, at `#/night-lights`: find the city from satellite imagery of the Earth at night. The first view is a 50 km close-up of the city's glow; each wrong guess pulls back (110, 240, 500, 1,000, then 2,000 km across) to show neighbouring towns, highways, dark coastlines and other cities, and the last two views add the country, then the city's first letter. Guesses are typed from the city pool, and each wrong one shows how far and in which direction the target lies.
+
+- **Data.** NASA's [Black Marble](https://earthobservatory.nasa.gov/features/NightLights) night-lights composite (Suomi NPP VIIRS, 2016), layer `VIIRS_Black_Marble` from the [GIBS](https://nasa-gibs.github.io/gibs-api-docs/) WMTS service in Web Mercator (`GoogleMapsCompatible_Level8`, zoom 0 to 8, tile paths `{z}/{row}/{col}`). The generator recolours it as gold light on black.
+- **Cities.** `generator/cities.csv` is both the answer pool and the guessable list: about 230 major cities with their country (Natural Earth `ADM0_A3`). After editing it, refresh the web copy with `python generator/generate_night_lights.py --export-cities web/public/data/cities.json` (a test checks they match).
+- **Schedule.** Same seed and launch date as Contour, with its own shuffle. If the first view is too dark (too little of it lit, or the city itself unlit), the day goes to another city further down the shuffle.
+- **Generating.** `python generator/generate_night_lights.py --out web/public/puzzles/night-lights` (yesterday, today and tomorrow UTC; `--start` and `--days` as for Contour). Set `NIGHT_LIGHTS_DEBUG=1` to print per-stage brightness stats and an ASCII preview as GitHub annotations.
+
 ## One-time setup
 
 1. **Settings → Pages → Build and deployment → Source: GitHub Actions.**
@@ -37,7 +46,7 @@ npm install
 npm run dev
 ```
 
-Tests: `python -m pytest generator/tests` and `cd web && npm test`.
+Tests: `python -m pytest generator/tests` and `cd web && npm test`. The Night Lights tests use synthetic tiles, so they run offline.
 
 The countries list the game uses (`web/public/data/countries.json`) is generated from Natural Earth:
 

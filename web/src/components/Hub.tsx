@@ -26,6 +26,7 @@ const OFFLINE = [
   {
     n: '04',
     name: 'NIGHT LIGHTS',
+    href: '#/night-lights',
     art: (
       <svg width="64" height="22" viewBox="0 0 64 22" aria-hidden="true">
         <circle cx="32" cy="11" r="9" fill="#F2C66D" opacity="0.2" /><circle cx="32" cy="11" r="4" fill="#F2C66D" />
@@ -34,6 +35,12 @@ const OFFLINE = [
     ),
   },
 ]
+
+/** A live row's tag: what today's puzzle in that game is waiting for. */
+function rowTag(game: string) {
+  const s = loadDay(game, localDate()).status
+  return s === 'won' ? 'SOLVED' : s === 'lost' ? 'REVIEW' : 'RUN'
+}
 
 export function Hub() {
   const today = localDate()
@@ -76,7 +83,14 @@ export function Hub() {
       </a>
 
       <div class="module-list">
-        {OFFLINE.map((m) => (
+        {OFFLINE.map((m) => m.href ? (
+          <a key={m.n} href={m.href} class="module-row">
+            <span class="dim small">{m.n}</span>
+            <span class="module-row-name">{m.name}</span>
+            {m.art}
+            <span class="tag">{rowTag(m.href.slice(2))}</span>
+          </a>
+        ) : (
           <div key={m.n} class="module-row">
             <span class="dim small">{m.n}</span>
             <span class="module-row-name">{m.name}</span>

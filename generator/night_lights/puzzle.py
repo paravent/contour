@@ -113,7 +113,7 @@ _COLOURS = np.array([
     [255, 204, 96],
     [255, 246, 222],
 ], dtype=np.float32)
-BLACK_POINT, WHITE_POINT = 14.0, 235.0
+BLACK_POINT, WHITE_POINT = 14.0, 250.0
 # Faint land (Black Marble's moonlit surface) is kept as a dim blue-grey, so coasts read.
 LAND_TINT = np.array([10, 16, 26], dtype=np.float32)
 

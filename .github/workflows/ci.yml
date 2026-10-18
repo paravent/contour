@@ -19,9 +19,7 @@ jobs:
       # One real puzzle end to end, so a broken generator shows up before it reaches main.
       - run: python generator/generate.py --out "$RUNNER_TEMP/puzzles" --start "$(date -u +%F)" --days 1
       # The same for Night Lights, against the live NASA GIBS imagery.
-      - run: python generator/generate_night_lights.py --out "$RUNNER_TEMP/night-lights" --start "$(date -u +%F)" --days 1
-        env:
-          NIGHT_LIGHTS_DEBUG: '1'
+      - run: python generator/generate_night_lights.py --out "$RUNNER_TEMP/night-lights" --start "$(date -u +%F)" --days 9
       - uses: actions/upload-artifact@v4
         with:
           name: night-lights-sample
