@@ -91,6 +91,27 @@ def test_build_writes_six_stages(tmp_path):
     p = puzzle.build_from_image(PAINTING, synthetic(), fake_art(), dt.date(2026, 10, 20), 3, tmp_path)
     day = tmp_path / "2026-10-20"
     assert p["game"] == "palette" and p["number"] == 3
+    assert [s["image"] for s in p["stages"]] == [f"stage{i}.png" for i in range(1, 6)] + ["stage6.jpg"]
+    assert [s["kind"] for s in p["stages"]] == ["grid", "grid", "grid", "grid", "blur", "detail"]
+    assert [s.get("grid") for s in p["stages"][:4]] == [[12, 10], [20, 16], [32, 26], [48, 38]]
+    for s in p["stages"]:
+        assert Image.open(day / s["image"]).format == ("JPEG" if s["kind"] == "detail" else "PNG")
+        assert (day / s["image"]).stat().st_size < 60_000
+    assert max(Image.open(day / "stage6.jpg").size) == render.DETAIL_SIDE
+    assert Image.open(day / "full.jpg").size == (500, 400)  # never upscaled
+    assert json.loads((day / "puzzle.json").read_text()) == p
+    assert len(p["palette"]) == 5
+
+    secret = json.loads(base64.b64decode(p["secret"]))
+    assert secret["id"] == "test-card" and secret["initials"] == "A. Q. v. T."
+    assert "object_id" not in secret and "famous" not in secret
+    assert "Test Card" not in json.dumps({k: v for k, v in p.items() if k != "secret"})
+
+
+def test_days_before_the_switch_keep_the_original_stages(tmp_path):
+    p = puzzle.build_from_image(PAINTING, synthetic(), fake_art(), dt.date(2026, 10, 19), 3, tmp_path)
+    day = tmp_path / "2026-10-19"
+    assert p["game"] == "palette" and p["number"] == 3
     assert [s["image"] for s in p["stages"]] == [f"stage{i}.png" for i in range(1, 7)]
     assert [s["kind"] for s in p["stages"]] == ["stripes", "grid", "grid", "grid", "grid", "blur"]
     assert [s.get("grid") for s in p["stages"][1:5]] == [[4, 3], [8, 6], [16, 13], [32, 26]]
@@ -190,3 +211,39 @@ def test_rejection_for_wrong_artist(tmp_path, monkeypatch):
     art.artist, art.public_domain = "Ada van Testing", False
     with pytest.raises(Rejected, match="public domain"):
         puzzle.fetch(PAINTING, tmp_path)
+
+
+def test_famous_answer_pool_from_the_switch():
+    pool = puzzle.load_pool(POOL)
+    famous = [p for p in pool if p.famous]
+    assert 30 <= len(famous) <= 60
+    before = puzzle.EASIER_FROM - dt.timedelta(days=1)
+    assert puzzle.answer_pool(pool, before) == pool
+    assert puzzle.answer_pool(pool, puzzle.EASIER_FROM) == famous
+    # Guessable options never shrink, and the guess list doesn't reveal which are answers.
+    assert len(puzzle.guess_list(pool)) == len(pool)
+    assert all("famous" not in g for g in puzzle.guess_list(pool))
+
+
+def test_schedule_uses_the_famous_pool_from_the_switch(tmp_path, monkeypatch):
+    import generate_palette
+
+    pool = puzzle.load_pool(POOL)
+    picked = {}
+
+    def fake_build(painting, date, number, out, cache):
+        picked[date] = painting
+
+    monkeypatch.setattr(generate_palette, "build", fake_build)
+    launch = dt.date(2026, 10, 18)
+    for d in range(40):
+        generate_palette.generate_day(launch + dt.timedelta(days=d), pool, launch, "seed", tmp_path, tmp_path)
+    old = puzzle.rotation(pool, "seed")
+    assert picked[launch] == old[0] and picked[launch + dt.timedelta(days=1)] == old[1]
+    assert all(p.famous for date, p in picked.items() if date >= puzzle.EASIER_FROM)
+    # Every run agrees on the answer.
+    again = {}
+    monkeypatch.setattr(generate_palette, "build", lambda painting, date, *a: again.__setitem__(date, painting))
+    for date in picked:
+        generate_palette.generate_day(date, pool, launch, "seed", tmp_path, tmp_path)
+    assert again == picked

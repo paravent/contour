@@ -5,6 +5,7 @@ import {
   type Country,
   MAX_GUESSES,
   type Puzzle,
+  contourClues,
   decodeAnswer,
   loadCountries,
   loadPuzzle,
@@ -135,7 +136,7 @@ export function Contour() {
         steps={[
           <>Each day the map shows one real place on Earth, the same for everyone. You only see its terrain, drawn as <span class="cyan">contour lines</span>: each line joins ground of equal height, so tight lines mean steep slopes and rings mean peaks.</>,
           <>Name the <span class="amber">country</span> it's in. You have 6 guesses.</>,
-          <>Each wrong guess zooms the map out and adds a clue: the <span class="magenta">coastline</span>, then the sea, then <span class="amber">borders</span>, and finally the country's first letter.</>,
+          <>Each wrong guess zooms the map out and adds a clue: the <span class="magenta">sea</span>, then <span class="amber">borders</span>, then the <span class="cyan">continent</span>, and finally the country's first letter.</>,
           <>Each wrong guess also shows how far the target is from that country and in which direction.</>,
           <>Get it right and you unlock the bonus: drop a pin on the exact spot for up to 5,000 points.</>,
           <>A new map arrives at midnight. Share your result, and keep your streak going.</>,
@@ -206,9 +207,9 @@ export function Contour() {
         </div>
       )}
 
-      {!finished && stageIndex === puzzle.stages.length - 1 && (
-        <div class="hint">// DECRYPTED: COUNTRY BEGINS WITH <span class="amber">{answer.letter}</span></div>
-      )}
+      {!finished && contourClues(answer, day.guesses.length).map((c) => (
+        <div key={c.label} class="hint">// DECRYPTED: {c.label} <span class="amber">{c.value}</span></div>
+      ))}
 
       {results.length > 0 && !finished && (
         <div class="log">

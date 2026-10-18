@@ -14,7 +14,19 @@ from .render import contour_interval, land_levels, render_svg
 from .terrain import TileCache, load_view
 
 # Each stage widens the view; later stages add water and borders.
+# From EASIER_FROM on, the first view is wider (more recognisable terrain) and the
+# coastline, sea and borders arrive a stage or two sooner. Days before it keep the
+# original stages, so puzzles already published never change.
+EASIER_FROM = dt.date(2026, 10, 20)
 STAGES = [
+    {"width_km": 40, "max_lines": 20, "coast": True, "sea": False, "borders": False},
+    {"width_km": 80, "max_lines": 18, "coast": True, "sea": True, "borders": False},
+    {"width_km": 150, "max_lines": 14, "coast": True, "sea": True, "borders": False},
+    {"width_km": 250, "max_lines": 12, "coast": True, "sea": True, "borders": True},
+    {"width_km": 400, "max_lines": 10, "coast": True, "sea": True, "borders": True},
+    {"width_km": 600, "max_lines": 8, "coast": True, "sea": True, "borders": True},
+]
+LEGACY_STAGES = [
     {"width_km": 12, "max_lines": 24, "coast": False, "sea": False, "borders": False},
     {"width_km": 30, "max_lines": 22, "coast": False, "sea": False, "borders": False},
     {"width_km": 70, "max_lines": 18, "coast": True, "sea": False, "borders": False},
@@ -44,6 +56,11 @@ def load_places(path: Path):
         return [Place(r["id"], r["name"], r["country"], float(r["lat"]), float(r["lon"])) for r in csv.DictReader(f)]
 
 
+def stages_for(date: dt.date):
+    """The stage specs a day's puzzle uses."""
+    return STAGES if date >= EASIER_FROM else LEGACY_STAGES
+
+
 def puzzle_number(date: dt.date, launch: dt.date) -> int:
     return (date - launch).days + 1
 
@@ -62,12 +79,14 @@ def jitter(seed: str, date: dt.date):
 def build(place: Place, date: dt.date, number: int, seed: str, out_dir: Path, cache_dir: Path):
     features = countries.load(cache_dir)
     names = {c["code"]: c["name"] for c in countries.country_list(features)}
+    continents = countries.continents(features)
     rings = countries.border_rings(features)
     tiles = TileCache(cache_dir / "tiles")
     fx, fy = jitter(seed, date)
 
+    specs = stages_for(date)
     files, stages, pin_bounds = {}, [], None
-    for i, spec in enumerate(STAGES, start=1):
+    for i, spec in enumerate(specs, start=1):
         w = spec["width_km"]
         # Shift the centre so the answer sits at (0.5 + fx, 0.5 + fy) of the view.
         center_lat = place.lat + fy * w / 111.32
@@ -75,7 +94,7 @@ def build(place: Place, date: dt.date, number: int, seed: str, out_dir: Path, ca
         view = load_view(tiles, center_lon, center_lat, w)
 
         if i == 1:
-            _check_first_stage(view.elevation, place)
+            _check_first_stage(view.elevation, place, spec)
 
         for tol in TOLERANCES:
             svg = render_svg(view, coast=spec["coast"], sea=spec["sea"],
@@ -99,13 +118,14 @@ def build(place: Place, date: dt.date, number: int, seed: str, out_dir: Path, ca
         "lat": place.lat,
         "lon": place.lon,
         "letter": country_name[0].upper(),
+        "continent": continents.get(place.country, ""),
     }
     puzzle = {
         "game": "contour",
         "number": number,
         "date": date.isoformat(),
         "stages": stages,
-        "pinMap": {"image": f"stage{len(STAGES)}.svg", "bounds": {k: round(v, 6) for k, v in pin_bounds.items()}},
+        "pinMap": {"image": f"stage{len(specs)}.svg", "bounds": {k: round(v, 6) for k, v in pin_bounds.items()}},
         # Lightly encoded so the answer isn't readable at a glance in dev tools.
         "secret": base64.b64encode(json.dumps(secret).encode()).decode(),
     }
@@ -118,10 +138,10 @@ def build(place: Place, date: dt.date, number: int, seed: str, out_dir: Path, ca
     return puzzle
 
 
-def _check_first_stage(elevation, place):
+def _check_first_stage(elevation, place, spec):
     land_share = float((elevation > 0).mean())
     if land_share < 0.3:
         raise Rejected(f"{place.id}: first stage is {land_share:.0%} land")
-    interval = contour_interval(elevation, STAGES[0]["max_lines"])
+    interval = contour_interval(elevation, spec["max_lines"])
     if not interval or len(land_levels(elevation, interval)) < 4:
         raise Rejected(f"{place.id}: first stage has too little relief")

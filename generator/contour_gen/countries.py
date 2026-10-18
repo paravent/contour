@@ -38,6 +38,17 @@ def country_list(features):
     return sorted(out, key=lambda c: c["name"])
 
 
+def continents(features):
+    """Country code -> continent name, for the late-game clue."""
+    out = {}
+    for f in features:
+        p = f["properties"]
+        name = p.get("CONTINENT") or ""
+        # Natural Earth files a few island states under "Seven seas (open ocean)".
+        out[p["ADM0_A3"]] = "" if name.startswith("Seven seas") else name
+    return out
+
+
 def border_rings(features):
     """Every outer and inner ring of every country, as lists of (lon, lat)."""
     rings = []

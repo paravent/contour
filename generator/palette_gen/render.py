@@ -1,4 +1,8 @@
-"""Turn a painting into Palette's six stages: colour stripes, four pixel grids, a blur."""
+"""Turn a painting into Palette's six stages.
+
+From EASIER_FROM (see puzzle.py): four pixel grids, a soft blur, then a nearly sharp image.
+Before it: colour stripes, four pixel grids, a blur.
+"""
 
 import io
 
@@ -6,9 +10,12 @@ import numpy as np
 from PIL import Image, ImageFilter
 
 PALETTE_SIZE = 5
-GRIDS = (4, 8, 16, 32)  # cells along the painting's long side, stages 2-5
+GRIDS = (12, 20, 32, 48)  # cells along the painting's long side, stages 1-4
+LEGACY_GRIDS = (4, 8, 16, 32)  # stages 2-5 of the original layout
 BLUR_SIDE = 144  # long side of the blurred stage, in pixels
 BLUR_RADIUS = 3.2
+DETAIL_SIDE = 240  # long side of the last, nearly sharp stage
+DETAIL_RADIUS = 1.2
 REVEAL_SIDE = 720  # long side of the full image on the result screen
 STRIPES_SIZE = (100, 4)  # one pixel per percent of share; the browser scales it up
 MIN_STRIPE = 6  # percent, so a minor colour still reads as a stripe
@@ -90,10 +97,15 @@ def pixel_grid(img: Image.Image, cells) -> Image.Image:
     return img.convert("RGB").resize(grid_shape(img.size, cells), Image.BOX)
 
 
-def blurred(img: Image.Image) -> Image.Image:
+def blurred(img: Image.Image, side=BLUR_SIDE, radius=BLUR_RADIUS) -> Image.Image:
     small = img.convert("RGB").copy()
-    small.thumbnail((BLUR_SIDE, BLUR_SIDE), Image.LANCZOS)
-    return small.filter(ImageFilter.GaussianBlur(BLUR_RADIUS))
+    small.thumbnail((side, side), Image.LANCZOS)
+    return small.filter(ImageFilter.GaussianBlur(radius))
+
+
+def detail(img: Image.Image) -> Image.Image:
+    """Small and slightly soft: composition and brushwork read, fine detail doesn't."""
+    return blurred(img, DETAIL_SIDE, DETAIL_RADIUS)
 
 
 def reveal(img: Image.Image) -> Image.Image:

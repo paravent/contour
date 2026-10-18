@@ -19,11 +19,24 @@ export type Answer = {
   lat: number
   lon: number
   letter: string
+  /** Missing on sheets made before the continent clue existed. */
+  continent?: string
 }
 
 export type Country = { code: string; name: string; aliases: string[]; lat: number; lon: number }
 
 export const MAX_GUESSES = 6
+
+/** Guesses already made when each text clue unlocks: the continent on guess 4, the first letter on guess 6. */
+export const CONTOUR_CLUES = { continent: 3, letter: 5 } as const
+
+/** The text clues open after `made` guesses, in the order they unlock. */
+export function contourClues(answer: Answer, made: number): { label: string; value: string }[] {
+  const out: { label: string; value: string }[] = []
+  if (answer.continent && made >= CONTOUR_CLUES.continent) out.push({ label: 'CONTINENT', value: answer.continent.toUpperCase() })
+  if (made >= CONTOUR_CLUES.letter) out.push({ label: 'COUNTRY BEGINS WITH', value: answer.letter })
+  return out
+}
 
 export function puzzleDir(date: string): string {
   return `puzzles/contour/${date}/`
