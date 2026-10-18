@@ -17,6 +17,8 @@ import { CountryInput } from './CountryInput'
 import { PinMap } from './PinMap'
 import { StatusBar } from './StatusBar'
 
+const GAME = 'contour'
+
 const ARROW_ROTATION: Record<string, number> = { N: 0, NE: 45, E: 90, SE: 135, S: 180, SW: 225, W: 270, NW: 315 }
 
 function scaleBar(widthKm: number) {
@@ -38,8 +40,8 @@ export function Contour() {
   const date = useMemo(() => localDate(), [])
   const [puzzle, setPuzzle] = useState<Puzzle | null | undefined>(undefined)
   const [countries, setCountries] = useState<Country[]>([])
-  const [day, setDay] = useState<DayState>(() => loadDay(date))
-  const [stats, setStats] = useState(loadStats)
+  const [day, setDay] = useState<DayState>(() => loadDay(GAME, date))
+  const [stats, setStats] = useState(() => loadStats(GAME))
   const [copied, setCopied] = useState(false)
   const [help, setHelp] = useState(false)
   const [loadedImage, setLoadedImage] = useState('')
@@ -91,7 +93,7 @@ export function Contour() {
 
   const update = (next: DayState) => {
     setDay(next)
-    saveDay(date, next)
+    saveDay(GAME, date, next)
   }
 
   const guess = (code: string) => {
@@ -100,7 +102,7 @@ export function Contour() {
     const won = code === answer.country
     const status = won ? 'won' : guesses.length >= MAX_GUESSES ? 'lost' : 'playing'
     update({ ...day, guesses, status })
-    if (status !== 'playing') setStats(recordFinish(stats, date, won))
+    if (status !== 'playing') setStats(recordFinish(GAME, stats, date, won))
   }
 
   const lockPin = (pin: Pin) => update({ ...day, pin })

@@ -37,8 +37,8 @@ const OFFLINE = [
 
 export function Hub() {
   const today = localDate()
-  const day = loadDay(today)
-  const streak = currentStreak(loadStats(), today)
+  const day = loadDay('contour', today)
+  const streak = currentStreak(loadStats('contour'), today)
   const [now, setNow] = useState(() => new Date())
   useEffect(() => {
     const t = setInterval(() => setNow(new Date()), 1000)

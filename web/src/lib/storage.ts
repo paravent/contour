@@ -38,12 +38,13 @@ function write(key: string, value: unknown) {
   }
 }
 
-export const loadDay = (date: string) => read<DayState>(`contour:day:${date}`, EMPTY_DAY)
-export const saveDay = (date: string, s: DayState) => write(`contour:day:${date}`, s)
-export const loadStats = () => read<Stats>('contour:stats', EMPTY_STATS)
+// Each game keeps its own days and stats under its own key prefix, e.g. "contour".
+export const loadDay = (game: string, date: string) => read<DayState>(`${game}:day:${date}`, EMPTY_DAY)
+export const saveDay = (game: string, date: string, s: DayState) => write(`${game}:day:${date}`, s)
+export const loadStats = (game: string) => read<Stats>(`${game}:stats`, EMPTY_STATS)
 
 /** Record a finished puzzle once; the streak continues only from yesterday's win. */
-export function recordFinish(stats: Stats, date: string, won: boolean): Stats {
+export function recordFinish(game: string, stats: Stats, date: string, won: boolean): Stats {
   if (stats.lastFinished === date) return stats
   const streak = won ? (stats.lastWon === addDays(date, -1) ? stats.streak + 1 : 1) : 0
   const next: Stats = {
@@ -54,7 +55,7 @@ export function recordFinish(stats: Stats, date: string, won: boolean): Stats {
     lastFinished: date,
     lastWon: won ? date : stats.lastWon,
   }
-  write('contour:stats', next)
+  write(`${game}:stats`, next)
   return next
 }
 
