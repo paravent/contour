@@ -1,0 +1,447 @@
+id,title,name,category,aliases
+halloween,Halloween,Halloween,holiday,All Hallows' Eve
+christmas,Christmas,Christmas,holiday,Xmas
+thanksgiving,Thanksgiving,Thanksgiving,holiday,
+easter,Easter,Easter,holiday,
+valentines-day,Valentine's Day,Valentine's Day,holiday,Saint Valentine's Day
+st-patricks-day,Saint Patrick's Day,Saint Patrick's Day,holiday,St Patrick's Day|St. Patrick's Day
+mothers-day,Mother's Day,Mother's Day,holiday,
+fathers-day,Father's Day,Father's Day,holiday,
+april-fools,April Fools' Day,April Fools' Day,holiday,April Fool's Day
+new-years-eve,New Year's Eve,New Year's Eve,holiday,
+diwali,Diwali,Diwali,holiday,Deepavali
+hanukkah,Hanukkah,Hanukkah,holiday,Chanukah
+ramadan,Ramadan,Ramadan,holiday,
+chinese-new-year,Chinese New Year,Chinese New Year,holiday,Lunar New Year|Spring Festival
+black-friday,Black Friday (shopping),Black Friday,holiday,
+cyber-monday,Cyber Monday,Cyber Monday,holiday,
+groundhog-day,Groundhog Day,Groundhog Day,holiday,
+day-of-the-dead,Day of the Dead,Day of the Dead,holiday,Día de Muertos
+oktoberfest,Oktoberfest,Oktoberfest,holiday,
+mardi-gras,Mardi Gras,Mardi Gras,holiday,Fat Tuesday
+holi,Holi,Holi,holiday,
+eid-al-adha,Eid al-Adha,Eid al-Adha,holiday,
+eid-al-fitr,Eid al-Fitr,Eid al-Fitr,holiday,
+juneteenth,Juneteenth,Juneteenth,holiday,
+us-independence-day,Independence Day (United States),Independence Day (US),holiday,Fourth of July|July 4th
+guy-fawkes-night,Guy Fawkes Night,Guy Fawkes Night,holiday,Bonfire Night
+boxing-day,Boxing Day,Boxing Day,holiday,
+labor-day,Labor Day,Labor Day,holiday,
+memorial-day,Memorial Day,Memorial Day,holiday,
+pi-day,Pi Day,Pi Day,holiday,
+earth-day,Earth Day,Earth Day,holiday,
+lent,Lent,Lent,holiday,
+good-friday,Good Friday,Good Friday,holiday,
+passover,Passover,Passover,holiday,Pesach
+kwanzaa,Kwanzaa,Kwanzaa,holiday,
+yom-kippur,Yom Kippur,Yom Kippur,holiday,
+rosh-hashanah,Rosh Hashanah,Rosh Hashanah,holiday,
+cinco-de-mayo,Cinco de Mayo,Cinco de Mayo,holiday,
+bastille-day,Bastille Day,Bastille Day,holiday,
+australia-day,Australia Day,Australia Day,holiday,
+canada-day,Canada Day,Canada Day,holiday,
+shrove-tuesday,Shrove Tuesday,Shrove Tuesday,holiday,Pancake Day
+friday-13th,Friday the 13th,Friday the 13th,holiday,
+mid-autumn,Mid-Autumn Festival,Mid-Autumn Festival,holiday,Moon Festival
+nowruz,Nowruz,Nowruz,holiday,Persian New Year
+songkran,Songkran (Thailand),Songkran,holiday,
+burns-supper,Burns supper,Burns Night,holiday,Burns supper
+mlk-day,Martin Luther King Jr. Day,Martin Luther King Jr. Day,holiday,MLK Day
+presidents-day,Presidents' Day,Presidents' Day,holiday,Washington's Birthday
+columbus-day,Columbus Day,Columbus Day,holiday,
+star-wars-day,Star Wars Day,Star Wars Day,holiday,May the Fourth
+winter-solstice,Winter solstice,Winter solstice,science,
+summer-solstice,Summer solstice,Summer solstice,science,
+dst,Daylight saving time,Daylight saving time,science,DST|Summer time
+super-bowl,Super Bowl,Super Bowl,sports event,
+halftime-show,Super Bowl halftime show,Super Bowl halftime show,sports event,
+world-cup,FIFA World Cup,FIFA World Cup,sports event,World Cup
+champions-league,UEFA Champions League,UEFA Champions League,sports event,Champions League
+wimbledon,Wimbledon Championships,Wimbledon,sports event,
+us-open-tennis,US Open (tennis),US Open (tennis),sports event,
+french-open,French Open,French Open,sports event,Roland Garros
+australian-open,Australian Open,Australian Open,sports event,
+tour-de-france,Tour de France,Tour de France,sports event,
+masters,Masters Tournament,The Masters,sports event,Masters Tournament|Augusta Masters
+kentucky-derby,Kentucky Derby,Kentucky Derby,sports event,
+indy-500,Indianapolis 500,Indianapolis 500,sports event,Indy 500
+monaco-gp,Monaco Grand Prix,Monaco Grand Prix,sports event,
+daytona-500,Daytona 500,Daytona 500,sports event,
+stanley-cup,Stanley Cup,Stanley Cup,sports event,
+nba-finals,NBA Finals,NBA Finals,sports event,
+world-series,World Series,World Series,sports event,
+march-madness,NCAA Division I men's basketball tournament,March Madness,sports event,NCAA tournament
+boat-race,The Boat Race,The Boat Race,sports event,Oxford Cambridge Boat Race
+grand-national,Grand National,Grand National,sports event,
+ryder-cup,Ryder Cup,Ryder Cup,sports event,
+olympics,Olympic Games,Olympic Games,sports event,Olympics
+winter-olympics,Winter Olympic Games,Winter Olympic Games,sports event,Winter Olympics
+paralympics,Paralympic Games,Paralympic Games,sports event,Paralympics
+cricket-world-cup,Cricket World Cup,Cricket World Cup,sports event,
+rugby-world-cup,Rugby World Cup,Rugby World Cup,sports event,
+six-nations,Six Nations Championship,Six Nations Championship,sports event,Six Nations
+wrestlemania,WrestleMania,WrestleMania,sports event,
+euros,UEFA European Championship,UEFA European Championship,sports event,Euros|Euro
+copa-america,Copa América,Copa América,sports event,
+ballon-dor,Ballon d'Or,Ballon d'Or,sports event,
+nfl-draft,NFL draft,NFL draft,sports event,
+open-championship,The Open Championship,The Open Championship,sports event,British Open
+boston-marathon,Boston Marathon,Boston Marathon,sports event,
+london-marathon,London Marathon,London Marathon,sports event,
+nyc-marathon,New York City Marathon,New York City Marathon,sports event,NYC Marathon
+ipl,Indian Premier League,Indian Premier League,sports event,IPL
+the-ashes,The Ashes,The Ashes,sports event,Ashes
+commonwealth-games,Commonwealth Games,Commonwealth Games,sports event,
+afcon,Africa Cup of Nations,Africa Cup of Nations,sports event,AFCON
+hot-dog-contest,Nathan's Hot Dog Eating Contest,Nathan's Hot Dog Eating Contest,sports event,
+nba-all-star,NBA All-Star Game,NBA All-Star Game,sports event,
+fa-cup,FA Cup,FA Cup,sports event,
+el-clasico,El Clásico,El Clásico,sports event,El Clasico
+eurovision,Eurovision Song Contest,Eurovision Song Contest,event,Eurovision
+met-gala,Met Gala,Met Gala,event,
+coachella,Coachella,Coachella,event,
+glastonbury,Glastonbury Festival,Glastonbury Festival,event,Glastonbury
+burning-man,Burning Man,Burning Man,event,
+comic-con,San Diego Comic-Con,San Diego Comic-Con,event,Comic-Con
+oscars,Academy Awards,Academy Awards,event,Oscars
+golden-globes,Golden Globe Awards,Golden Globe Awards,event,Golden Globes
+grammys,Grammy Awards,Grammy Awards,event,Grammys
+emmys,Primetime Emmy Awards,Primetime Emmy Awards,event,Emmys
+baftas,British Academy Film Awards,BAFTA Film Awards,event,BAFTAs|British Academy Film Awards
+cannes,Cannes Film Festival,Cannes Film Festival,event,
+nobel-prize,Nobel Prize,Nobel Prize,event,
+person-of-the-year,Time Person of the Year,Time Person of the Year,event,
+ces,Consumer Electronics Show,Consumer Electronics Show,event,CES
+wwdc,Apple Worldwide Developers Conference,Apple WWDC,event,WWDC|Apple Worldwide Developers Conference
+game-awards,The Game Awards,The Game Awards,event,
+macys-parade,Macy's Thanksgiving Day Parade,Macy's Thanksgiving Day Parade,event,
+rose-parade,Rose Parade,Rose Parade,event,
+chelsea-flower-show,Chelsea Flower Show,Chelsea Flower Show,event,
+fringe,Edinburgh Festival Fringe,Edinburgh Festival Fringe,event,Edinburgh Fringe
+tomorrowland,Tomorrowland (festival),Tomorrowland,event,
+lollapalooza,Lollapalooza,Lollapalooza,event,
+hajj,Hajj,Hajj,event,
+prime-day,Prime Day,Prime Day,event,Amazon Prime Day
+taylor-swift,Taylor Swift,Taylor Swift,musician,
+beyonce,Beyoncé,Beyoncé,musician,Beyonce
+bad-bunny,Bad Bunny,Bad Bunny,musician,
+kendrick-lamar,Kendrick Lamar,Kendrick Lamar,musician,
+sabrina-carpenter,Sabrina Carpenter,Sabrina Carpenter,musician,
+billie-eilish,Billie Eilish,Billie Eilish,musician,
+ariana-grande,Ariana Grande,Ariana Grande,musician,
+lady-gaga,Lady Gaga,Lady Gaga,musician,
+bruno-mars,Bruno Mars,Bruno Mars,musician,
+rihanna,Rihanna,Rihanna,musician,
+drake,Drake (musician),Drake,musician,
+ed-sheeran,Ed Sheeran,Ed Sheeran,musician,
+adele,Adele,Adele,musician,
+harry-styles,Harry Styles,Harry Styles,musician,
+olivia-rodrigo,Olivia Rodrigo,Olivia Rodrigo,musician,
+dua-lipa,Dua Lipa,Dua Lipa,musician,
+the-weeknd,The Weeknd,The Weeknd,musician,
+coldplay,Coldplay,Coldplay,musician,
+oasis,Oasis (band),Oasis,musician,
+bts,BTS,BTS,musician,Bangtan Boys
+blackpink,Blackpink,Blackpink,musician,
+madonna,Madonna,Madonna,musician,
+elton-john,Elton John,Elton John,musician,
+paul-mccartney,Paul McCartney,Paul McCartney,musician,
+the-beatles,The Beatles,The Beatles,musician,Beatles
+queen,Queen (band),Queen,musician,
+abba,ABBA,ABBA,musician,
+mariah-carey,Mariah Carey,Mariah Carey,musician,
+michael-buble,Michael Bublé,Michael Bublé,musician,Michael Buble
+shakira,Shakira,Shakira,musician,
+eminem,Eminem,Eminem,musician,
+justin-bieber,Justin Bieber,Justin Bieber,musician,
+miley-cyrus,Miley Cyrus,Miley Cyrus,musician,
+post-malone,Post Malone,Post Malone,musician,
+chappell-roan,Chappell Roan,Chappell Roan,musician,
+charli-xcx,Charli XCX,Charli XCX,musician,
+sza,SZA,SZA,musician,
+snoop-dogg,Snoop Dogg,Snoop Dogg,musician,
+dolly-parton,Dolly Parton,Dolly Parton,musician,
+bruce-springsteen,Bruce Springsteen,Bruce Springsteen,musician,
+bob-dylan,Bob Dylan,Bob Dylan,musician,
+metallica,Metallica,Metallica,musician,
+green-day,Green Day,Green Day,musician,
+linkin-park,Linkin Park,Linkin Park,musician,
+u2,U2,U2,musician,
+kylie-minogue,Kylie Minogue,Kylie Minogue,musician,
+celine-dion,Celine Dion,Celine Dion,musician,Céline Dion
+rolling-stones,The Rolling Stones,The Rolling Stones,musician,Rolling Stones
+elvis,Elvis Presley,Elvis Presley,musician,Elvis
+rosalia,Rosalía,Rosalía,musician,Rosalia
+karol-g,Karol G,Karol G,musician,
+morgan-wallen,Morgan Wallen,Morgan Wallen,musician,
+lorde,Lorde,Lorde,musician,
+rose,Rosé (singer),Rosé,musician,Rose (singer)
+selena-gomez,Selena Gomez,Selena Gomez,musician,
+all-i-want,All I Want for Christmas Is You,All I Want for Christmas Is You,song,
+last-christmas,Last Christmas,Last Christmas,song,
+fairytale-of-new-york,Fairytale of New York,Fairytale of New York,song,
+monster-mash,Monster Mash,Monster Mash,song,
+thriller-song,Thriller (song),Thriller (song),song,
+auld-lang-syne,Auld Lang Syne,Auld Lang Syne,song,
+jingle-bells,Jingle Bells,Jingle Bells,song,
+silent-night,Silent Night,Silent Night,song,
+feliz-navidad,Feliz Navidad (song),Feliz Navidad,song,
+bohemian-rhapsody,Bohemian Rhapsody,Bohemian Rhapsody,song,
+zendaya,Zendaya,Zendaya,actor,
+timothee-chalamet,Timothée Chalamet,Timothée Chalamet,actor,Timothee Chalamet
+pedro-pascal,Pedro Pascal,Pedro Pascal,actor,
+margot-robbie,Margot Robbie,Margot Robbie,actor,
+ryan-gosling,Ryan Gosling,Ryan Gosling,actor,
+cillian-murphy,Cillian Murphy,Cillian Murphy,actor,
+jenna-ortega,Jenna Ortega,Jenna Ortega,actor,
+sydney-sweeney,Sydney Sweeney,Sydney Sweeney,actor,
+tom-holland,Tom Holland,Tom Holland,actor,
+keanu-reeves,Keanu Reeves,Keanu Reeves,actor,
+leonardo-dicaprio,Leonardo DiCaprio,Leonardo DiCaprio,actor,
+tom-cruise,Tom Cruise,Tom Cruise,actor,
+brad-pitt,Brad Pitt,Brad Pitt,actor,
+scarlett-johansson,Scarlett Johansson,Scarlett Johansson,actor,
+florence-pugh,Florence Pugh,Florence Pugh,actor,
+glen-powell,Glen Powell,Glen Powell,actor,
+anya-taylor-joy,Anya Taylor-Joy,Anya Taylor-Joy,actor,
+paul-mescal,Paul Mescal,Paul Mescal,actor,
+jacob-elordi,Jacob Elordi,Jacob Elordi,actor,
+dwayne-johnson,Dwayne Johnson,Dwayne Johnson,actor,The Rock
+jennifer-lawrence,Jennifer Lawrence,Jennifer Lawrence,actor,
+emma-stone,Emma Stone,Emma Stone,actor,
+meryl-streep,Meryl Streep,Meryl Streep,actor,
+robert-downey-jr,Robert Downey Jr.,Robert Downey Jr.,actor,RDJ
+hugh-jackman,Hugh Jackman,Hugh Jackman,actor,
+ryan-reynolds,Ryan Reynolds,Ryan Reynolds,actor,
+cynthia-erivo,Cynthia Erivo,Cynthia Erivo,actor,
+jack-black,Jack Black,Jack Black,actor,
+jim-carrey,Jim Carrey,Jim Carrey,actor,
+adam-sandler,Adam Sandler,Adam Sandler,actor,
+harrison-ford,Harrison Ford,Harrison Ford,actor,
+denzel-washington,Denzel Washington,Denzel Washington,actor,
+nicole-kidman,Nicole Kidman,Nicole Kidman,actor,
+demi-moore,Demi Moore,Demi Moore,actor,
+henry-cavill,Henry Cavill,Henry Cavill,actor,
+chris-hemsworth,Chris Hemsworth,Chris Hemsworth,actor,
+millie-bobby-brown,Millie Bobby Brown,Millie Bobby Brown,actor,
+jeremy-allen-white,Jeremy Allen White,Jeremy Allen White,actor,
+michael-b-jordan,Michael B. Jordan,Michael B. Jordan,actor,
+lionel-messi,Lionel Messi,Lionel Messi,athlete,Messi
+cristiano-ronaldo,Cristiano Ronaldo,Cristiano Ronaldo,athlete,Ronaldo|CR7
+kylian-mbappe,Kylian Mbappé,Kylian Mbappé,athlete,Mbappe
+erling-haaland,Erling Haaland,Erling Haaland,athlete,
+lamine-yamal,Lamine Yamal,Lamine Yamal,athlete,
+jude-bellingham,Jude Bellingham,Jude Bellingham,athlete,
+mohamed-salah,Mohamed Salah,Mohamed Salah,athlete,Mo Salah
+lebron-james,LeBron James,LeBron James,athlete,
+stephen-curry,Stephen Curry,Stephen Curry,athlete,Steph Curry
+caitlin-clark,Caitlin Clark,Caitlin Clark,athlete,
+victor-wembanyama,Victor Wembanyama,Victor Wembanyama,athlete,Wemby
+shohei-ohtani,Shohei Ohtani,Shohei Ohtani,athlete,
+patrick-mahomes,Patrick Mahomes,Patrick Mahomes,athlete,
+travis-kelce,Travis Kelce,Travis Kelce,athlete,
+tom-brady,Tom Brady,Tom Brady,athlete,
+serena-williams,Serena Williams,Serena Williams,athlete,
+novak-djokovic,Novak Djokovic,Novak Djokovic,athlete,
+carlos-alcaraz,Carlos Alcaraz,Carlos Alcaraz,athlete,
+jannik-sinner,Jannik Sinner,Jannik Sinner,athlete,
+coco-gauff,Coco Gauff,Coco Gauff,athlete,
+aryna-sabalenka,Aryna Sabalenka,Aryna Sabalenka,athlete,
+rafael-nadal,Rafael Nadal,Rafael Nadal,athlete,
+roger-federer,Roger Federer,Roger Federer,athlete,
+lewis-hamilton,Lewis Hamilton,Lewis Hamilton,athlete,
+max-verstappen,Max Verstappen,Max Verstappen,athlete,
+lando-norris,Lando Norris,Lando Norris,athlete,
+oscar-piastri,Oscar Piastri,Oscar Piastri,athlete,
+simone-biles,Simone Biles,Simone Biles,athlete,
+usain-bolt,Usain Bolt,Usain Bolt,athlete,
+michael-phelps,Michael Phelps,Michael Phelps,athlete,
+tiger-woods,Tiger Woods,Tiger Woods,athlete,
+scottie-scheffler,Scottie Scheffler,Scottie Scheffler,athlete,
+rory-mcilroy,Rory McIlroy,Rory McIlroy,athlete,
+mike-tyson,Mike Tyson,Mike Tyson,athlete,
+luka-doncic,Luka Dončić,Luka Dončić,athlete,Luka Doncic
+nikola-jokic,Nikola Jokić,Nikola Jokić,athlete,Nikola Jokic
+aaron-judge,Aaron Judge,Aaron Judge,athlete,
+connor-mcdavid,Connor McDavid,Connor McDavid,athlete,
+michael-jordan,Michael Jordan,Michael Jordan,athlete,
+virat-kohli,Virat Kohli,Virat Kohli,athlete,
+ms-dhoni,MS Dhoni,MS Dhoni,athlete,Dhoni
+armand-duplantis,Armand Duplantis,Armand Duplantis,athlete,Mondo Duplantis
+shai-gilgeous-alexander,Shai Gilgeous-Alexander,Shai Gilgeous-Alexander,athlete,SGA
+home-alone,Home Alone,Home Alone,film,
+elf,Elf (film),Elf,film,
+polar-express,The Polar Express (film),The Polar Express,film,
+wonderful-life,It's a Wonderful Life,It's a Wonderful Life,film,
+love-actually,Love Actually,Love Actually,film,
+die-hard,Die Hard,Die Hard,film,
+nightmare-before-christmas,The Nightmare Before Christmas,The Nightmare Before Christmas,film,
+hocus-pocus,Hocus Pocus (1993 film),Hocus Pocus,film,
+halloween-1978,Halloween (1978 film),Halloween (1978 film),film,
+mean-girls,Mean Girls,Mean Girls,film,
+groundhog-day-film,Groundhog Day (film),Groundhog Day (film),film,
+jaws,Jaws (film),Jaws,film,
+titanic,Titanic (1997 film),Titanic,film,
+wizard-of-oz,The Wizard of Oz (1939 film),The Wizard of Oz,film,
+back-to-the-future,Back to the Future,Back to the Future,film,
+a-christmas-story,A Christmas Story,A Christmas Story,film,
+gremlins,Gremlins,Gremlins,film,
+the-shining,The Shining (film),The Shining,film,
+ghostbusters,Ghostbusters,Ghostbusters,film,
+the-holiday,The Holiday,The Holiday,film,
+wicked-2024,Wicked (2024 film),Wicked,film,
+wicked-for-good,Wicked: For Good,Wicked: For Good,film,
+oppenheimer,Oppenheimer (film),Oppenheimer,film,
+barbie,Barbie (film),Barbie,film,
+avatar-fire-and-ash,Avatar: Fire and Ash,Avatar: Fire and Ash,film,
+avengers-doomsday,Avengers: Doomsday,Avengers: Doomsday,film,
+the-odyssey,The Odyssey (2026 film),The Odyssey,film,
+toy-story-5,Toy Story 5,Toy Story 5,film,
+super-mario-galaxy-movie,The Super Mario Galaxy Movie,The Super Mario Galaxy Movie,film,
+zootopia-2,Zootopia 2,Zootopia 2,film,Zootropolis 2
+minecraft-movie,A Minecraft Movie,A Minecraft Movie,film,
+devil-wears-prada-2,The Devil Wears Prada 2,The Devil Wears Prada 2,film,
+spider-man-brand-new-day,Spider-Man: Brand New Day,Spider-Man: Brand New Day,film,
+kpop-demon-hunters,KPop Demon Hunters,KPop Demon Hunters,film,K-Pop Demon Hunters
+frankenstein-2025,Frankenstein (2025 film),Frankenstein (2025 film),film,
+one-battle-after-another,One Battle After Another,One Battle After Another,film,
+marty-supreme,Marty Supreme,Marty Supreme,film,
+hamnet,Hamnet (film),Hamnet,film,
+sinners,Sinners (2025 film),Sinners,film,
+dune-part-three,Dune: Part Three,Dune: Part Three,film,
+stranger-things,Stranger Things,Stranger Things,tv series,
+last-of-us-tv,The Last of Us (TV series),The Last of Us,tv series,
+squid-game,Squid Game,Squid Game,tv series,
+wednesday,Wednesday (TV series),Wednesday,tv series,
+white-lotus,The White Lotus,The White Lotus,tv series,
+severance,Severance (TV series),Severance,tv series,
+the-bear,The Bear (TV series),The Bear,tv series,
+house-of-the-dragon,House of the Dragon,House of the Dragon,tv series,
+game-of-thrones,Game of Thrones,Game of Thrones,tv series,
+bridgerton,Bridgerton,Bridgerton,tv series,
+the-boys,The Boys (TV series),The Boys,tv series,
+euphoria,Euphoria (American TV series),Euphoria,tv series,
+snl,Saturday Night Live,Saturday Night Live,tv series,SNL
+strictly,Strictly Come Dancing,Strictly Come Dancing,tv series,Strictly
+bake-off,The Great British Bake Off,The Great British Bake Off,tv series,Bake Off
+doctor-who,Doctor Who,Doctor Who,tv series,
+the-simpsons,The Simpsons,The Simpsons,tv series,Simpsons
+south-park,South Park,South Park,tv series,
+peaky-blinders,Peaky Blinders,Peaky Blinders,tv series,
+andor,Andor (TV series),Andor,tv series,
+fallout-tv,Fallout (American TV series),Fallout (TV series),tv series,
+reacher,Reacher (TV series),Reacher,tv series,
+the-pitt,The Pitt,The Pitt,tv series,
+only-murders,Only Murders in the Building,Only Murders in the Building,tv series,
+abbott-elementary,Abbott Elementary,Abbott Elementary,tv series,
+survivor,Survivor (American TV series),Survivor,tv series,
+american-idol,American Idol,American Idol,tv series,
+dwts,Dancing with the Stars (American TV series),Dancing with the Stars,tv series,DWTS
+charlie-brown-christmas,A Charlie Brown Christmas,A Charlie Brown Christmas,tv series,
+gilmore-girls,Gilmore Girls,Gilmore Girls,tv series,
+taskmaster,Taskmaster (TV series),Taskmaster,tv series,
+the-witcher,The Witcher (TV series),The Witcher,tv series,
+one-piece-tv,One Piece (2023 TV series),One Piece (TV series),tv series,
+slow-horses,Slow Horses (TV series),Slow Horses,tv series,
+the-gilded-age,The Gilded Age (TV series),The Gilded Age,tv series,
+minecraft,Minecraft,Minecraft,video game,
+fortnite,Fortnite,Fortnite,video game,
+gta-6,Grand Theft Auto VI,Grand Theft Auto VI,video game,GTA 6|GTA VI
+pokemon,Pokémon,Pokémon,video game,Pokemon
+roblox,Roblox,Roblox,video game,
+elden-ring,Elden Ring,Elden Ring,video game,
+zelda,The Legend of Zelda,The Legend of Zelda,video game,Zelda
+mario-kart-world,Mario Kart World,Mario Kart World,video game,
+battlefield-6,Battlefield 6,Battlefield 6,video game,
+call-of-duty,Call of Duty,Call of Duty,video game,COD
+among-us,Among Us,Among Us,video game,
+tetris,Tetris,Tetris,video game,
+pac-man,Pac-Man,Pac-Man,video game,Pacman
+super-mario-bros,Super Mario Bros.,Super Mario Bros.,video game,
+wordle,Wordle,Wordle,video game,
+hollow-knight-silksong,Hollow Knight: Silksong,Hollow Knight: Silksong,video game,Silksong
+switch-2,Nintendo Switch 2,Nintendo Switch 2,technology,
+iphone,IPhone,iPhone,technology,
+playstation-5,PlayStation 5,PlayStation 5,technology,PS5
+bitcoin,Bitcoin,Bitcoin,technology,BTC
+dogecoin,Dogecoin,Dogecoin,technology,
+chatgpt,ChatGPT,ChatGPT,technology,
+spotify-wrapped,Spotify Wrapped,Spotify Wrapped,technology,
+starship,SpaceX Starship,SpaceX Starship,science,Starship
+artemis-2,Artemis II,Artemis II,science,Artemis 2
+jwst,James Webb Space Telescope,James Webb Space Telescope,science,JWST|Webb
+iss,International Space Station,International Space Station,science,ISS
+aurora,Aurora,Aurora,science,Northern lights|Aurora borealis
+solar-eclipse,Solar eclipse,Solar eclipse,science,
+lunar-eclipse,Lunar eclipse,Lunar eclipse,science,Blood moon
+supermoon,Supermoon,Supermoon,science,
+perseids,Perseids,Perseids,science,Perseid meteor shower
+geminids,Geminids,Geminids,science,Geminid meteor shower
+3i-atlas,3I/ATLAS,3I/ATLAS,science,
+eclipse-2026,"Solar eclipse of August 12, 2026","Solar eclipse of August 12, 2026",science,
+pluto,Pluto,Pluto,science,
+times-square,Times Square,Times Square,place,
+stonehenge,Stonehenge,Stonehenge,place,
+eiffel-tower,Eiffel Tower,Eiffel Tower,place,
+notre-dame,Notre-Dame de Paris,Notre-Dame de Paris,place,Notre Dame
+mount-everest,Mount Everest,Mount Everest,place,Everest
+greenland,Greenland,Greenland,place,
+panama-canal,Panama Canal,Panama Canal,place,
+sphere,Sphere (venue),Sphere (Las Vegas),place,Las Vegas Sphere
+machu-picchu,Machu Picchu,Machu Picchu,place,
+niagara-falls,Niagara Falls,Niagara Falls,place,
+area-51,Area 51,Area 51,place,
+bermuda-triangle,Bermuda Triangle,Bermuda Triangle,place,
+easter-island,Easter Island,Easter Island,place,Rapa Nui
+christmas-island,Christmas Island,Christmas Island,place,
+transylvania,Transylvania,Transylvania,place,
+salem,"Salem, Massachusetts","Salem, Massachusetts",place,
+rovaniemi,Rovaniemi,Rovaniemi,place,
+bethlehem,Bethlehem,Bethlehem,place,
+punxsutawney,"Punxsutawney, Pennsylvania","Punxsutawney, Pennsylvania",place,
+augusta-national,Augusta National Golf Club,Augusta National Golf Club,place,
+cortina,Cortina d'Ampezzo,Cortina d'Ampezzo,place,
+sistine-chapel,Sistine Chapel,Sistine Chapel,place,
+santa-claus,Santa Claus,Santa Claus,folklore,Father Christmas
+krampus,Krampus,Krampus,folklore,
+easter-bunny,Easter Bunny,Easter Bunny,folklore,
+jack-o-lantern,Jack-o'-lantern,Jack-o'-lantern,folklore,
+rudolph,Rudolph the Red-Nosed Reindeer,Rudolph the Red-Nosed Reindeer,folklore,Rudolph
+punxsutawney-phil,Punxsutawney Phil,Punxsutawney Phil,folklore,
+cupid,Cupid,Cupid,folklore,
+leprechaun,Leprechaun,Leprechaun,folklore,
+dracula,Dracula,Dracula,folklore,
+loch-ness-monster,Loch Ness Monster,Loch Ness Monster,folklore,Nessie
+sinterklaas,Sinterklaas,Sinterklaas,folklore,
+grinch,The Grinch,The Grinch,folklore,Grinch
+mistletoe,Mistletoe,Mistletoe,folklore,
+christmas-tree,Christmas tree,Christmas tree,folklore,
+advent-calendar,Advent calendar,Advent calendar,folklore,
+pumpkin-spice,Pumpkin spice,Pumpkin spice,food,
+eggnog,Eggnog,Eggnog,food,
+candy-corn,Candy corn,Candy corn,food,
+hot-cross-bun,Hot cross bun,Hot cross bun,food,
+mooncake,Mooncake,Mooncake,food,
+pancake,Pancake,Pancake,food,
+haggis,Haggis,Haggis,food,
+turkey-dinner,Turkey as food,Turkey (food),food,
+corned-beef,Corned beef,Corned beef,food,
+albert-einstein,Albert Einstein,Albert Einstein,public figure,Einstein
+charles-darwin,Charles Darwin,Charles Darwin,public figure,Darwin
+mlk,Martin Luther King Jr.,Martin Luther King Jr.,public figure,MLK
+abraham-lincoln,Abraham Lincoln,Abraham Lincoln,public figure,Lincoln
+saint-patrick,Saint Patrick,Saint Patrick,public figure,St Patrick
+saint-valentine,Saint Valentine,Saint Valentine,public figure,St Valentine
+guy-fawkes,Guy Fawkes,Guy Fawkes,public figure,
+robert-burns,Robert Burns,Robert Burns,public figure,Rabbie Burns
+shakespeare,William Shakespeare,William Shakespeare,public figure,Shakespeare
+nikola-tesla,Nikola Tesla,Nikola Tesla,public figure,Tesla
+ada-lovelace,Ada Lovelace,Ada Lovelace,public figure,
+alan-turing,Alan Turing,Alan Turing,public figure,
+david-attenborough,David Attenborough,David Attenborough,public figure,Attenborough
+gordon-ramsay,Gordon Ramsay,Gordon Ramsay,public figure,
+mrbeast,MrBeast,MrBeast,public figure,Mr Beast
+charles-iii,Charles III,Charles III,public figure,King Charles
+catherine,"Catherine, Princess of Wales","Catherine, Princess of Wales",public figure,Kate Middleton
+pope-leo-xiv,Pope Leo XIV,Pope Leo XIV,public figure,
+jimmy-kimmel,Jimmy Kimmel,Jimmy Kimmel,public figure,

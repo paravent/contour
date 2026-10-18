@@ -18,6 +18,9 @@ jobs:
       - run: python -m pytest -q generator/tests
       # One real puzzle end to end, so a broken generator shows up before it reaches main.
       - run: python generator/generate.py --out "$RUNNER_TEMP/puzzles" --start "$(date -u +%F)" --days 1
+      # The same for Spike, against the live Wikimedia APIs.
+      - run: python generator/generate_spike.py --out "$RUNNER_TEMP/spike" --start "$(date -u +%F)" --days 1
+      - run: python generator/generate_spike.py --check-pool
 
       - uses: actions/setup-node@v4
         with:
