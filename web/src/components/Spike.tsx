@@ -161,10 +161,10 @@ export function Spike() {
       )}
 
       <div class="monitor">
-        <SpikeChart views={puzzle.views} start={puzzle.start} spikes={puzzle.spikes} showScale={stage >= 1} showDates={stage >= 2} />
+        <SpikeChart views={puzzle.views} start={puzzle.start} spikes={puzzle.spikes} showScale={stage >= 1} showDates={stage >= 2}
+          channel={`CH ${String(stage + 1).padStart(2, '0')}/${String(STAGES).padStart(2, '0')}`} />
         <div class="scanlines" />
         <span class="bracket tl" /><span class="bracket tr" /><span class="bracket bl" /><span class="bracket br" />
-        <div class="hud tr-text">CH {String(stage + 1).padStart(2, '0')}/{String(STAGES).padStart(2, '0')}</div>
       </div>
 
       {!finished && (

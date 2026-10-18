@@ -7,10 +7,8 @@ type Props = { articles: Article[]; exclude: string[]; onGuess: (id: string) => 
 export function ArticleInput({ articles, exclude, onGuess }: Props) {
   const [query, setQuery] = useState('')
   const [active, setActive] = useState(0)
-  const matches = useMemo(
-    () => searchArticles(articles, query, 30).filter((a) => !exclude.includes(a.id)).slice(0, 6),
-    [articles, query, exclude],
-  )
+  const found = useMemo(() => searchArticles(articles, query, 30), [articles, query])
+  const matches = useMemo(() => found.filter((a) => !exclude.includes(a.id)).slice(0, 6), [found, exclude])
   const noMatch = query.trim().length >= 2 && matches.length === 0
 
   const submit = (a: Article | undefined) => {
@@ -48,7 +46,7 @@ export function ArticleInput({ articles, exclude, onGuess }: Props) {
               </button>
             </li>
           ))}
-          {noMatch && <li class="suggest-empty dim small">NOT IN INDEX · TRY ANOTHER NAME</li>}
+          {noMatch && <li class="suggest-empty dim small">{found.length ? 'ALREADY GUESSED' : 'NOT IN INDEX · TRY ANOTHER NAME'}</li>}
         </ul>
       )}
       <div class="prompt-row">

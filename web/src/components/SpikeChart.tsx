@@ -7,15 +7,16 @@ type Props = {
   spikes: number[]
   showScale: boolean // stage 2: label the y axis
   showDates: boolean // stage 3: months along the x axis, numbered spike markers
+  channel: string // top-right readout, e.g. "CH 02/06"
 }
 
 const W = 360
-const H = 230
-const PAD = { left: 38, right: 10, top: 22, bottom: 24 }
+const H = 240
+const PAD = { left: 38, right: 10, top: 34, bottom: 24 }
 const GLOW_DAYS = 4 // days either side of a spike drawn in magenta
 
 /** The pageview trace: a neon line on a monitor grid, with the spikes glowing magenta. */
-export function SpikeChart({ views, start, spikes, showScale, showDates }: Props) {
+export function SpikeChart({ views, start, spikes, showScale, showDates, channel }: Props) {
   const plotW = W - PAD.left - PAD.right
   const plotH = H - PAD.top - PAD.bottom
   const ticks = useMemo(() => niceTicks(Math.max(...views)), [views])
@@ -75,6 +76,8 @@ export function SpikeChart({ views, start, spikes, showScale, showDates }: Props
         </g>
       ))}
 
+      <text x={W - PAD.right} y={14} text-anchor="end" class="spike-axis reveal">{channel}</text>
+      <text x={PAD.left} y={14} class="spike-axis">VIEWS/DAY</text>
       <circle cx={x(last)} cy={y(views[last])} r="2.6" class="spike-blip" />
     </svg>
   )

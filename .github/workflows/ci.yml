@@ -19,17 +19,7 @@ jobs:
       # One real puzzle end to end, so a broken generator shows up before it reaches main.
       - run: python generator/generate.py --out "$RUNNER_TEMP/puzzles" --start "$(date -u +%F)" --days 1
       # The same for Spike, against the live Wikimedia APIs.
-      - run: python generator/generate_spike.py --out "$RUNNER_TEMP/spike" --start "$(date -u +%F)" --days 3
-      # TEMP: inspect the real puzzle (dev seed, so nothing secret).
-      - run: |
-          python - <<'PY'
-          import base64, json, pathlib, statistics
-          for f in sorted(pathlib.Path("${{ runner.temp }}/spike").glob("*/puzzle.json")):
-              p = json.loads(f.read_text()); s = json.loads(base64.b64decode(p["secret"]))
-              v = p["views"]
-              print(f"::notice::DEBUG {p['date']} {s['name']} [{s['category']}] desc={s['description']!r} n={len(v)} start={p['start']} median={statistics.median(v)} peak={max(v)} spikes={p['spikes']} extract={s['extract'][:80]!r}")
-              import zlib; print("::notice::BLOB " + base64.b64encode(zlib.compress(f.read_bytes(), 9)).decode())
-          PY
+      - run: python generator/generate_spike.py --out "$RUNNER_TEMP/spike" --start "$(date -u +%F)" --days 1
 
       - uses: actions/setup-node@v4
         with:
