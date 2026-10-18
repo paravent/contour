@@ -33,7 +33,8 @@ def generate_day(date, cities, names, launch, seed, out, tiles):
     # the day to another one. Checks are deterministic, so every run agrees.
     for city in candidates(rotation(cities, seed), number):
         try:
-            _, stats = build(city, names[city.country], date, number, seed, out, tiles)
+            debug = (lambda m: print(f"::notice::{city.id} {m}")) if os.environ.get("NIGHT_LIGHTS_DEBUG") else None
+            _, stats = build(city, names[city.country], date, number, seed, out, tiles, debug)
         except Rejected as e:
             print(f"{date} #{number}: skipped {e}", file=sys.stderr)
             continue

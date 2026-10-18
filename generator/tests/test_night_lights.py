@@ -126,8 +126,9 @@ def test_build_writes_six_stages_with_the_answer_off_centre(tmp_path):
         assert (day / s["image"]).stat().st_size <= MAX_IMAGE_BYTES
         assert Image.open(day / s["image"]).size == (SIZE, SIZE)
     secret = json.loads(base64.b64decode(puzzle["secret"]))
+    fx, fy = jitter("seed", date)
     assert secret == {"cityId": "testville", "city": "Testville", "country": "FRA", "countryName": "France",
-                      "lat": 45.0, "lon": 5.0, "letter": "T"}
+                      "lat": 45.0, "lon": 5.0, "letter": "T", "x": round(0.5 + fx, 4), "y": round(0.5 + fy, 4)}
     assert stats["lit"] > 0.06
 
     # The glow peak in stage 1 sits at the jittered spot, not the centre.

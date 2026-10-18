@@ -138,7 +138,7 @@ def encode_jpeg(rgb: np.ndarray, limit=MAX_IMAGE_BYTES) -> bytes:
     raise Rejected(f"image is {buf.tell()} bytes even at quality {quality}")
 
 
-def build(city: City, country_name: str, date: dt.date, number: int, seed: str, out_dir: Path, tiles: TileCache):
+def build(city: City, country_name: str, date: dt.date, number: int, seed: str, out_dir: Path, tiles: TileCache, debug=None):
     fx, fy = jitter(seed, date)
 
     files, stages, stats = {}, [], {}
@@ -154,6 +154,15 @@ def build(city: City, country_name: str, date: dt.date, number: int, seed: str, 
             stats["lit"] = check_lit(lum, ax, ay, city.id)
             stats["p50"], stats["p90"], stats["p99"] = (round(float(v)) for v in np.percentile(lum, [50, 90, 99]))
 
+        if debug is not None:
+            lum = luminance(view.rgb)
+            small = np.asarray(Image.fromarray(lum.astype(np.uint8)).resize((48, 24), Image.BOX), dtype=np.float32)
+            ramp = " .:-=+*#%@"
+            art = "%0A".join("".join(ramp[min(9, int(v / 25.6))] for v in row) for row in small)
+            pct = [round(float(v)) for v in np.percentile(lum, [5, 25, 50, 75, 95])]
+            rgb_med = [round(float(v)) for v in np.median(view.rgb.reshape(-1, 3), axis=0)]
+            debug(f"stage{i} z{view.zoom} lum p5/25/50/75/95 {pct} rgb median {rgb_med}%0A{art}")
+
         name = f"stage{i}.jpg"
         files[name] = encode_jpeg(glow(view.rgb))
         stages.append({"image": name, "widthKm": w})
@@ -166,6 +175,9 @@ def build(city: City, country_name: str, date: dt.date, number: int, seed: str, 
         "lat": city.lat,
         "lon": city.lon,
         "letter": city.name[0].upper(),
+        # Where the city sits in every stage, as fractions of width and height, for the result marker.
+        "x": round(0.5 + fx, 4),
+        "y": round(0.5 + fy, 4),
     }
     puzzle = {
         "game": GAME,
