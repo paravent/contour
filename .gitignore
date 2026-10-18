@@ -1,0 +1,4 @@
+__pycache__/
+.pytest_cache/
+generator/.cache/
+.DS_Store
