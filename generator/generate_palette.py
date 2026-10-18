@@ -44,7 +44,8 @@ def generate_day(date, paintings, launch, seed, out, cache):
         painting = order[(number - 1 + k) % len(order)]
         try:
             build(painting, date, number, out, cache)
-            annotate("notice", f"palette {date} #{number} ok {painting.title}")
+            # No title: annotations on the daily job are public, and this would name the answer.
+            annotate("notice", f"palette {date} #{number} ok")
             return
         except Rejected as e:
             annotate("warning", f"palette {date} #{number}: skipped {e}")
