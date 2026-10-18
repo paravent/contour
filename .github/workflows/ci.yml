@@ -25,6 +25,8 @@ jobs:
           name: night-lights-sample
           path: ${{ runner.temp }}/night-lights
           retention-days: 7
+      # The same for Spike, against the live Wikimedia APIs.
+      - run: python generator/generate_spike.py --out "$RUNNER_TEMP/spike" --start "$(date -u +%F)" --days 1
 
       - uses: actions/setup-node@v4
         with:

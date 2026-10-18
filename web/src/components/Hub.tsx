@@ -8,6 +8,8 @@ const OFFLINE = [
   {
     n: '02',
     name: 'SPIKE',
+    game: 'spike',
+    href: '#/spike',
     art: (
       <svg width="64" height="22" viewBox="0 0 64 22" aria-hidden="true">
         <path d="M0 19 L14 18 L20 17 L24 6 L27 16 L36 15 L40 2 L43 15 L52 16 L64 17" fill="none" stroke="#6FE3B5" stroke-width="1.6" />
@@ -26,7 +28,6 @@ const OFFLINE = [
   {
     n: '04',
     name: 'NIGHT LIGHTS',
-    href: '#/night-lights',
     art: (
       <svg width="64" height="22" viewBox="0 0 64 22" aria-hidden="true">
         <circle cx="32" cy="11" r="9" fill="#F2C66D" opacity="0.2" /><circle cx="32" cy="11" r="4" fill="#F2C66D" />
@@ -36,11 +37,7 @@ const OFFLINE = [
   },
 ]
 
-/** A live row's tag: what today's puzzle in that game is waiting for. */
-function rowTag(game: string) {
-  const s = loadDay(game, localDate()).status
-  return s === 'won' ? 'SOLVED' : s === 'lost' ? 'REVIEW' : 'RUN'
-}
+const TAG = { playing: 'RUN', won: 'SOLVED', lost: 'REVIEW' } as const
 
 export function Hub() {
   const today = localDate()
@@ -53,6 +50,7 @@ export function Hub() {
   }, [])
 
   const played = day.status !== 'playing'
+  const live = OFFLINE.flatMap((m) => (m.game ? [m.game] : []))
 
   return (
     <main class="deck">
@@ -83,12 +81,13 @@ export function Hub() {
       </a>
 
       <div class="module-list">
-        {OFFLINE.map((m) => m.href ? (
-          <a key={m.n} href={m.href} class="module-row">
+        {OFFLINE.map((m) => m.game ? (
+          // A live module: same row, linked, with today's status instead of OFFLINE.
+          <a key={m.n} href={m.href} class="module-row live">
             <span class="dim small">{m.n}</span>
-            <span class="module-row-name">{m.name}</span>
+            <span class="module-row-name cyan">{m.name}</span>
             {m.art}
-            <span class="tag">{rowTag(m.href.slice(2))}</span>
+            <span class="tag">{TAG[loadDay(m.game, today).status]}</span>
           </a>
         ) : (
           <div key={m.n} class="module-row">
@@ -102,8 +101,8 @@ export function Hub() {
 
       <div class="push" />
       <div class="row between dim small">
-        <span>MODULES 1/4 ONLINE</span>
-        <span>PLAYED TODAY {played ? 1 : 0}/1</span>
+        <span>MODULES {1 + live.length}/4 ONLINE</span>
+        <span>PLAYED TODAY {(played ? 1 : 0) + live.filter((g) => loadDay(g, today).status !== 'playing').length}/{1 + live.length}</span>
       </div>
     </main>
   )

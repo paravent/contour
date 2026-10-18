@@ -27,6 +27,18 @@ The fourth game, at `#/night-lights`: find the city from satellite imagery of th
 - **Schedule.** Same seed and launch date as Contour, with its own shuffle. If the first view is too dark (too little of it lit, or the city itself unlit), the day goes to another city further down the shuffle.
 - **Generating.** `python generator/generate_night_lights.py --out web/public/puzzles/night-lights` (yesterday, today and tomorrow UTC; `--start` and `--days` as for Contour). Set `NIGHT_LIGHTS_DEBUG=1` to print per-stage brightness stats and an ASCII preview as GitHub annotations.
 
+## Spike
+
+The second daily game. You see a year of daily pageviews for one English Wikipedia article, drawn as a neon trace, and have six guesses to name it. Each wrong guess unlocks a clue: the y-axis scale, the dates of the spikes, the article's category and short description, the shape of its name, then its first letter. Guesses come from a type-ahead over the answer pool, and a wrong guess in the right category lights up amber.
+
+- **Data.** Daily views come from the [Wikimedia pageviews API](https://doc.wikimedia.org/generated-data-platform/aqs/analytics-api/) (human readers only) and the description and intro from the Wikipedia Action API. Each chart ends 10 days before its puzzle date, so the daily job's week ahead only uses days that are already published and every run picks the same article.
+- **Pool.** `generator/spike_pool.csv` holds a few hundred well-known articles (exact Wikipedia title, display name, category, aliases). After editing it, refresh the game's search list with `python generator/generate_spike.py --export-pool web/public/data/spike-articles.json`, and audit it against live data with `python generator/generate_spike.py --check-pool`.
+- **Schedule.** Like Contour: a seeded shuffle of the pool, and an article whose chart has missing days, too few readers or no clear spike hands its day to the next one.
+
+```sh
+python generator/generate_spike.py --out web/public/puzzles/spike   # yesterday, today, tomorrow (UTC)
+```
+
 ## One-time setup
 
 1. **Settings → Pages → Build and deployment → Source: GitHub Actions.**
