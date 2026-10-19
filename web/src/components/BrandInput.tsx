@@ -1,10 +1,12 @@
-import { useMemo, useState } from 'preact/hooks'
-import { type Brand, searchBrands } from '../lib/logos'
+import { useMemo, useRef, useState } from 'preact/hooks'
+import { BitCaret } from './Bit'
+import { type Brand, MAX_GUESSES, searchBrands } from '../lib/logos'
 
 type Props = { brands: Brand[]; exclude: string[]; onGuess: (id: string) => void }
 
 export function BrandInput({ brands, exclude, onGuess }: Props) {
   const [query, setQuery] = useState('')
+  const field = useRef<HTMLInputElement>(null)
   const [active, setActive] = useState(0)
   const matches = useMemo(
     () => searchBrands(brands, query, 12).filter((b) => !exclude.includes(b.id)).slice(0, 5),
@@ -49,6 +51,7 @@ export function BrandInput({ brands, exclude, onGuess }: Props) {
         <div class="prompt-field">
           <span class="cyan" aria-hidden="true">&gt;</span>
           <input
+            ref={field}
             id="guess"
             type="text"
             autocomplete="off"
@@ -62,6 +65,7 @@ export function BrandInput({ brands, exclude, onGuess }: Props) {
             onInput={(e) => { setQuery((e.target as HTMLInputElement).value); setActive(0) }}
             onKeyDown={onKeyDown}
           />
+          <BitCaret input={field} value={query} misses={exclude.length} max={MAX_GUESSES} found={matches.length > 0} />
         </div>
         <button type="submit" class="exec" disabled={matches.length === 0}>EXEC</button>
       </div>

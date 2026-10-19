@@ -100,8 +100,8 @@ describe('logos secret and share text', () => {
   it('shows tries and one square per guess, never the answer', () => {
     const target = answer(POOL[0])
     const results = [compareBrand(POOL[5], target), compareBrand(POOL[2], target), compareBrand(POOL[0], target)]
-    expect(logosShareText(4, results, true)).toBe('LOGOS #4 3/6\n⬛🟧🟦')
-    expect(logosShareText(4, results.slice(0, 2), false)).toBe('LOGOS #4 X/6\n⬛🟧')
+    expect(logosShareText(4, results, true)).toBe('▮ LOGOS #4 3/6\n⬛🟧🟦')
+    expect(logosShareText(4, results.slice(0, 2), false)).toBe('▮ LOGOS #4 X/6\n⬛🟧')
     expect(logosShareText(4, results, true)).not.toMatch(/mcdonald/i)
   })
 })

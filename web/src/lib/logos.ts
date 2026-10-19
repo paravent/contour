@@ -1,4 +1,5 @@
 import { normalise } from './puzzle'
+import { BIT } from './share'
 
 export type LogoStage = { image: string; kind: 'grid' | 'blur'; grid?: [number, number] }
 
@@ -132,5 +133,5 @@ const SQUARE: Record<Closeness, string> = { hit: '🟦', near: '🟨', mid: '�
 
 export function logosShareText(number: number, results: BrandResult[], won: boolean): string {
   const tries = won ? `${results.length}/${MAX_GUESSES}` : `X/${MAX_GUESSES}`
-  return `LOGOS #${number} ${tries}\n${results.map((r) => SQUARE[brandCloseness(r)]).join('')}`
+  return `${BIT} LOGOS #${number} ${tries}\n${results.map((r) => SQUARE[brandCloseness(r)]).join('')}`
 }
