@@ -188,7 +188,7 @@ def test_fetch_caches_the_image_and_network_errors_fail(tmp_path, monkeypatch):
 
 def test_pool_is_unique_and_complete():
     pool = puzzle.load_pool(POOL)
-    assert 150 <= len(pool) <= 400
+    assert 150 <= len(pool) <= 260
     assert len({b.id for b in pool}) == len(pool)
     assert len({puzzle.plain(b.name) for b in pool}) == len(pool)
     files = [commons.file_key(b.file) for b in pool if b.file]
@@ -202,6 +202,7 @@ def test_pool_is_unique_and_complete():
 def test_wordmarks_and_brands_without_a_file_are_guessable_but_never_answers():
     pool = puzzle.load_pool(POOL)
     answers = puzzle.answer_pool(pool)
+    assert len(answers) >= 40
     assert all(b.file and not b.wordmark for b in answers)
     guessable = puzzle.guess_list(pool)
     assert len(guessable) == len(pool)

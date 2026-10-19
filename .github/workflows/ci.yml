@@ -48,20 +48,3 @@ jobs:
       - run: npm run build
         working-directory: web
 
-  # TEMPORARY: contact sheets of candidate logos for choosing the pool (removed before merge).
-  logos-survey:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        shard: [0, 1, 2, 3, 4, 5, 6]
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - run: pip install -r generator/requirements.txt
-      - run: python generator/_logo_survey.py ${{ matrix.shard }} 7 0 mercedes-benz,audi,toyota,honda,nissan,mitsubishi,mazda,subaru,renault,citroen,peugeot,opel,hyundai,lexus,ferrari,lamborghini,porsche,maserati,alfa-romeo,jaguar,bentley,rolls-royce,skoda,chevrolet,volvo,michelin,shell,bp,chevron,texaco,nike,adidas,puma,reebok,lacoste,north-face,air-jordan,new-balance,converse,gucci,chanel,louis-vuitton,versace,ralph-lauren,tommy-hilfiger,rolex,twitter,starbucks,mcdonalds,kfc,pepsi,dominos,pizza-hut,wendys,playstation,xbox,atari,dreamworks,pixar,paramount,disney,warner-bros,dc-comics,delta,american-airlines,united-airlines,lufthansa,qantas,turkish-airlines,mastercard,paypal,hsbc,barclays,santander,deutsche-bank,ubs,citi,bank-of-america,dhl,fedex,ups,maersk,unilever,procter-gamble,dove,3m,reddit,snapchat,discord,duolingo,dropbox,airbnb,amazon,tinder,motorola,huawei,intel,nvidia,cisco,monster,red-bull,heineken,guinness,corona,bacardi,jagermeister,nestle,pringles,quaker,lg,samsung,android,emirates,klm,air-france,british-airways,hp,sony,microsoft,chick-fil-a,taco-bell,burger-king
-        if: always()
-      - run: python generator/_logo_survey.py ${{ matrix.shard }} 7 1 mercedes-benz,audi,toyota,honda,nissan,mitsubishi,mazda,subaru,renault,citroen,peugeot,opel,hyundai,lexus,ferrari,lamborghini,porsche,maserati,alfa-romeo,jaguar,bentley,rolls-royce,skoda,chevrolet,volvo,michelin,shell,bp,chevron,texaco,nike,adidas,puma,reebok,lacoste,north-face,air-jordan,new-balance,converse,gucci,chanel,louis-vuitton,versace,ralph-lauren,tommy-hilfiger,rolex,twitter,starbucks,mcdonalds,kfc,pepsi,dominos,pizza-hut,wendys,playstation,xbox,atari,dreamworks,pixar,paramount,disney,warner-bros,dc-comics,delta,american-airlines,united-airlines,lufthansa,qantas,turkish-airlines,mastercard,paypal,hsbc,barclays,santander,deutsche-bank,ubs,citi,bank-of-america,dhl,fedex,ups,maersk,unilever,procter-gamble,dove,3m,reddit,snapchat,discord,duolingo,dropbox,airbnb,amazon,tinder,motorola,huawei,intel,nvidia,cisco,monster,red-bull,heineken,guinness,corona,bacardi,jagermeister,nestle,pringles,quaker,lg,samsung,android,emirates,klm,air-france,british-airways,hp,sony,microsoft,chick-fil-a,taco-bell,burger-king
-        if: always()
