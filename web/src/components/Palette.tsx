@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'preact/hooks'
+import { Bit } from './Bit'
 import { localDate, untilMidnight } from '../lib/day'
 import {
   CLUE_STAGE,
@@ -270,6 +271,7 @@ export function Palette() {
 
       {finished && (
         <div class="terminal">
+          <Bit mood={day.status === 'won' ? 'happy' : 'sad'} blink={false} class="bit-result" />
           <div class="dim">$ share --canvas {puzzle.number}</div>
           <div>
             PALETTE #{puzzle.number} <span class="dim">·</span> {won ? `${day.guesses.length}/${MAX_GUESSES}` : `X/${MAX_GUESSES}`}

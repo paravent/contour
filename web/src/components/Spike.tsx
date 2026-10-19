@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'preact/hooks'
+import { Bit } from './Bit'
 import { addDays, localDate, untilMidnight } from '../lib/day'
 import { MAX_GUESSES } from '../lib/puzzle'
 import {
@@ -250,6 +251,7 @@ export function Spike() {
 
       {finished && (
         <div class="terminal">
+          <Bit mood={day.status === 'won' ? 'happy' : 'sad'} blink={false} class="bit-result" />
           <div class="dim">$ share --trace {puzzle.number}</div>
           <div>SPIKE #{puzzle.number} <span class="dim">·</span> {day.status === 'won' ? `${day.guesses.length}/${MAX_GUESSES}` : `X/${MAX_GUESSES}`}</div>
           <div class="squares" aria-label="Your guesses: right category or not">
