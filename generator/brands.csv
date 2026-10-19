@@ -1,0 +1,251 @@
+id,name,wiki,qid,file,industry,country,founded,wordmark,aliases
+apple,Apple,Apple Inc.,Q312,Apple logo black.svg,Tech,United States,1976,,
+microsoft,Microsoft,Microsoft,Q2283,Microsoft icon.svg,Tech,United States,1975,,
+ibm,IBM,IBM,Q37156,IBM logo.svg,Tech,United States,1911,yes,
+intel,Intel,Intel,Q248,Intel logo 2023.svg,Tech,United States,1968,yes,
+amd,AMD,AMD,Q128896,AMD Logo.svg,Tech,United States,1969,yes,Advanced Micro Devices
+nvidia,Nvidia,Nvidia,Q182477,,Tech,United States,1993,,
+samsung,Samsung,Samsung,Q20716,Samsung wordmark.svg,Tech,South Korea,1938,yes,
+sony,Sony,Sony,Q41187,Sony Group logo.svg,Tech,Japan,1946,yes,
+lg,LG,LG Electronics,Q162345,LG Electronics logo 2015 (english).svg,Tech,South Korea,1958,yes,
+dell,Dell,Dell,Q30873,Dell logo 2016.svg,Tech,United States,1984,yes,
+hp,HP,Hewlett-Packard,Q80978,HP logo 2025.svg,Tech,United States,1939,yes,Hewlett-Packard
+lenovo,Lenovo,Lenovo,Q14799,Lenovo logo (2015 onwards) 2.svg,Tech,China,1984,yes,
+huawei,Huawei,Huawei,Q160120,Huawei wordmark 2019.svg,Tech,China,1987,yes,
+xiaomi,Xiaomi,Xiaomi,Q1636958,Xiaomi logo (2021-).svg,Tech,China,2010,,
+canon,Canon,Canon Inc.,Q62621,Canon wordmark.svg,Tech,Japan,1937,yes,
+philips,Philips,Philips,Q170416,Philips shield (2013).svg,Tech,Netherlands,1891,yes,
+motorola,Motorola,Motorola,Q259011,Motorola-Logo.svg,Tech,United States,1928,yes,
+nokia,Nokia,Nokia,Q1418,Nokia 2023.svg,Tech,Finland,1865,yes,
+blackberry,BlackBerry,BlackBerry Limited,Q502121,Blackberry Logo.svg,Tech,Canada,1984,yes,
+adobe,Adobe,Adobe Inc.,Q11463,Adobe Corporate Horizontal Red HEX.svg,Tech,United States,1982,,
+dyson,Dyson,Dyson (company),Q621429,Dyson logo.svg,Tech,United Kingdom,1991,yes,
+kodak,Kodak,Kodak,Q486269,Eastman Kodak Company logo (2016).svg,Tech,United States,1888,yes,
+google,Google,Google,Q95,Google Favicon 2025.svg,Internet,United States,1998,,
+youtube,YouTube,YouTube,Q866,YouTube full-color icon (2024).svg,Internet,United States,2005,,
+facebook,Facebook,Facebook,Q355,2023 Facebook icon.svg,Internet,United States,2004,,
+instagram,Instagram,Instagram,Q209330,Instagram logo 2022.svg,Internet,United States,2010,,
+whatsapp,WhatsApp,WhatsApp,Q1049511,WhatsApp Logo green.svg,Internet,United States,2009,,
+twitter,Twitter,Twitter,Q15718485,X logo twitter new brand icon.svg,Internet,United States,2006,,X
+tiktok,TikTok,TikTok,Q48938223,Tiktok logo text.svg,Internet,China,2016,yes,Douyin
+snapchat,Snapchat,Snapchat,Q333618,,Internet,United States,2011,,
+reddit,Reddit,Reddit,Q1136,Reddit wordmark.svg,Internet,United States,2005,yes,
+amazon,Amazon,Amazon (company),Q3884,Amazon 2024.svg,Internet,United States,1994,yes,
+ebay,eBay,EBay,Q58024,EBay logo.svg,Internet,United States,1995,yes,
+airbnb,Airbnb,Airbnb,Q63327,Airbnb Logo Bélo.svg,Internet,United States,2008,yes,
+uber,Uber,Uber,Q780442,Uber logo 2018.svg,Internet,United States,2009,yes,
+linkedin,LinkedIn,LinkedIn,Q213660,LinkedIn icon.svg,Internet,United States,2002,,
+pinterest,Pinterest,Pinterest,Q255381,Pinterest Logo 3.svg,Internet,United States,2009,yes,
+discord,Discord,Discord,Q22907849,Discord colour textlogo (2021).svg,Internet,United States,2015,yes,
+twitch,Twitch,Twitch (service),Q4555537,Twitch Glitch Logo Purple.svg,Internet,United States,2011,,
+zoom,Zoom,Zoom Communications,Q17460900,Zoom Communications Logo.svg,Internet,United States,2011,yes,
+skype,Skype,Skype,Q40984,Skype logo (2019–present).svg,Internet,Luxembourg,2003,,
+yahoo,Yahoo!,Yahoo,Q37093,Yahoo! (2019).svg,Internet,United States,1994,yes,Yahoo
+telegram,Telegram,Telegram (software),Q15616276,Telegram 2019 Logo.svg,Internet,Russia,2013,,
+dropbox,Dropbox,Dropbox,Q142539,Dropbox Icon.svg,Internet,United States,2007,,
+slack,Slack,Slack (software),Q17130715,Slack icon 2019.svg,Internet,United States,2013,,
+shopify,Shopify,Shopify,Q7501150,Shopify logo 2018.svg,Internet,Canada,2006,yes,
+tinder,Tinder,Tinder (app),Q15078152,Tinder icon (2026).svg,Internet,United States,2012,,
+duolingo,Duolingo,Duolingo,Q2918660,Duolingo logo (2019).svg,Internet,United States,2011,yes,
+mcdonalds,McDonald's,McDonald's,Q38076,McDonald's Golden Arches.svg,Fast food,United States,1940,,McDonalds
+burger-king,Burger King,Burger King,Q177054,Burger King 2020.svg,Fast food,United States,1954,yes,
+kfc,KFC,KFC,Q524757,KFC 2026 (wordmark).svg,Fast food,United States,1952,yes,Kentucky Fried Chicken
+subway,Subway,Subway (restaurant),Q244457,Subway 2016 logo.svg,Fast food,United States,1965,yes,
+pizza-hut,Pizza Hut,Pizza Hut,Q191615,Pizza Hut 2025.svg,Fast food,United States,1958,yes,
+dominos,Domino's,Domino's,Q839466,Domino's pizza logo.svg,Fast food,United States,1960,,Dominos Pizza
+starbucks,Starbucks,Starbucks,Q37158,Starbucks coffee wordmark.png,Fast food,United States,1971,yes,
+taco-bell,Taco Bell,Taco Bell,Q752941,1984TacoBellSign.svg,Fast food,United States,1962,yes,
+wendys,Wendy's,Wendy's,Q550258,Wendy's logo 2012.svg,Fast food,United States,1969,yes,Wendys
+dunkin,Dunkin',Dunkin' Donuts,Q847743,Dunkin' 2022.svg,Fast food,United States,1950,yes,Dunkin Donuts
+nandos,Nando's,Nando's,Q3472954,Nando's wordmark.svg,Fast food,South Africa,1987,yes,Nandos
+greggs,Greggs,Greggs,Q3403981,,Fast food,United Kingdom,1939,,
+krispy-kreme,Krispy Kreme,Krispy Kreme,Q1192805,,Fast food,United States,1937,,
+costa,Costa Coffee,Costa Coffee,Q608845,Costa Coffee Logo white on red.png,Fast food,United Kingdom,1971,yes,Costa
+pret,Pret A Manger,Pret a Manger,Q2109109,PretAManger logo.svg,Fast food,United Kingdom,1983,yes,Pret
+nestle,Nestlé,Nestlé,Q160746,Nestlé textlogo.svg,Food,Switzerland,1866,yes,Nestle
+kelloggs,Kellogg's,Kellogg's,Q130326112,Kellogg's-Logo.svg,Food,United States,1906,yes,Kelloggs
+heinz,Heinz,Heinz,Q850324,H. J. Heinz Company - Logo.svg,Food,United States,1869,yes,
+nutella,Nutella,Nutella,Q212193,Logo Nutella.svg,Food,Italy,1964,yes,
+oreo,Oreo,Oreo,Q138585,Oreologo2001.png,Food,United States,1912,yes,
+kitkat,KitKat,KitKat,Q367251,Logo of the KitKat.svg,Food,United Kingdom,1935,yes,Kit Kat
+cadbury,Cadbury,Cadbury,Q6677525,,Food,United Kingdom,1824,,
+mars,Mars,"Mars, Incorporated",Q695087,Mars Incorporated 2019 logo.svg,Food,United States,1911,yes,
+mms,M&M's,M&M's,Q739550,M&M's 2022.svg,Food,United States,1941,yes,M and Ms
+pringles,Pringles,Pringles,Q528187,Pringles logo.png,Food,United States,1967,yes,
+lays,Lay's,Lay's,Q723513,Lay's 2025.svg,Food,United States,1932,yes,Lays
+doritos,Doritos,Doritos,Q776795,,Food,United States,1964,,
+haribo,Haribo,Haribo,Q169552,Haribo Logo 2024.svg,Food,Germany,1920,yes,
+hersheys,Hershey's,The Hershey Company,Q1056637,HersheyCo.svg,Food,United States,1894,yes,Hersheys
+toblerone,Toblerone,Toblerone,Q215707,Toblerone logo22.svg,Food,Switzerland,1908,yes,
+ben-jerrys,Ben & Jerry's,Ben & Jerry's,Q816412,Ben & Jerry's.svg,Food,United States,1978,yes,Ben and Jerrys
+skittles,Skittles,Skittles (confectionery),Q868612,Skittles 1982.png,Food,United Kingdom,1974,yes,
+snickers,Snickers,Snickers,Q714179,Snickers 2025.svg,Food,United States,1930,yes,
+twix,Twix,Twix,Q869733,Twix logo 2025.svg,Food,United Kingdom,1967,yes,
+chupa-chups,Chupa Chups,Chupa Chups,Q938535,Chupa Chups logo (NO R).svg,Food,Spain,1958,yes,
+walkers,Walkers,Walkers (snack foods),Q1296097,,Food,United Kingdom,1948,,
+marmite,Marmite,Marmite,Q1331998,,Food,United Kingdom,1902,,
+coca-cola,Coca-Cola,Coca-Cola,Q2813,Coca-Cola logo.svg,Drinks,United States,1886,yes,Coke
+pepsi,Pepsi,Pepsi,Q47719,Pepsi 2023.svg,Drinks,United States,1893,yes,
+red-bull,Red Bull,Red Bull,Q51482,Logo of Red bull.svg,Drinks,Austria,1987,yes,
+monster,Monster Energy,Monster Energy,Q544293,,Drinks,United States,2002,,Monster
+sprite,Sprite,Sprite (drink),Q206978,Sprite 2026.svg,Drinks,United States,1961,yes,
+fanta,Fanta,Fanta,Q9935,Fanta 2023.svg,Drinks,Germany,1940,yes,
+7up,7 Up,7 Up,Q270059,7Up logo (2024).svg,Drinks,United States,1929,yes,Seven Up
+heineken,Heineken,Heineken,Q854383,Heineken logo.svg,Drinks,Netherlands,1864,yes,
+budweiser,Budweiser,Budweiser,Q610672,,Drinks,United States,1876,,
+guinness,Guinness,Guinness,Q194297,,Drinks,Ireland,1759,,
+corona,Corona,Corona (beer),Q864987,Corona Extra text logo.svg,Drinks,Mexico,1925,yes,
+jack-daniels,Jack Daniel's,Jack Daniel's,Q371068,,Drinks,United States,1866,,Jack Daniels
+bacardi,Bacardi,Bacardi,Q685395,,Drinks,Cuba,1862,,
+nescafe,Nescafé,Nescafé,Q503191,Nescafé logo 2014.svg,Drinks,Switzerland,1938,yes,Nescafe
+gatorade,Gatorade,Gatorade,Q304992,Gatorade logo.svg,Drinks,United States,1965,,
+lucozade,Lucozade,Lucozade,Q1110171,,Drinks,United Kingdom,1927,,
+nespresso,Nespresso,Nespresso,Q301301,Nespresso logo (monogram + wordmark).svg,Drinks,Switzerland,1986,yes,
+toyota,Toyota,Toyota,Q53268,Toyota.svg,Cars,Japan,1937,yes,
+honda,Honda,Honda,Q9584,Honda.svg,Cars,Japan,1948,yes,
+nissan,Nissan,Nissan,Q20165,Nissan brand wordmark.svg,Cars,Japan,1933,yes,
+ford,Ford,Ford Motor Company,Q44294,Ford logo flat.svg,Cars,United States,1903,yes,
+chevrolet,Chevrolet,Chevrolet,Q29570,Chevrolet simple logo.svg,Cars,United States,1911,yes,Chevy
+volkswagen,Volkswagen,Volkswagen,Q246,Volkswagen logo 2019.svg,Cars,Germany,1937,,VW
+bmw,BMW,BMW,Q26678,Logo BMW Group 2021.svg,Cars,Germany,1916,yes,
+mercedes-benz,Mercedes-Benz,Mercedes-Benz,Q36008,Mercedes-Benz Logo 2010.svg,Cars,Germany,1926,yes,Mercedes
+audi,Audi,Audi,Q23317,Audi-Logo 2016.svg,Cars,Germany,1909,,
+porsche,Porsche,Porsche,Q40993,Newporschecrest.jpg,Cars,Germany,1931,yes,
+ferrari,Ferrari,Ferrari,Q27586,Ferrari wordmark.svg,Cars,Italy,1947,yes,
+lamborghini,Lamborghini,Lamborghini,Q35886,"Lamborghini - logo wordmark+payoff (Italy, 1963-).svg",Cars,Italy,1963,yes,
+tesla,Tesla,"Tesla, Inc.",Q478214,Tesla T symbol.svg,Cars,United States,2003,,
+volvo,Volvo,Volvo Cars,Q215293,Volvo-Iron-Mark-Black.svg,Cars,Sweden,1927,yes,
+hyundai,Hyundai,Hyundai Motor Company,Q55931,Hyundai Motor Company logo.svg,Cars,South Korea,1967,yes,
+kia,Kia,Kia,Q35349,KIA logo3.svg,Cars,South Korea,1944,yes,
+mazda,Mazda,Mazda,Q35996,Mazda-Logo.png,Cars,Japan,1920,,
+mitsubishi,Mitsubishi,Mitsubishi Motors,Q36033,Mitsubishi logo.svg,Cars,Japan,1970,,
+peugeot,Peugeot,Peugeot,Q6742,,Cars,France,1810,,
+renault,Renault,Renault,Q6686,2021 Renault Group logo.svg,Cars,France,1899,yes,
+citroen,Citroën,Citroën,Q6746,Citroen 2021 (alternate).svg,Cars,France,1919,,Citroen
+fiat,Fiat,Fiat Automobiles,Q27597,FIAT logo coloured.svg,Cars,Italy,1899,yes,
+jeep,Jeep,Jeep,Q30113,Jeep wordmark.svg,Cars,United States,1941,yes,
+land-rover,Land Rover,Land Rover,Q35907,Land Rover 2023.svg,Cars,United Kingdom,1948,yes,
+jaguar,Jaguar,Jaguar Cars,Q30055,,Cars,United Kingdom,1922,,
+rolls-royce,Rolls-Royce,Rolls-Royce Motor Cars,Q234803,Rolls-Royce Motor Cars logo.svg,Cars,United Kingdom,1906,,Rolls Royce
+bentley,Bentley,Bentley,Q27224,,Cars,United Kingdom,1919,,
+aston-martin,Aston Martin,Aston Martin,Q27074,Aston Martin wordmark.svg,Cars,United Kingdom,1913,yes,
+mini,Mini,Mini (marque),Q116232,MINI logo.svg,Cars,United Kingdom,1969,yes,
+maserati,Maserati,Maserati,Q35962,Maserati logo 2.svg,Cars,Italy,1914,yes,
+skoda,Škoda,Škoda Auto,Q29637,Škoda nieuw.png,Cars,Czech Republic,1895,yes,Skoda
+opel,Opel,Opel,Q40966,Opel logo 2023.svg,Cars,Germany,1862,yes,Vauxhall
+lexus,Lexus,Lexus,Q35919,Lexus Logo.svg,Cars,Japan,1989,,
+harley-davidson,Harley-Davidson,Harley-Davidson,Q192814,Harley Davidson orange logo.svg,Cars,United States,1903,yes,Harley Davidson
+michelin,Michelin,Michelin,Q151107,Michelin Wordmark.svg,Cars,France,1889,yes,
+nike,Nike,"Nike, Inc.",Q483915,Logo NIKE.svg,Sportswear,United States,1964,,
+adidas,Adidas,Adidas,Q3895,Adidas 2022 logo.svg,Sportswear,Germany,1949,,
+puma,Puma,Puma (brand),Q157064,Puma-logo-(text).svg,Sportswear,Germany,1948,yes,
+reebok,Reebok,Reebok,Q466183,Reebok red logo.svg,Sportswear,United Kingdom,1958,,
+under-armour,Under Armour,Under Armour,Q2031485,Under armour logo.svg,Sportswear,United States,1996,yes,
+new-balance,New Balance,New Balance,Q742988,New Balance logo.svg,Sportswear,United States,1906,yes,
+converse,Converse,Converse (shoe company),Q319515,Converse logo.svg,Sportswear,United States,1908,yes,
+vans,Vans,Vans,Q1135366,Vans company logo.svg,Sportswear,United States,1966,yes,
+lacoste,Lacoste,Lacoste,Q309031,Logo Lacoste 2026.svg,Sportswear,France,1933,yes,
+north-face,The North Face,The North Face,Q152784,TheNorthFace logo.svg,Sportswear,United States,1966,yes,North Face
+air-jordan,Air Jordan,Air Jordan,Q420953,,Sportswear,United States,1984,,Jordan
+gucci,Gucci,Gucci,Q178516,1960s Gucci Logo.svg,Fashion,Italy,1921,,
+louis-vuitton,Louis Vuitton,Louis Vuitton,Q191485,Louis Vuitton LV logo.png,Fashion,France,1854,,LV
+chanel,Chanel,Chanel,Q218115,Chanel logo.svg,Fashion,France,1910,yes,
+prada,Prada,Prada,Q193136,Prada-Logo.svg,Fashion,Italy,1913,yes,
+burberry,Burberry,Burberry,Q390107,Logo Burberry 01.svg,Fashion,United Kingdom,1856,yes,
+ralph-lauren,Ralph Lauren,Ralph Lauren Corporation,Q1641437,Ralph Lauren logo.svg,Fashion,United States,1967,yes,Polo
+tommy-hilfiger,Tommy Hilfiger,Tommy Hilfiger (company),Q634881,Tommy Hilfiger logo.svg,Fashion,United States,1985,,
+levis,Levi's,Levi Strauss & Co.,Q127962,Levi's logo.svg,Fashion,United States,1853,yes,Levis
+zara,Zara,Zara (retailer),Q147662,Zara Logo.svg,Fashion,Spain,1975,yes,
+hm,H&M,H&M,Q188326,H&M-Logo.svg,Fashion,Sweden,1947,yes,H and M
+uniqlo,Uniqlo,Uniqlo,Q26070,Uniqlo logo Japanese.svg,Fashion,Japan,1984,yes,
+calvin-klein,Calvin Klein,Calvin Klein (fashion house),Q1068628,Calvin klein logo web23.svg,Fashion,United States,1968,yes,
+rolex,Rolex,Rolex,Q62288,Logo da Rolex.png,Fashion,Switzerland,1905,yes,
+ray-ban,Ray-Ban,Ray-Ban,Q653941,Ray-Ban logo 2.svg,Fashion,United States,1937,yes,Ray Ban
+crocs,Crocs,Crocs,Q926699,Crocs wordmark.svg,Fashion,United States,2002,yes,
+dr-martens,Dr. Martens,Dr. Martens,Q1126126,Dr. Martens Logo.svg,Fashion,United Kingdom,1960,yes,Doc Martens
+supreme,Supreme,Supreme (brand),Q1659229,Supreme Logo.svg,Fashion,United States,1994,yes,
+primark,Primark,Primark,Q137023,Primark Logo 2024.svg,Fashion,Ireland,1969,yes,
+walmart,Walmart,Walmart,Q483551,Walmart spark (2025).svg,Retail,United States,1962,,
+target,Target,Target Corporation,Q1046951,Target logo.svg,Retail,United States,1902,yes,
+ikea,IKEA,IKEA,Q54078,Ikea logo.svg,Retail,Sweden,1943,yes,
+costco,Costco,Costco,Q715583,Costco Wholesale logo 2010-10-26.svg,Retail,United States,1983,yes,
+tesco,Tesco,Tesco,Q487494,Tesco logo.png,Retail,United Kingdom,1919,yes,
+aldi,Aldi,Aldi,Q125054,AldiNord-WorldwideLogo.svg,Retail,Germany,1946,yes,
+lidl,Lidl,Lidl,Q151954,Lidl-Logo.svg,Retail,Germany,1973,yes,
+sainsburys,Sainsbury's,Sainsbury's,Q152096,Sainsbury's Logo.svg,Retail,United Kingdom,1869,yes,Sainsburys
+marks-spencer,Marks & Spencer,Marks & Spencer,Q714491,M&S logo.svg,Retail,United Kingdom,1884,yes,M&S
+seven-eleven,7-Eleven,7-Eleven,Q259340,7-Eleven logo 2021.svg,Retail,United States,1927,yes,Seven Eleven
+boots,Boots,Boots (company),Q6123139,,Retail,United Kingdom,1849,,
+argos,Argos,Argos (retailer),Q4789707,Argos logo.svg,Retail,United Kingdom,1973,yes,
+asda,Asda,Asda,Q297410,Asda Logo 2024 Dark Green.svg,Retail,United Kingdom,1965,yes,
+disney,Disney,The Walt Disney Company,Q7414,The Walt Disney Company Logo.svg,Media,United States,1923,yes,Walt Disney
+netflix,Netflix,Netflix,Q907311,Netflix icon.svg,Media,United States,1997,,
+spotify,Spotify,Spotify,Q689141,2024 Spotify logo without text.svg,Media,Sweden,2006,,
+bbc,BBC,BBC,Q9531,BBC Logo 2021.svg,Media,United Kingdom,1922,yes,
+cnn,CNN,CNN,Q48340,CNN Logo (2014).svg,Media,United States,1980,yes,
+warner-bros,Warner Bros.,Warner Bros.,Q137691184,,Media,United States,1923,,Warner Brothers
+paramount,Paramount,Paramount Pictures,Q159846,Paramount Pictures Logo 2025.svg,Media,United States,1912,yes,
+universal,Universal,Universal Pictures,Q168383,Universal Pictures 2021 (Blue).svg,Media,United States,1912,yes,
+20th-century,20th Century Studios,20th Century Studios,Q434841,20th Century Studios.svg,Media,United States,1935,yes,20th Century Fox
+pixar,Pixar,Pixar,Q127552,Pixar logo.svg,Media,United States,1986,yes,
+dreamworks,DreamWorks,DreamWorks Animation,Q500088,DreamWorks2016.svg,Media,United States,1994,yes,
+hbo,HBO,HBO,Q23633,HBO logo.svg,Media,United States,1972,yes,
+mtv,MTV,MTV,Q43359,MTV-2021.svg,Media,United States,1981,yes,
+marvel,Marvel,Marvel Comics,Q173496,Marvel Comics 2024 logo.svg,Media,United States,1939,yes,
+dc-comics,DC Comics,DC Comics,Q2924461,DC Comics 2024.svg,Media,United States,1934,yes,DC
+national-geographic,National Geographic,National Geographic,Q5973845,Natgeologo.svg,Media,United States,1888,yes,
+espn,ESPN,ESPN,Q217776,ESPN wordmark.svg,Media,United States,1979,yes,
+sky,Sky,Sky Group,Q918390,SKY Basic Logo.svg,Media,United Kingdom,1990,yes,
+nintendo,Nintendo,Nintendo,Q8093,Nintendo.svg,Games & toys,Japan,1889,yes,
+playstation,PlayStation,PlayStation,Q1323662,PlayStation logo and wordmark.svg,Games & toys,Japan,1994,yes,
+xbox,Xbox,Xbox,Q15281614,XBOX logo (2026).png,Games & toys,United States,2001,yes,
+pokemon,Pokémon,Pokémon,Q864,Poké Ball icon.svg,Games & toys,Japan,1996,,Pokemon
+ea,Electronic Arts,Electronic Arts,Q173941,Electronic Arts 2020.svg,Games & toys,United States,1982,yes,EA
+ubisoft,Ubisoft,Ubisoft,Q188273,Ubisoft logo.svg,Games & toys,France,1986,yes,
+rockstar,Rockstar Games,Rockstar Games,Q94912,Rockstar Games Logo.svg,Games & toys,United States,1998,,Rockstar
+epic-games,Epic Games,Epic Games,Q739711,Epic Games logo.svg,Games & toys,United States,1991,yes,Epic
+mattel,Mattel,Mattel,Q596139,Mattel (2019).svg,Games & toys,United States,1945,yes,
+lego,Lego,The Lego Group,Q1063455,LEGO logo.svg,Games & toys,Denmark,1932,yes,
+barbie,Barbie,Barbie,Q167447,Barbie Logo.svg,Games & toys,United States,1959,yes,
+hot-wheels,Hot Wheels,Hot Wheels,Q585537,Hot wheels textlogo.svg,Games & toys,United States,1968,yes,
+nerf,Nerf,Nerf,Q1891883,Nerf orange logo.png,Games & toys,United States,1969,yes,
+emirates,Emirates,Emirates (airline),Q180432,Emirates banner logo.svg,Travel,United Arab Emirates,1985,yes,
+lufthansa,Lufthansa,Lufthansa,Q9325,Lufthansa Logo 2018 crane.svg,Travel,Germany,1953,,
+british-airways,British Airways,British Airways,Q8766,Logo wordmark British Airways.png,Travel,United Kingdom,1974,yes,BA
+delta,Delta Air Lines,Delta Air Lines,Q188920,Delta logo.svg,Travel,United States,1925,yes,Delta
+american-airlines,American Airlines,American Airlines,Q32396,American Airlines wordmark (2013).svg,Travel,United States,1926,yes,
+united-airlines,United Airlines,United Airlines,Q174769,United Airlines wordmark.svg,Travel,United States,1926,yes,United
+qantas,Qantas,Qantas,Q32491,Qantas wordmark 2016.svg,Travel,Australia,1920,yes,
+ryanair,Ryanair,Ryanair,Q170614,Ryanair wordmark.svg,Travel,Ireland,1984,yes,
+easyjet,easyJet,EasyJet,Q191551,EasyJet logo.svg,Travel,United Kingdom,1995,yes,
+air-france,Air France,Air France,Q131005,Air France Logo.svg,Travel,France,1933,yes,
+klm,KLM,KLM,Q181912,KLM logo.svg,Travel,Netherlands,1919,yes,
+virgin,Virgin,Virgin Group,Q494917,Virgin-logo.svg,Travel,United Kingdom,1970,yes,
+boeing,Boeing,Boeing,Q66,Boeing full logo.svg,Travel,United States,1916,yes,
+airbus,Airbus,Airbus,Q2311,Airbus Logo 2017.svg,Travel,France,1970,yes,
+shell,Shell,Shell plc,Q154950,Shell wordmark 2019.svg,Energy,United Kingdom,1907,yes,
+bp,BP,BP,Q152057,Bp textlogo.svg,Energy,United Kingdom,1909,yes,British Petroleum
+exxonmobil,ExxonMobil,ExxonMobil,Q156238,Exxon Mobil Logo.svg,Energy,United States,1999,yes,Exxon; Esso
+chevron,Chevron,Chevron Corporation,Q319642,Chevron Logo.svg,Energy,United States,1879,yes,
+visa,Visa,Visa Inc.,Q328840,Visa Inc. logo (2021–present).svg,Finance,United States,1958,yes,
+mastercard,Mastercard,Mastercard,Q489921,Mastercard 2019 logo.svg,Finance,United States,1966,,
+amex,American Express,American Express,Q194360,American Express logo (2018).svg,Finance,United States,1850,yes,Amex
+paypal,PayPal,PayPal,Q483959,PayPal 2024 (Icon).svg,Finance,United States,1998,,
+hsbc,HSBC,HSBC,Q190464,HSBC logo (2018).svg,Finance,United Kingdom,1865,yes,
+barclays,Barclays,Barclays,Q245343,Barclays wordmark.svg,Finance,United Kingdom,1690,yes,
+santander,Santander,Banco Santander,Q6496310,Banco Santander Logotipo.svg,Finance,Spain,1857,yes,
+citi,Citi,Citigroup,Q219508,Citi logo March 2023.svg,Finance,United States,1812,yes,Citibank; Citigroup
+bank-of-america,Bank of America,Bank of America,Q487907,Bank of America logo.svg,Finance,United States,1904,yes,
+revolut,Revolut,Revolut,Q22908307,Revolut logo.svg,Finance,United Kingdom,2015,yes,
+monzo,Monzo,Monzo,Q25206290,Monzo 2022 logo.svg,Finance,United Kingdom,2015,yes,
+dhl,DHL,DHL,Q489815,DHL Logo.svg,Delivery,Germany,1969,yes,
+fedex,FedEx,FedEx,Q459477,FedEx Corporation - 2016 Logo.svg,Delivery,United States,1971,yes,
+ups,UPS,United Parcel Service,Q155026,United Parcel Service logo 2014.svg,Delivery,United States,1907,yes,United Parcel Service
+royal-mail,Royal Mail,Royal Mail,Q638098,,Delivery,United Kingdom,1516,,
+gillette,Gillette,Gillette,Q503592,Gillette.svg,Household,United States,1901,yes,
+colgate,Colgate,Colgate (toothpaste),Q2523492,Colgate logo red.svg,Household,United States,1873,yes,
+nivea,Nivea,Nivea,Q337408,NIVEA logo 2021.svg,Household,Germany,1911,yes,
+loreal,L'Oréal,L'Oréal,Q156077,L'Oréal logo.svg,Household,France,1909,yes,Loreal
+dove,Dove,Dove (toiletries),Q962709,,Household,United Kingdom,1957,,
+duracell,Duracell,Duracell,Q858702,Duracell logo.svg,Household,United States,1964,yes,
+pampers,Pampers,Pampers,Q2340498,,Household,United States,1961,,

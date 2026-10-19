@@ -2,7 +2,7 @@
 export const GAMES = [
   { id: 'contour', n: '01', name: 'CONTOUR', short: 'CONTOUR', hash: '#/contour' },
   { id: 'spike', n: '02', name: 'SPIKE', short: 'SPIKE', hash: '#/spike' },
-  { id: 'palette', n: '03', name: 'PALETTE', short: 'PALETTE', hash: '#/palette' },
+  { id: 'logos', n: '03', name: 'LOGOS', short: 'LOGOS', hash: '#/logos' },
   { id: 'night-lights', n: '04', name: 'NIGHT LIGHTS', short: 'NIGHT', hash: '#/night-lights' },
 ] as const
 
