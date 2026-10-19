@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { type Article, compact, monthStarts, nameShape, niceTicks, searchArticles, shortDate, spikeShareText, verdict } from './spike'
+import { type Article, SPIKE_CLUES, STAGES, compact, monthStarts, nameShape, nextSpikeClue, niceTicks, searchArticles, shortDate, spikeShareText, verdict } from './spike'
 
 const articles: Article[] = [
   { id: 'the-beatles', name: 'The Beatles', category: 'musician', aliases: ['Beatles'] },
@@ -52,5 +52,23 @@ describe('spike share text', () => {
     expect(vs).toEqual(['miss', 'miss', 'hit'])
     expect(spikeShareText(12, ['miss', 'near', 'hit'], true)).toBe('SPIKE #12 3/6\n⬛🟨🟦')
     expect(spikeShareText(12, ['miss', 'near'], false)).toBe('SPIKE #12 X/6\n⬛🟨')
+  })
+})
+
+describe('spike clue schedule', () => {
+  it('shows the category from the first stage', () => {
+    expect(SPIKE_CLUES.category).toBe(0)
+  })
+
+  it('unlocks exactly one new clue on every miss', () => {
+    const stages = Object.values(SPIKE_CLUES).sort((a, b) => a - b)
+    expect(stages).toEqual(Array.from({ length: STAGES }, (_, i) => i))
+  })
+
+  it('names what the next miss unlocks', () => {
+    expect(nextSpikeClue(0)).toBe('Y-AXIS SCALE')
+    expect(nextSpikeClue(2)).toBe('DESCRIPTION')
+    expect(nextSpikeClue(4)).toBe('FIRST LETTER')
+    expect(nextSpikeClue(STAGES - 1)).toBeNull()
   })
 })

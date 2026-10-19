@@ -4,6 +4,31 @@
   background: var(--panel);
   border: 1px solid var(--line);
 }
+/* the article's category, always shown: a tab sitting on the monitor's top edge */
+.monitor:has(.category-tag) { margin-top: 22px; }
+.category-tag {
+  position: absolute;
+  top: 0;
+  left: 28px;
+  transform: translateY(calc(-100% + 1px));
+  z-index: 2;
+  padding: 3px 8px;
+  background: var(--bg);
+  border: 1px solid var(--amber);
+  box-shadow: 0 0 10px rgba(255, 201, 77, 0.25);
+  color: var(--amber);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  animation: fade 500ms ease-out;
+}
+.category-tag .dim { font-weight: 400; }
+@media (min-width: 1024px) and (min-height: 600px) {
+  .monitor:has(.category-tag) { margin-top: 0; }
+  .category-tag { font-size: 14px; padding: 4px 10px; }
+}
 .spike-chart { display: block; width: 100%; height: auto; }
 .spike-grid { stroke: rgba(45, 226, 208, 0.08); stroke-width: 1; }
 .spike-axis { font-family: var(--mono); font-size: 9px; fill: #4c6664; letter-spacing: 0.5px; }
@@ -56,7 +81,7 @@
 .dossier p { margin: 0; color: var(--text); }
 
 @media (prefers-reduced-motion: reduce) {
-  .spike-line, .spike-hot, .spike-blip, .reveal, .intel-row { animation: none; }
+  .spike-line, .spike-hot, .spike-blip, .reveal, .intel-row, .category-tag { animation: none; }
 }
 
 /* the hub's Spike row, once live */

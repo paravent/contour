@@ -1,4 +1,5 @@
 import datetime as dt
+import re
 import sys
 from pathlib import Path
 
@@ -9,7 +10,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from contour_gen import geo  # noqa: E402
 from contour_gen import countries  # noqa: E402
 from contour_gen.puzzle import EASIER_FROM, LEGACY_STAGES, STAGES, jitter, load_places, puzzle_number, rotation, stages_for  # noqa: E402
-from contour_gen.render import _simplify, contour_interval  # noqa: E402
+from contour_gen.puzzle import MAX_SVG_BYTES  # noqa: E402
+from contour_gen.render import (  # noqa: E402
+    AMBER, MAGENTA, RAMP, _simplify, contour_interval, elevation_range, legend, ramp_color, ramp_position, render_svg,
+)
+from contour_gen.terrain import GRID, View  # noqa: E402
 
 PLACES = Path(__file__).resolve().parents[1] / "places.csv"
 
@@ -83,3 +88,47 @@ def test_continents_skip_open_ocean():
 
     got = countries.continents([feature("FRA", "Europe"), feature("MDV", "Seven seas (open ocean)")])
     assert got == {"FRA": "Europe", "MDV": ""}
+
+
+def _synthetic_view(peak=1200.0, sea=True):
+    axis = np.linspace(-1, 1, GRID)
+    x, y = np.meshgrid(axis, axis)
+    z = peak * np.exp(-(x ** 2 + y ** 2) * 3) + (np.where(x + y > 1.2, -50.0, 20.0) if sea else 50.0)
+    return View(zoom=10, left=0.0, top=0.0, side=1000.0, elevation=z)
+
+
+def test_ramp_runs_from_lowland_teal_to_pale_peaks():
+    assert RAMP[0][0] == 0.0 and RAMP[-1][0] == 1.0
+    assert [t for t, _ in RAMP] == sorted(t for t, _ in RAMP)
+    assert ramp_color(0.0) == RAMP[0][1]
+    assert ramp_color(1.0) == RAMP[-1][1]
+    assert ramp_color(-1) == ramp_color(0.0) and ramp_color(2) == ramp_color(1.0)
+    # The ramp never lands on the coast's magenta or the borders' amber.
+    for i in range(101):
+        assert ramp_color(i / 100) not in (MAGENTA.upper(), AMBER.upper())
+    assert ramp_position(0, 0, 1000) == 0 and ramp_position(1000, 0, 1000) == 1
+    assert ramp_position(100, 0, 1000) > 0.1  # low ground still gets a spread of colours
+
+
+def test_elevation_range_spans_every_view_of_the_day():
+    low_view, high_view = _synthetic_view(300), _synthetic_view(3000, sea=False)
+    low, high = elevation_range(low_view.elevation, high_view.elevation)
+    assert low == 0  # one view has sea, so the scale starts at sea level
+    assert high >= 3000
+    plateau = np.full((8, 8), 4000.0) + np.arange(64).reshape(8, 8)
+    assert elevation_range(plateau) == (4000, 4063)
+    assert elevation_range(np.full((4, 4), -10.0)) is None
+    lg = legend(0, 2500)
+    assert lg["minM"] == 0 and lg["maxM"] == 2500 and len(lg["colors"]) >= 2
+
+
+def test_contours_are_coloured_by_height_on_the_days_scale():
+    view = _synthetic_view(1200)
+    svg = render_svg(view, coast=True, sea=True, heights=(0, 1200))
+    colours = re.findall(r'<path stroke="(#[0-9A-F]{6})"', svg)
+    assert len(set(colours)) >= 5  # one colour per height
+    # The same view on a taller day's scale sits lower on the ramp: same height, same colour all day.
+    taller = render_svg(view, coast=True, sea=True, heights=(0, 4000))
+    assert re.findall(r'<path stroke="(#[0-9A-F]{6})"', taller) != colours
+    assert MAGENTA in svg  # the coastline keeps its own colour
+    assert len(svg.encode()) < MAX_SVG_BYTES

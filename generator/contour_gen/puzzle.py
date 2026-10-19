@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from . import countries
-from .render import contour_interval, land_levels, render_svg
+from .render import contour_interval, elevation_range, land_levels, legend, render_svg
 from .terrain import TileCache, load_view
 
 # Each stage widens the view; later stages add water and borders.
@@ -85,21 +85,25 @@ def build(place: Place, date: dt.date, number: int, seed: str, out_dir: Path, ca
     fx, fy = jitter(seed, date)
 
     specs = stages_for(date)
-    files, stages, pin_bounds = {}, [], None
+    views = []
     for i, spec in enumerate(specs, start=1):
         w = spec["width_km"]
         # Shift the centre so the answer sits at (0.5 + fx, 0.5 + fy) of the view.
         center_lat = place.lat + fy * w / 111.32
         center_lon = place.lon - fx * w / (111.32 * math.cos(math.radians(place.lat)))
-        view = load_view(tiles, center_lon, center_lat, w)
-
+        views.append(load_view(tiles, center_lon, center_lat, w))
         if i == 1:
-            _check_first_stage(view.elevation, place, spec)
+            _check_first_stage(views[0].elevation, place, spec)
 
+    # One colour scale for the whole day, so a colour means the same height at every zoom.
+    heights = elevation_range(*(v.elevation for v in views))
+    files, stages, pin_bounds = {}, [], None
+    for i, (spec, view) in enumerate(zip(specs, views), start=1):
+        w = spec["width_km"]
         for tol in TOLERANCES:
             svg = render_svg(view, coast=spec["coast"], sea=spec["sea"],
                              borders=rings if spec["borders"] else None,
-                             max_lines=spec["max_lines"], tolerance=tol)
+                             max_lines=spec["max_lines"], tolerance=tol, heights=heights)
             if len(svg.encode()) <= MAX_SVG_BYTES:
                 break
         else:
@@ -125,6 +129,8 @@ def build(place: Place, date: dt.date, number: int, seed: str, out_dir: Path, ca
         "number": number,
         "date": date.isoformat(),
         "stages": stages,
+        # The colour bar for the map: what height each end of the contour colours stands for.
+        "elevation": legend(*heights),
         "pinMap": {"image": f"stage{len(specs)}.svg", "bounds": {k: round(v, 6) for k, v in pin_bounds.items()}},
         # Lightly encoded so the answer isn't readable at a glance in dev tools.
         "secret": base64.b64encode(json.dumps(secret).encode()).decode(),

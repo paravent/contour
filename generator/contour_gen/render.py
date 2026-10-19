@@ -1,5 +1,7 @@
 """Draw a View as a neon contour-map SVG."""
 
+import math
+
 import numpy as np
 from contourpy import contour_generator
 
@@ -11,6 +13,25 @@ CYAN = "#2DE2D0"
 MAGENTA = "#FF2E88"
 AMBER = "#FFC94D"
 SEA = "#140C18"
+
+INK = "#07090B"  # the page background, used as a dark casing under coast and borders
+
+# Contours are coloured by height on one scale per day: (position 0..1, colour) stops,
+# deep teal lowlands rising through green and gold to pale peaks. The top end stays
+# clear of the coast's magenta, and coast and borders get a dark casing on top of it.
+RAMP = [
+    (0.00, "#1E9FAB"),
+    (0.20, "#2DE2D0"),
+    (0.42, "#7CEB7A"),
+    (0.62, "#E4EE5E"),
+    (0.78, "#FFA94D"),
+    (0.90, "#FF7F73"),
+    (1.00, "#FFE4DC"),
+]
+# Heights map onto the ramp through this power, so low ground still gets a spread of
+# colours on a day whose widest view also takes in high mountains.
+RAMP_GAMMA = 0.65
+LEGEND_STOPS = 9
 
 # Closed water outlines smaller than this (in SVG units squared) are data noise, not lakes or islands.
 SPECK_AREA = (SIZE * 0.03) ** 2
@@ -34,6 +55,47 @@ def land_levels(elevation, interval):
     top = float(elevation.max())
     first = interval  # level 0 is the coastline, drawn separately
     return list(np.arange(first, top, interval))
+
+
+def elevation_range(*elevations):
+    """The (low, high) metres one day's colour scale spans: sea level (or the lowest land)
+    up to the highest ground in any of its views."""
+    lands = [z[z > 0] for z in elevations]
+    lands = [land for land in lands if land.size]
+    if not lands:
+        return None
+    low = min(float(land.min()) for land in lands)
+    high = max(float(land.max()) for land in lands)
+    if any((z <= 0).any() for z in elevations):
+        low = 0.0
+    low, high = math.floor(low), math.ceil(high)
+    return low, max(high, low + 1)
+
+
+def ramp_position(level, low, high):
+    t = min(max((level - low) / (high - low), 0.0), 1.0)
+    return t ** RAMP_GAMMA
+
+
+def ramp_color(t):
+    """The colour at position t (0..1) of RAMP, as #rrggbb."""
+    t = min(max(t, 0.0), 1.0)
+    for (t0, c0), (t1, c1) in zip(RAMP, RAMP[1:]):
+        if t <= t1:
+            k = (t - t0) / (t1 - t0)
+            a, b = _rgb(c0), _rgb(c1)
+            return "#" + "".join(f"{round(x + (y - x) * k):02X}" for x, y in zip(a, b))
+    return RAMP[-1][1]
+
+
+def _rgb(hex_color):
+    return tuple(int(hex_color[i:i + 2], 16) for i in (1, 3, 5))
+
+
+def legend(low, high):
+    """What the web app needs to draw the colour bar: its ends in metres and evenly spaced colours."""
+    return {"minM": int(low), "maxM": int(high),
+            "colors": [ramp_color(i / (LEGEND_STOPS - 1)) for i in range(LEGEND_STOPS)]}
 
 
 def _simplify(points: np.ndarray, tolerance: float) -> np.ndarray:
@@ -84,8 +146,10 @@ def _path(lines, tolerance, closed=False, min_points=4, min_loop_area=0.0):
     return "".join(parts)
 
 
-def render_svg(view: View, *, coast=False, sea=False, borders=None, max_lines=24, tolerance=0.7) -> str:
-    """borders: list of rings of (lon, lat) to draw faintly, or None."""
+def render_svg(view: View, *, coast=False, sea=False, borders=None, max_lines=24, tolerance=0.7,
+               heights=None) -> str:
+    """borders: list of rings of (lon, lat) to draw faintly, or None.
+    heights: the day's (low, high) colour scale from elevation_range; this view's own if None."""
     z = view.elevation
     axis = np.linspace(0, SIZE, GRID)
     gen = contour_generator(axis, axis, z, line_type="Separate", fill_type="OuterOffset")
@@ -105,21 +169,28 @@ def render_svg(view: View, *, coast=False, sea=False, borders=None, max_lines=24
             out.append(f'<path d="{d}" fill="{SEA}" fill-rule="evenodd"/>')
 
     interval = contour_interval(z, max_lines)
-    if interval:
+    heights = heights or elevation_range(z)
+    if interval and heights:
+        # One path per level, each in its height's colour; index lines (every fifth) heavier.
         minor, index = [], []
         for level in land_levels(z, interval):
-            (index if round(level / interval) % 5 == 0 else minor).extend(gen.lines(level))
-        for lines, width, opacity in ((minor, 0.7, 0.7), (index, 1.4, 1.0)):
-            d = _path(lines, tolerance)
+            d = _path(gen.lines(level), tolerance)
             if d:
+                color = ramp_color(ramp_position(level, *heights))
+                (index if round(level / interval) % 5 == 0 else minor).append(f'<path stroke="{color}" d="{d}"/>')
+        for paths, width, opacity in ((minor, 0.8, 0.9), (index, 1.5, 1.0)):
+            if paths:
                 out.append(
-                    f'<path d="{d}" fill="none" stroke="{CYAN}" stroke-width="{width}" '
-                    f'stroke-opacity="{opacity}" stroke-linejoin="round" stroke-linecap="round"/>'
+                    f'<g fill="none" stroke-width="{width}" stroke-opacity="{opacity}" '
+                    f'stroke-linejoin="round" stroke-linecap="round">'
                 )
+                out += paths
+                out.append("</g>")
 
     if coast and (z <= 0).any():
         d = _path(gen.lines(0.0), tolerance, min_points=12, min_loop_area=SPECK_AREA)
         if d:
+            out.append(f'<path d="{d}" fill="none" stroke="{INK}" stroke-width="3.6" stroke-opacity="0.85" stroke-linejoin="round"/>')
             out.append(f'<path d="{d}" fill="none" stroke="{MAGENTA}" stroke-width="1.6" stroke-linejoin="round"/>')
 
     if borders:
@@ -131,9 +202,10 @@ def render_svg(view: View, *, coast=False, sea=False, borders=None, max_lines=24
                 parts.append(pts)
         d = _path(parts, tolerance, min_points=2)
         if d:
+            out.append(f'<path d="{d}" fill="none" stroke="{INK}" stroke-width="3" stroke-opacity="0.7"/>')
             out.append(
-                f'<path d="{d}" fill="none" stroke="{AMBER}" stroke-width="1" '
-                f'stroke-opacity="0.75" stroke-dasharray="4 3"/>'
+                f'<path d="{d}" fill="none" stroke="{AMBER}" stroke-width="1.1" '
+                f'stroke-opacity="0.9" stroke-dasharray="4 3"/>'
             )
 
     out.append("</svg>")
