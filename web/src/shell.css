@@ -306,6 +306,9 @@ kbd {
   .deck:not(.hub):has(.map, .monitor) .monitor { --ar: 1.5; }
   .night .map { box-shadow: 0 30px 120px -40px rgba(242, 198, 109, 0.3); }
   .hud { font-size: 12px; }
+  .legend { width: 120px; }
+  .legend-bar { height: 6px; }
+  .legend-ends { font-size: 11px; }
   .tl-text, .tr-text { top: 14px; }
   .tl-text, .bl-text { left: 16px; }
   .tr-text, .br-text { right: 16px; }

@@ -75,7 +75,7 @@ describe('palette share text', () => {
   it('shows tries and one square per guess, never the answer', () => {
     const answer = POOL[2]
     const results = [compare(POOL[4], answer), compare(POOL[0], answer), compare(answer, answer)]
-    expect(paletteShareText(7, results, true)).toBe('PALETTE #7 3/6\n⬛🟧🟦')
-    expect(paletteShareText(7, results.slice(0, 2), false)).toBe('PALETTE #7 X/6\n⬛🟧')
+    expect(paletteShareText(7, results, true)).toBe('▮ PALETTE #7 3/6\n⬛🟧🟦')
+    expect(paletteShareText(7, results.slice(0, 2), false)).toBe('▮ PALETTE #7 X/6\n⬛🟧')
   })
 })

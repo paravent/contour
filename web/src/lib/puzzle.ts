@@ -2,11 +2,22 @@ import type { Bounds } from './geo'
 
 export type Stage = { image: string; widthKm: number; intervalM: number | null }
 
+/** Heights at the two ends of the contour colours, and the colours evenly spaced between them. */
+export type ElevationLegend = { minM: number; maxM: number; colors: string[] }
+
+/** A CSS gradient for the legend's colour bar, or null when there is nothing to draw. */
+export function legendGradient(legend: ElevationLegend | undefined): string | null {
+  if (!legend || legend.colors.length < 2) return null
+  return `linear-gradient(90deg, ${legend.colors.join(', ')})`
+}
+
 export type Puzzle = {
   game: 'contour'
   number: number
   date: string
   stages: Stage[]
+  /** The contour colours' scale for the day. Missing on sheets made before lines were coloured by height. */
+  elevation?: ElevationLegend
   pinMap: { image: string; bounds: Bounds }
   secret: string
 }

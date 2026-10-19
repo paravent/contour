@@ -1,6 +1,6 @@
 # Contour
 
-A daily geography puzzle. You see an unlabelled contour map of somewhere on Earth and have six guesses to name the country. The first view is 40 km across with the coastline drawn; each wrong guess zooms out and reveals more: the sea, then borders and the continent, then the first letter. Get it right and you get a GeoGuessr-style bonus: drop a pin on the exact spot for up to 5,000 points.
+A daily geography puzzle. You see an unlabelled contour map of somewhere on Earth and have six guesses to name the country. Contour lines are coloured by height on one scale for the whole day (teal lowlands up through green and gold to pale peaks), with a colour bar on the map. The first view is 40 km across with the coastline drawn; each wrong guess zooms out and reveals more: the sea, then borders and the continent, then the first letter. Get it right and you get a GeoGuessr-style bonus: drop a pin on the exact spot for up to 5,000 points.
 
 Every map is drawn from real elevation data, and the site makes each day's puzzle on its own with no manual work.
 
@@ -20,7 +20,7 @@ web/         Preact + Vite: the hub and the game (cyberpunk terminal style)
 
 ## Spike
 
-The second daily game. You see a year of daily pageviews for one English Wikipedia article, drawn as a neon trace, and have six guesses to name it. Each wrong guess unlocks a clue: the y-axis scale, the dates of the spikes, the article's category and short description, the shape of its name, then its first letter. Guesses come from a type-ahead over the answer pool, and a wrong guess in the right category lights up amber.
+The second daily game. You see a year of daily pageviews for one English Wikipedia article, drawn as a neon trace, and have six guesses to name it. The article's category (actor, musician, place…) is shown from the start. Each wrong guess unlocks another clue: the y-axis scale, the dates of the spikes, the article's short description, the shape of its name, then its first letter. Guesses come from a type-ahead over the answer pool, and a wrong guess in the right category lights up amber.
 
 - **Data.** Daily views come from the [Wikimedia pageviews API](https://doc.wikimedia.org/generated-data-platform/aqs/analytics-api/) (human readers only) and the description and intro from the Wikipedia Action API. Each chart ends 10 days before its puzzle date, so the daily job's week ahead only uses days that are already published and every run picks the same article.
 - **Pool.** `generator/spike_pool.csv` holds a few hundred well-known articles (exact Wikipedia title, display name, category, aliases). After editing it, refresh the game's search list with `python generator/generate_spike.py --export-pool web/public/data/spike-articles.json`, and audit it against live data with `python generator/generate_spike.py --check-pool`.

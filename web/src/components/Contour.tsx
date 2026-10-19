@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'preact/hooks'
+import { Bit } from './Bit'
 import { localDate, untilMidnight } from '../lib/day'
 import { bearingDeg, compass, haversineKm } from '../lib/geo'
 import {
@@ -7,6 +8,7 @@ import {
   type Puzzle,
   contourClues,
   decodeAnswer,
+  legendGradient,
   loadCountries,
   loadPuzzle,
   puzzleDir,
@@ -91,6 +93,7 @@ export function Contour() {
   const bar = scaleBar(stage.widthKm)
   const streak = currentStreak(stats, date)
   const left = MAX_GUESSES - day.guesses.length
+  const gradient = legendGradient(puzzle.elevation)
 
   const update = (next: DayState) => {
     setDay(next)
@@ -134,7 +137,7 @@ export function Contour() {
         onClose={() => setHelp(false)}
         start="BEGIN SCAN"
         steps={[
-          <>Each day the map shows one real place on Earth, the same for everyone. You only see its terrain, drawn as <span class="cyan">contour lines</span>: each line joins ground of equal height, so tight lines mean steep slopes and rings mean peaks.</>,
+          <>Each day the map shows one real place on Earth, the same for everyone. You only see its terrain, drawn as <span class="cyan">contour lines</span>: each line joins ground of equal height, so tight lines mean steep slopes and rings mean peaks. Lines are coloured by height, from <span class="cyan">teal lowlands</span> to <span class="amber">gold highlands</span> and pale peaks; the bar in the corner shows the scale.</>,
           <>Name the <span class="amber">country</span> it's in. You have 6 guesses.</>,
           <>Each wrong guess zooms the map out and adds a clue: the <span class="magenta">sea</span>, then <span class="amber">borders</span>, then the <span class="cyan">continent</span>, and finally the country's first letter.</>,
           <>Each wrong guess also shows how far the target is from that country and in which direction.</>,
@@ -191,7 +194,14 @@ export function Contour() {
           <div class="grid" />
           <span class="bracket tl" /><span class="bracket tr" /><span class="bracket bl" /><span class="bracket br" />
           <div class="hud tl-text">LAT ??.????<br />LON ???.????</div>
-          <div class="hud tr-text">ZOOM {String(stageIndex + 1).padStart(2, '0')}/{String(puzzle.stages.length).padStart(2, '0')}{stage.intervalM ? <><br />INTERVAL {stage.intervalM}M</> : null}</div>
+          <div class="hud tr-text">ZOOM {String(stageIndex + 1).padStart(2, '0')}/{String(puzzle.stages.length).padStart(2, '0')}{stage.intervalM ? <><br />INTERVAL {stage.intervalM}M</> : null}
+            {gradient && puzzle.elevation && (
+              <div class="legend" aria-label={`Line colours run from ${puzzle.elevation.minM} metres to ${puzzle.elevation.maxM} metres`}>
+                <span class="legend-bar" style={{ background: gradient }} />
+                <span class="legend-ends"><span>{puzzle.elevation.minM}M</span><span>{puzzle.elevation.maxM}M</span></span>
+              </div>
+            )}
+          </div>
           <div class="hud bl-text"><span class="scale" style={{ width: `${bar.pct}%` }} />{bar.km}KM</div>
           {finished && <div class="hud br-text magenta">{answer.place.toUpperCase()}</div>}
         </div>
@@ -231,6 +241,7 @@ export function Contour() {
 
       {finished && (
         <div class="terminal">
+          <Bit mood={day.status === 'won' ? 'happy' : 'sad'} blink={false} class="bit-result" />
           <div class="dim">$ share --sheet {puzzle.number}</div>
           <div>
             CONTOUR #{puzzle.number} <span class="dim">·</span> {day.status === 'won' ? `${day.guesses.length}/${MAX_GUESSES}` : `X/${MAX_GUESSES}`}

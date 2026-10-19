@@ -9,8 +9,8 @@ describe('share text', () => {
       { code: 'FRA', name: 'France', km: 320, direction: 'E', correct: false },
       { code: 'CHE', name: 'Switzerland', km: 0, direction: 'N', correct: true },
     ]
-    expect(shareText(214, results, true, 4610)).toBe('CONTOUR #214 3/6 · pin 4610\n⬛🟨🟦')
-    expect(shareText(214, results.slice(0, 2), false)).toBe('CONTOUR #214 X/6\n⬛🟨')
+    expect(shareText(214, results, true, 4610)).toBe('▮ CONTOUR #214 3/6 · pin 4610\n⬛🟨🟦')
+    expect(shareText(214, results.slice(0, 2), false)).toBe('▮ CONTOUR #214 X/6\n⬛🟨')
   })
 })
 

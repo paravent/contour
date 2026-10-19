@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'preact/hooks'
+import { Bit } from './Bit'
 import { GAMES, prefersReducedMotion } from '../lib/games'
 
 const KEY = 'daily:booted'
@@ -10,6 +11,7 @@ const LINES = [
   'DAILY:// KERNEL 4.0.4',
   '> establishing uplink',
   ...GAMES.map((g) => `> mount ${g.n} ${g.name}`),
+  '> wake bit',
   "> decrypting today's sheets",
 ]
 
@@ -76,7 +78,11 @@ export function Boot({ onDone }: { onDone: () => void }) {
         {LINES.slice(0, shown).map((l, i) => (
           <div key={i} class={`boot-line ${i === 0 ? 'cyan' : ''}`}>
             <span>{l}</span>
-            {i > 0 && <span class={i === LINES.length - 1 ? 'magenta' : 'cyan'}>{i === LINES.length - 1 ? 'READY' : 'OK'}</span>}
+            {l === '> wake bit' ? (
+              <Bit mood="happy" blink={false} />
+            ) : (
+              i > 0 && <span class={i === LINES.length - 1 ? 'magenta' : 'cyan'}>{i === LINES.length - 1 ? 'READY' : 'OK'}</span>
+            )}
           </div>
         ))}
         <div class="boot-bar"><span style={{ transform: `scaleX(${progress})` }} /></div>

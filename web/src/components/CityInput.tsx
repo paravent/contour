@@ -1,11 +1,13 @@
-import { useMemo, useState } from 'preact/hooks'
-import { type City, searchCities } from '../lib/nightLights'
+import { useMemo, useRef, useState } from 'preact/hooks'
+import { BitCaret } from './Bit'
+import { type City, searchCities, MAX_GUESSES } from '../lib/nightLights'
 
 type Props = { cities: City[]; exclude: string[]; onGuess: (id: string) => void }
 
 /** Night Lights' type-ahead: like CountryInput, over the city pool, with each city's country beside it. */
 export function CityInput({ cities, exclude, onGuess }: Props) {
   const [query, setQuery] = useState('')
+  const field = useRef<HTMLInputElement>(null)
   const [active, setActive] = useState(0)
   const matches = useMemo(
     () => searchCities(cities, query).filter((c) => !exclude.includes(c.id)),
@@ -52,6 +54,7 @@ export function CityInput({ cities, exclude, onGuess }: Props) {
         <div class="prompt-field">
           <span class="gold" aria-hidden="true">&gt;</span>
           <input
+            ref={field}
             id="guess"
             type="text"
             autocomplete="off"
@@ -65,6 +68,7 @@ export function CityInput({ cities, exclude, onGuess }: Props) {
             onInput={(e) => { setQuery((e.target as HTMLInputElement).value); setActive(0) }}
             onKeyDown={onKeyDown}
           />
+          <BitCaret input={field} value={query} misses={exclude.length} max={MAX_GUESSES} found={matches.length > 0} />
         </div>
         <button type="submit" class="exec" disabled={matches.length === 0}>EXEC</button>
       </div>

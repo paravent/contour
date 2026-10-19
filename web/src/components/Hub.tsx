@@ -79,6 +79,15 @@ function untilt(e: PointerEvent) {
 }
 const fx = { onPointerMove: tilt, onPointerLeave: untilt }
 
+/** What Bit says under the hub prompt, depending on how today's modules went. */
+function bitLine(states: string[]): string {
+  const left = states.filter((s) => s === 'playing').length
+  if (left === states.length) return 'four fresh sheets today. start wherever you like.'
+  if (left > 0) return `${left} to go. ${states.some((s) => s === 'lost') ? "shake off that last one." : "you're on a roll."}`
+  if (states.every((s) => s === 'won')) return 'a perfect day. see you at the next drop.'
+  return 'all done for today. see you at the next drop.'
+}
+
 const TAG = { playing: 'RUN', won: 'SOLVED', lost: 'REVIEW' } as const
 
 type Module = { n: string; name: string; game: string; blurb: string; art: ComponentChildren; hero: ComponentChildren }
@@ -157,9 +166,10 @@ export function Hub() {
 
       <header class="hub-head">
         <div class="stack hero">
-          <div class="dim small"><Typed text="$ load --daily" delay={350} /></div>
+          <div class="dim small"><Typed text="$ load --daily" delay={350} bit={playedToday === games.length ? 'sleep' : 'idle'} /></div>
           <h1 class="hero-title glitch-in">TODAY'S<br /><span class="magenta glow-magenta">FOUR MODULES</span></h1>
           <div class="dim small hub-sub">Same puzzles for every player. Next drop in <span class="amber">{untilMidnight(now)}</span>.</div>
+          <div class="small bit-says"><span class="bit-says-name">bit ›</span> {bitLine(states)}</div>
         </div>
         <div class="hub-stats rise" style={{ '--i': 1 }}>
           <div class="hub-stat">

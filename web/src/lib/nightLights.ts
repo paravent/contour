@@ -1,4 +1,5 @@
 import { normalise } from './puzzle'
+import { BIT } from './share'
 
 export const GAME = 'night-lights'
 export const MAX_GUESSES = 6
@@ -89,5 +90,5 @@ const SQUARE: Record<Closeness, string> = { hit: '🟨', near: '🟧', mid: '�
 export function nightShareText(number: number, results: CityGuess[], won: boolean): string {
   const tries = won ? `${results.length}/${MAX_GUESSES}` : `X/${MAX_GUESSES}`
   const squares = results.map((g) => SQUARE[cityCloseness(g)]).join('')
-  return `NIGHT LIGHTS #${number} ${tries}\n${squares}`
+  return `${BIT} NIGHT LIGHTS #${number} ${tries}\n${squares}`
 }
