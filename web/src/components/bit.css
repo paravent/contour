@@ -1,0 +1,43 @@
+/* ---------- Bit, the mascot ---------- */
+:root { --bit: #FF7A3D; --bit-ink: #1A0E08; }
+
+.bit { display: inline-block; width: 0.95em; height: 1.55em; overflow: visible; vertical-align: -0.35em; }
+.bit-body { fill: var(--bit); }
+.bit-fez { fill: var(--magenta); }
+.bit-fez-band { fill: #B81F62; }
+.bit-tassel { fill: none; stroke: var(--amber); stroke-width: 0.9; }
+.bit-tassel-end { fill: var(--amber); }
+.bit-eyes { fill: var(--bg); }
+.bit-eyes-x { fill: none; stroke: var(--bg); stroke-width: 1.6; }
+.bit-stache { fill: var(--bit-ink); }
+.bit-ghost { fill: var(--magenta); opacity: 0.85; }
+.bit-z { fill: var(--amber); font-family: var(--mono); font-size: 8px; animation: bit-z 2.6s ease-out infinite; }
+
+.bit-eyes-open { transform-box: fill-box; transform-origin: center; animation: bit-eyes 4.5s infinite; }
+.bit-blink { animation: bit-cursor 1.1s steps(1) infinite; }
+.bit-wrong { animation: bit-glitch 650ms steps(6) 1; }
+.bit-sleep .bit-body, .bit-sleep .bit-fez, .bit-sleep .bit-fez-band { opacity: 0.45; }
+
+@keyframes bit-eyes { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
+@keyframes bit-cursor { 0%, 60% { opacity: 1; } 61%, 100% { opacity: 0.6; } }
+@keyframes bit-glitch {
+  0% { transform: translateX(0); } 20% { transform: translateX(-2px); } 40% { transform: translateX(2px); }
+  60% { transform: translateX(-1px); } 80% { transform: translateX(1px); } 100% { transform: translateX(0); }
+}
+@keyframes bit-z { 0% { opacity: 0; transform: translate(0, 0); } 40% { opacity: 1; } 100% { opacity: 0; transform: translate(4px, -8px); } }
+
+/* Bit replaces the native caret in every guess field. */
+.prompt-field { position: relative; }
+.prompt-field input { caret-color: transparent; }
+.prompt-field input:placeholder-shown { text-indent: 20px; }
+.bit-caret { position: absolute; left: 0; top: 50%; margin-top: -0.75em; font-size: 16px; line-height: 1; pointer-events: none; transition: transform 70ms linear; }
+.bit-caret .bit { display: block; }
+.bit-caret:not(.focused) { opacity: 0.85; }
+
+/* Hub boot prompt */
+.typed .bit { margin-left: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bit-eyes-open, .bit-blink, .bit-wrong, .bit-z { animation: none; }
+  .bit-caret { transition: none; }
+}

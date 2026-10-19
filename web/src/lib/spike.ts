@@ -1,5 +1,6 @@
 import { addDays } from './day'
 import { MAX_GUESSES, normalise } from './puzzle'
+import { BIT } from './share'
 
 export type SpikePuzzle = {
   game: 'spike'
@@ -92,7 +93,7 @@ const SQUARE: Record<Verdict, string> = { hit: '🟦', near: '🟨', miss: '⬛'
 
 export function spikeShareText(number: number, verdicts: Verdict[], won: boolean): string {
   const tries = won ? `${verdicts.length}/${MAX_GUESSES}` : `X/${MAX_GUESSES}`
-  return `SPIKE #${number} ${tries}\n${verdicts.map((v) => SQUARE[v]).join('')}`
+  return `${BIT} SPIKE #${number} ${tries}\n${verdicts.map((v) => SQUARE[v]).join('')}`
 }
 
 /** Up to about `count` round axis values from 0 to at least max. */

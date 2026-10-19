@@ -50,7 +50,7 @@ describe('spike share text', () => {
     const answer = { id: 'christmas', name: 'Christmas', category: 'holiday', description: '', extract: '', url: '', letter: 'C' }
     const vs = [articles[5], articles[3], articles[2]].map((a) => verdict(a, answer))
     expect(vs).toEqual(['miss', 'miss', 'hit'])
-    expect(spikeShareText(12, ['miss', 'near', 'hit'], true)).toBe('SPIKE #12 3/6\n⬛🟨🟦')
-    expect(spikeShareText(12, ['miss', 'near'], false)).toBe('SPIKE #12 X/6\n⬛🟨')
+    expect(spikeShareText(12, ['miss', 'near', 'hit'], true)).toBe('▮ SPIKE #12 3/6\n⬛🟨🟦')
+    expect(spikeShareText(12, ['miss', 'near'], false)).toBe('▮ SPIKE #12 X/6\n⬛🟨')
   })
 })
