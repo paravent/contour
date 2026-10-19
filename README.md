@@ -30,13 +30,15 @@ The second daily game. You see a year of daily pageviews for one English Wikiped
 python generator/generate_spike.py --out web/public/puzzles/spike   # yesterday, today, tomorrow (UTC)
 ```
 
-## Palette
+## Logos
 
-The second live game: name a famous painting. Answers come from the pool rows marked `famous` (the instantly recognisable ones); every painting in the pool can be guessed. Stage 1 is a 12-cell-wide pixel grid of the painting, shown with its five dominant colours. Each wrong guess sharpens it: 20, 32 and 48-cell grids, a soft blur, then a nearly sharp picture. The century and the artist's nationality show from the start; misses unlock the movement, the artist's initials, then their full name. Every miss says whether the answer was painted earlier or later and what it shares with your guess (artist, movement, nationality). Guesses come from a type-ahead over the whole pool, searchable by title or artist. Days before 2026-10-20 (`EASIER_FROM`) keep the original stripes-first stages and whole-pool rotation, so published puzzles never change.
+The third game, at `#/logos`: name the brand from its pixelated logo. Stage 1 is the logo as an 8-cell-wide pixel grid, so you get its colours and rough shape; each wrong guess sharpens it (12, 20, 32 and 48 cells, then a soft blur) and the result screen shows it clear. Misses unlock clues in order: the industry, the country the brand comes from, the decade it was founded, then its first letter. Every miss also says whether today's brand shares your guess's industry or country, and whether it was founded earlier or later. Guesses come from a type-ahead over every brand in the pool (names and aliases).
 
-- **Pool.** `generator/paintings.csv` lists public-domain paintings by museum object ID: the [Art Institute of Chicago API](https://api.artic.edu/docs/) (`aic`) or the [Met Collection API](https://metmuseum.github.io/) (`met`), with the title, artist, year, nationality and movement the game shows. `python generator/generate_palette.py --check-pool` looks up every entry and, for a row with no `object_id`, searches the museum for candidates. After editing the CSV, rebuild the game's list with `--guess-list web/public/data/paintings.json`.
-- **Generator.** `generator/generate_palette.py` downloads the day's image (only when the museum marks it public domain and the artist matches the pool), takes the palette with k-means, and writes six small PNG stages, a reveal image and `puzzle.json` to `web/public/puzzles/palette/<date>/`. Scheduling works like Contour's: a seeded shuffle, and a painting that can't be used hands the day to the next one. A network failure fails the run instead of skipping, so every run agrees on the answer.
-- **Credit.** The result screen names the museum and links to the painting's page there.
+- **Pool.** `generator/brands.csv` lists a few hundred famous brands with their English Wikipedia title, Wikidata item, industry, country of origin, founding year and search aliases. `file` names the brand's logo on Wikimedia Commons; a brand with no file, or marked `wordmark` (its logo spells out the name, which would give the answer away once sharp), can be guessed but is never an answer. `python generator/generate_logos.py --check-pool` looks every brand up on Wikidata (logo property P154, founding year, country) and checks each chosen file's licence and image; after editing the CSV, rebuild the game's list with `--guess-list web/public/data/brands.json`.
+- **Licences.** Only files Commons marks as public domain (usually `PD-textlogo`: too simple to be copyrighted) or CC0 are used; anything else hands the day to the next brand. Logos remain trademarks of their owners. The result screen credits Wikimedia Commons and links to the file's page.
+- **Generator.** `generator/generate_logos.py` asks Commons for the day's file (licence, and a PNG rendering 960 px wide), flattens it onto white (or near-black for a white logo), trims and frames it, and writes six small PNG stages, a clear `full.png` and `puzzle.json` to `web/public/puzzles/logos/<date>/`. Scheduling works like the other games: a seeded shuffle of the answerable brands; a file that is missing, not public domain or unusable hands the day to the next brand, and a network failure fails the run, so every run agrees on the answer. Its public annotations never name a brand.
+
+Palette (paintings) has been retired from the hub in favour of Logos. Its code (`generator/generate_palette.py`, `generator/palette_gen/`, `web/src/components/Palette.tsx`) is still in the repository and tested, so it can be put back by restoring its hub card, route and workflow steps.
 
 ## Night Lights
 
@@ -60,7 +62,7 @@ The fourth game, at `#/night-lights`: find the city from satellite imagery of th
 ```sh
 pip install -r generator/requirements.txt
 python generator/generate.py --out web/public/puzzles/contour   # yesterday, today, tomorrow (UTC)
-python generator/generate_palette.py --out web/public/puzzles/palette
+python generator/generate_logos.py --out web/public/puzzles/logos
 
 cd web
 npm install

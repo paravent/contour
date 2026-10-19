@@ -188,7 +188,7 @@ def test_fetch_caches_the_image_and_network_errors_fail(tmp_path, monkeypatch):
 
 def test_pool_is_unique_and_complete():
     pool = puzzle.load_pool(POOL)
-    assert 150 <= len(pool) <= 350
+    assert 150 <= len(pool) <= 400
     assert len({b.id for b in pool}) == len(pool)
     assert len({puzzle.plain(b.name) for b in pool}) == len(pool)
     files = [commons.file_key(b.file) for b in pool if b.file]

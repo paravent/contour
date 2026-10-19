@@ -299,64 +299,64 @@ nerf,Nerf,Nerf,Q1891883,,Games & toys,United States,1969,,
 fisher-price,Fisher-Price,Fisher-Price,Q1420671,,Games & toys,United States,1930,,Fisher Price
 playmobil,Playmobil,Playmobil,Q160719,,Games & toys,Germany,1974,,
 emirates,Emirates,Emirates (airline),Q180432,,Travel,United Arab Emirates,1985,,
-lufthansa,Lufthansa,Lufthansa,,,Travel,Germany,1953,,
-british-airways,British Airways,British Airways,,,Travel,United Kingdom,1974,,BA
-delta,Delta Air Lines,Delta Air Lines,,,Travel,United States,1925,,Delta
-american-airlines,American Airlines,American Airlines,,,Travel,United States,1926,,
-united-airlines,United Airlines,United Airlines,,,Travel,United States,1926,,United
-qantas,Qantas,Qantas,,,Travel,Australia,1920,,
-ryanair,Ryanair,Ryanair,,,Travel,Ireland,1984,,
-easyjet,easyJet,EasyJet,,,Travel,United Kingdom,1995,,
-air-france,Air France,Air France,,,Travel,France,1933,,
-klm,KLM,KLM,,,Travel,Netherlands,1919,,
-singapore-airlines,Singapore Airlines,Singapore Airlines,,,Travel,Singapore,1947,,
-southwest,Southwest Airlines,Southwest Airlines,,,Travel,United States,1967,,Southwest
-turkish-airlines,Turkish Airlines,Turkish Airlines,,,Travel,Turkey,1933,,
-virgin,Virgin,Virgin Group,,,Travel,United Kingdom,1970,,
-boeing,Boeing,Boeing,,,Travel,United States,1916,,
-airbus,Airbus,Airbus,,,Travel,France,1970,,
-marriott,Marriott,Marriott International,,,Travel,United States,1927,,
-hilton,Hilton,Hilton Hotels & Resorts,,,Travel,United States,1919,,
-shell,Shell,Shell plc,,,Energy,United Kingdom,1907,,
-bp,BP,BP,,,Energy,United Kingdom,1909,,British Petroleum
-exxonmobil,ExxonMobil,ExxonMobil,,,Energy,United States,1999,,Exxon; Esso
-chevron,Chevron,Chevron Corporation,,,Energy,United States,1879,,
-texaco,Texaco,Texaco,,,Energy,United States,1902,,
-totalenergies,TotalEnergies,TotalEnergies,,,Energy,France,1924,,Total
-gulf,Gulf Oil,Gulf Oil,,,Energy,United States,1901,,Gulf
-visa,Visa,Visa Inc.,,,Finance,United States,1958,,
-mastercard,Mastercard,Mastercard,,,Finance,United States,1966,,
-amex,American Express,American Express,,,Finance,United States,1850,,Amex
-paypal,PayPal,PayPal,,,Finance,United States,1998,,
-hsbc,HSBC,HSBC,,,Finance,United Kingdom,1865,,
-barclays,Barclays,Barclays,,,Finance,United Kingdom,1690,,
-goldman-sachs,Goldman Sachs,Goldman Sachs,,,Finance,United States,1869,,
-santander,Santander,Banco Santander,,,Finance,Spain,1857,,
-deutsche-bank,Deutsche Bank,Deutsche Bank,,,Finance,Germany,1870,,
-ubs,UBS,UBS,,,Finance,Switzerland,1862,,
-citi,Citi,Citigroup,,,Finance,United States,1812,,Citibank; Citigroup
-bank-of-america,Bank of America,Bank of America,,,Finance,United States,1904,,
-wells-fargo,Wells Fargo,Wells Fargo,,,Finance,United States,1852,,
-revolut,Revolut,Revolut,,,Finance,United Kingdom,2015,,
-monzo,Monzo,Monzo,,,Finance,United Kingdom,2015,,
-western-union,Western Union,Western Union,,,Finance,United States,1851,,
-dhl,DHL,DHL,,,Delivery,Germany,1969,,
-fedex,FedEx,FedEx,,,Delivery,United States,1971,,
-ups,UPS,United Parcel Service,,,Delivery,United States,1907,,United Parcel Service
-royal-mail,Royal Mail,Royal Mail,,,Delivery,United Kingdom,1516,,
-maersk,Maersk,Maersk,,,Delivery,Denmark,1904,,
-gillette,Gillette,Gillette,,,Household,United States,1901,,
-colgate,Colgate,Colgate (toothpaste),,,Household,United States,1873,,
-nivea,Nivea,Nivea,,,Household,Germany,1911,,
-loreal,L'Oréal,L'Oréal,,,Household,France,1909,,Loreal
-dove,Dove,Dove (toiletries),,,Household,United Kingdom,1957,,
-duracell,Duracell,Duracell,,,Household,United States,1924,,
-pampers,Pampers,Pampers,,,Household,United States,1961,,
-kleenex,Kleenex,Kleenex,,,Household,United States,1924,,
-3m,3M,3M,,,Household,United States,1902,,
-johnson-johnson,Johnson & Johnson,Johnson & Johnson,,,Household,United States,1886,,J&J
-procter-gamble,Procter & Gamble,Procter & Gamble,,,Household,United States,1837,,P&G
-unilever,Unilever,Unilever,,,Household,United Kingdom,1929,,
-bic,Bic,Société Bic,,,Household,France,1945,,BIC
-zippo,Zippo,Zippo,,,Household,United States,1932,,
-tupperware,Tupperware,Tupperware Brands,,,Household,United States,1946,,
+lufthansa,Lufthansa,Lufthansa,Q9325,,Travel,Germany,1953,,
+british-airways,British Airways,British Airways,Q8766,,Travel,United Kingdom,1974,,BA
+delta,Delta Air Lines,Delta Air Lines,Q188920,,Travel,United States,1925,,Delta
+american-airlines,American Airlines,American Airlines,Q32396,,Travel,United States,1926,,
+united-airlines,United Airlines,United Airlines,Q174769,,Travel,United States,1926,,United
+qantas,Qantas,Qantas,Q32491,,Travel,Australia,1920,,
+ryanair,Ryanair,Ryanair,Q170614,,Travel,Ireland,1984,,
+easyjet,easyJet,EasyJet,Q191551,,Travel,United Kingdom,1995,,
+air-france,Air France,Air France,Q131005,,Travel,France,1933,,
+klm,KLM,KLM,Q181912,,Travel,Netherlands,1919,,
+singapore-airlines,Singapore Airlines,Singapore Airlines,Q32245,,Travel,Singapore,1947,,
+southwest,Southwest Airlines,Southwest Airlines,Q503308,,Travel,United States,1967,,Southwest
+turkish-airlines,Turkish Airlines,Turkish Airlines,Q4548,,Travel,Turkey,1933,,
+virgin,Virgin,Virgin Group,Q494917,,Travel,United Kingdom,1970,,
+boeing,Boeing,Boeing,Q66,,Travel,United States,1916,,
+airbus,Airbus,Airbus,Q2311,,Travel,France,1970,,
+marriott,Marriott,Marriott International,Q1141173,,Travel,United States,1927,,
+hilton,Hilton,Hilton Hotels & Resorts,Q598884,,Travel,United States,1919,,
+shell,Shell,Shell plc,Q154950,,Energy,United Kingdom,1907,,
+bp,BP,BP,Q152057,,Energy,United Kingdom,1909,,British Petroleum
+exxonmobil,ExxonMobil,ExxonMobil,Q156238,,Energy,United States,1999,,Exxon; Esso
+chevron,Chevron,Chevron Corporation,Q319642,,Energy,United States,1879,,
+texaco,Texaco,Texaco,Q775060,,Energy,United States,1902,,
+totalenergies,TotalEnergies,TotalEnergies,Q154037,,Energy,France,1924,,Total
+gulf,Gulf Oil,Gulf Oil,Q1296860,,Energy,United States,1901,,Gulf
+visa,Visa,Visa Inc.,Q328840,,Finance,United States,1958,,
+mastercard,Mastercard,Mastercard,Q489921,,Finance,United States,1966,,
+amex,American Express,American Express,Q194360,,Finance,United States,1850,,Amex
+paypal,PayPal,PayPal,Q483959,,Finance,United States,1998,,
+hsbc,HSBC,HSBC,Q190464,,Finance,United Kingdom,1865,,
+barclays,Barclays,Barclays,Q245343,,Finance,United Kingdom,1690,,
+goldman-sachs,Goldman Sachs,Goldman Sachs,Q193326,,Finance,United States,1869,,
+santander,Santander,Banco Santander,Q6496310,,Finance,Spain,1857,,
+deutsche-bank,Deutsche Bank,Deutsche Bank,Q66048,,Finance,Germany,1870,,
+ubs,UBS,UBS,Q193199,,Finance,Switzerland,1862,,
+citi,Citi,Citigroup,Q219508,,Finance,United States,1812,,Citibank; Citigroup
+bank-of-america,Bank of America,Bank of America,Q487907,,Finance,United States,1904,,
+wells-fargo,Wells Fargo,Wells Fargo,Q744149,,Finance,United States,1852,,
+revolut,Revolut,Revolut,Q22908307,,Finance,United Kingdom,2015,,
+monzo,Monzo,Monzo,Q25206290,,Finance,United Kingdom,2015,,
+western-union,Western Union,Western Union,Q861042,,Finance,United States,1851,,
+dhl,DHL,DHL,Q489815,,Delivery,Germany,1969,,
+fedex,FedEx,FedEx,Q459477,,Delivery,United States,1971,,
+ups,UPS,United Parcel Service,Q155026,,Delivery,United States,1907,,United Parcel Service
+royal-mail,Royal Mail,Royal Mail,Q638098,,Delivery,United Kingdom,1516,,
+maersk,Maersk,Maersk,Q18224,,Delivery,Denmark,1904,,
+gillette,Gillette,Gillette,Q503592,,Household,United States,1901,,
+colgate,Colgate,Colgate (toothpaste),Q2523492,,Household,United States,1873,,
+nivea,Nivea,Nivea,Q337408,,Household,Germany,1911,,
+loreal,L'Oréal,L'Oréal,Q156077,,Household,France,1909,,Loreal
+dove,Dove,Dove (toiletries),Q962709,,Household,United Kingdom,1957,,
+duracell,Duracell,Duracell,Q858702,,Household,United States,1924,,
+pampers,Pampers,Pampers,Q2340498,,Household,United States,1961,,
+kleenex,Kleenex,Kleenex,Q1371867,,Household,United States,1924,,
+3m,3M,3M,Q159433,,Household,United States,1902,,
+johnson-johnson,Johnson & Johnson,Johnson & Johnson,Q333718,,Household,United States,1886,,J&J
+procter-gamble,Procter & Gamble,Procter & Gamble,Q212405,,Household,United States,1837,,P&G
+unilever,Unilever,Unilever,Q157062,,Household,United Kingdom,1929,,
+bic,Bic,Société Bic,Q795981,,Household,France,1945,,BIC
+zippo,Zippo,Zippo,Q205533,,Household,United States,1932,,
+tupperware,Tupperware,Tupperware Brands,Q16985829,,Household,United States,1946,,

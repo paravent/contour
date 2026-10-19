@@ -33,8 +33,8 @@ def search(name):
 
 
 def main():
-    shard, shards = int(sys.argv[1]), int(sys.argv[2])
-    search_ids = set(sys.argv[3].split(",")) if len(sys.argv) > 3 and sys.argv[3] else set()
+    shard, shards, which = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3])
+    search_ids = set(sys.argv[4].split(",")) if len(sys.argv) > 4 and sys.argv[4] else set()
     brands = load_pool(HERE / "brands.csv")
     entities = commons.entities_for(brands)
     cands = []  # (label, file)
@@ -54,7 +54,7 @@ def main():
     sheets = [cands[i:i + PER_SHEET] for i in range(0, len(cands), PER_SHEET)]
     print(f"{len(cands)} PD candidates, {len(sheets)} sheets")
     for s, batch in enumerate(sheets):
-        if s % shards != shard:
+        if s % shards != shard or s // shards != which:
             continue
         rows = -(-len(batch) // COLS)
         sheet = Image.new("RGB", (COLS * CELL[0], rows * CELL[1]), (150, 150, 150))
@@ -75,9 +75,8 @@ def main():
         sheet.convert("P", palette=Image.ADAPTIVE, colors=12).save(buf, "PNG", optimize=True)
         data = base64.b64encode(buf.getvalue()).decode()
         parts = [data[i:i + 4000] for i in range(0, len(data), 4000)]
-        kind = "notice" if s // shards % 2 == 0 else "warning"
         for k, part in enumerate(parts):
-            note(kind, f"S{s:02d} {k + 1}/{len(parts)}", part)
+            note("notice" if k < 10 else "warning", f"S{s:02d} {k + 1}/{len(parts)}", part)
         mapping = "\n".join(f"{label}\t{commons.file_key(f)}" for label, f in batch)
         for k in range(0, len(mapping), 3900):
             note("error", f"M{s:02d} {k // 3900 + 1}", mapping[k:k + 3900])
