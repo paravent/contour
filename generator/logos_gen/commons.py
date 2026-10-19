@@ -236,6 +236,30 @@ def entities_by_enwiki(titles):
     return out
 
 
+def entities_by_qid(qids):
+    """Wikidata entities by item ID, 50 to a request."""
+    out = {}
+    qids = list(dict.fromkeys(qids))
+    for i in range(0, len(qids), 50):
+        payload = get_json(WIKIDATA_API, {
+            "action": "wbgetentities", "format": "json", "ids": "|".join(qids[i:i + 50]),
+            "props": "labels|descriptions|claims", "languages": "en",
+        })
+        if "error" in payload:
+            raise FetchError(f"wikidata: {payload['error']}")
+        for qid, entity in (payload.get("entities") or {}).items():
+            if "missing" not in entity:
+                out[qid] = parse_entity(entity)
+    return out
+
+
+def entities_for(brands):
+    """Each brand's Wikidata entity by brand id: by its QID when the pool has one, else by its Wikipedia title."""
+    by_qid = entities_by_qid([b.qid for b in brands if b.qid])
+    by_title = entities_by_enwiki([b.wiki for b in brands if not b.qid])
+    return {b.id: by_qid.get(b.qid) if b.qid else by_title.get(b.wiki) for b in brands}
+
+
 def labels(qids):
     out = {}
     qids = list(dict.fromkeys(qids))

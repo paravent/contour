@@ -2,7 +2,7 @@ import type { ComponentChildren } from 'preact'
 import { useEffect, useState } from 'preact/hooks'
 import { localDate, untilMidnight } from '../lib/day'
 import { nightDir, loadNightPuzzle } from '../lib/nightLights'
-import { loadPalettePuzzle } from '../lib/palette'
+import { loadLogosPuzzle, logosDir } from '../lib/logos'
 import { puzzleDir } from '../lib/puzzle'
 import { loadSpikePuzzle } from '../lib/spike'
 import { currentStreak, loadDay, loadStats } from '../lib/storage'
@@ -10,21 +10,40 @@ import { StatusBar } from './StatusBar'
 import { Typed } from './Typed'
 
 /** What today's puzzles look like before the first guess, for the hub's cards. Nothing here gives an answer away. */
-type Previews = { views?: number[]; palette?: { hex: string; share: number }[]; night?: string }
+type Previews = { views?: number[]; logo?: { src: string; aspect: number; background: string }; night?: string }
 
 function usePreviews(date: string): Previews {
   const [p, setP] = useState<Previews>({})
   useEffect(() => {
     const quiet = <T,>(x: Promise<T>) => x.catch(() => null)
     quiet(loadSpikePuzzle(date)).then((s) => s && setP((o) => ({ ...o, views: s.views })))
-    quiet(loadPalettePuzzle(date)).then((s) => s && setP((o) => ({ ...o, palette: s.palette })))
+    quiet(loadLogosPuzzle(date)).then(
+      (s) => s && s.stages[0] && setP((o) => ({ ...o, logo: { src: logosDir(date) + s.stages[0].image, aspect: s.aspect, background: s.background } })),
+    )
     quiet(loadNightPuzzle(date)).then((s) => s && s.stages[0] && setP((o) => ({ ...o, night: nightDir(date) + s.stages[0].image })))
   }, [date])
   return p
 }
 
 const FALLBACK_VIEWS = Array.from({ length: 120 }, (_, i) => 10 + 3 * Math.sin(i / 9) + (i === 38 ? 60 : i === 37 || i === 39 ? 22 : 0) + (i === 92 ? 85 : i === 91 || i === 93 ? 30 : 0))
-const FALLBACK_PALETTE = ['#1F3B5C', '#D9A441', '#B5462F', '#E8DCC2', '#3C5A3A'].map((hex) => ({ hex, share: 0.2 }))
+// An 8x4 grid of a made-up logo, for the card before today's puzzle has loaded.
+const FALLBACK_LOGO = [
+  '........',
+  '..rrrr..',
+  '.rr..yy.',
+  '..yyyy..',
+]
+const LOGO_COLOURS: Record<string, string> = { r: '#E2363C', y: '#F5B82E' }
+
+/** Pixels as an SVG, drawn crisp at any size. */
+function PixelLogo({ rows, class: cls }: { rows: string[]; class?: string }) {
+  return (
+    <svg class={cls} viewBox={`0 0 ${rows[0].length} ${rows.length}`} preserveAspectRatio="xMidYMid meet" shape-rendering="crispEdges" aria-hidden="true">
+      <rect width={rows[0].length} height={rows.length} fill="#FFFFFF" />
+      {rows.flatMap((row, y) => [...row].map((c, x) => (LOGO_COLOURS[c] ? <rect key={`${x}-${y}`} x={x} y={y} width="1" height="1" fill={LOGO_COLOURS[c]} /> : null)))}
+    </svg>
+  )
+}
 
 /** A year of pageviews as a glowing trace, drawn into a 100x40 box. */
 function Trace({ views }: { views: number[] }) {
@@ -91,22 +110,16 @@ export function Hub() {
     },
     {
       n: '03',
-      name: 'PALETTE',
-      game: 'palette',
-      blurb: 'Name the famous painting from its colours',
-      art: (
-        <div class="palette" aria-hidden="true">
-          {FALLBACK_PALETTE.map((c) => <span key={c.hex} style={{ background: c.hex }} />)}
-        </div>
-      ),
-      hero: (
-        <div class="hero-palette" aria-hidden="true">
-          {(previews.palette ?? FALLBACK_PALETTE).map((c, i) => (
-            <span key={c.hex} style={{ background: c.hex, flexGrow: Math.max(c.share, 0.04), '--i': i }}>
-              <em>{c.hex.toUpperCase()}</em>
-            </span>
-          ))}
-        </div>
+      name: 'LOGOS',
+      game: 'logos',
+      blurb: 'Name the brand from its pixelated logo',
+      art: <PixelLogo rows={FALLBACK_LOGO} class="logo-art" />,
+      hero: previews.logo ? (
+        <span class="hero-logo" style={{ background: previews.logo.background }} aria-hidden="true">
+          <img class="pixelated" src={previews.logo.src} alt="" draggable={false} style={{ aspectRatio: String(previews.logo.aspect) }} />
+        </span>
+      ) : (
+        <span class="hero-logo" aria-hidden="true"><PixelLogo rows={FALLBACK_LOGO} /></span>
       ),
     },
     {

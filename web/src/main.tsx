@@ -5,8 +5,8 @@ import { Boot } from './components/Boot'
 import { Contour } from './components/Contour'
 import { GameNav } from './components/GameNav'
 import { Hub } from './components/Hub'
+import { Logos } from './components/Logos'
 import { NightLights } from './components/NightLights'
-import { Palette } from './components/Palette'
 import { Spike } from './components/Spike'
 import { GAMES, gameForHash, prefersReducedMotion } from './lib/games'
 import './styles.css'
@@ -16,7 +16,7 @@ import './shell.css'
 const ROUTES: Record<string, () => preact.JSX.Element> = {
   '#/contour': Contour,
   '#/spike': Spike,
-  '#/palette': Palette,
+  '#/logos': Logos,
   '#/night-lights': NightLights,
 }
 

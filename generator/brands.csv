@@ -1,362 +1,362 @@
-id,name,wiki,file,industry,country,founded,wordmark,aliases
-apple,Apple,Apple Inc.,,Tech,United States,1976,,
-microsoft,Microsoft,Microsoft,,Tech,United States,1975,,
-ibm,IBM,IBM,,Tech,United States,1911,,
-intel,Intel,Intel,,Tech,United States,1968,,
-amd,AMD,AMD,,Tech,United States,1969,,Advanced Micro Devices
-nvidia,Nvidia,Nvidia,,Tech,United States,1993,,
-samsung,Samsung,Samsung,,Tech,South Korea,1938,,
-sony,Sony,Sony,,Tech,Japan,1946,,
-lg,LG,LG Electronics,,Tech,South Korea,1958,,
-panasonic,Panasonic,Panasonic,,Tech,Japan,1918,,
-dell,Dell,Dell,,Tech,United States,1984,,
-hp,HP,Hewlett-Packard,,Tech,United States,1939,,Hewlett-Packard
-lenovo,Lenovo,Lenovo,,Tech,China,1984,,
-huawei,Huawei,Huawei,,Tech,China,1987,,
-xiaomi,Xiaomi,Xiaomi,,Tech,China,2010,,
-canon,Canon,Canon Inc.,,Tech,Japan,1937,,
-nikon,Nikon,Nikon,,Tech,Japan,1917,,
-philips,Philips,Philips,,Tech,Netherlands,1891,,
-siemens,Siemens,Siemens,,Tech,Germany,1847,,
-bosch,Bosch,Robert Bosch GmbH,,Tech,Germany,1886,,
-motorola,Motorola,Motorola,,Tech,United States,1928,,
-nokia,Nokia,Nokia,,Tech,Finland,1865,,
-blackberry,BlackBerry,BlackBerry Limited,,Tech,Canada,1984,,
-cisco,Cisco,Cisco,,Tech,United States,1984,,
-oracle,Oracle,Oracle Corporation,,Tech,United States,1977,,
-adobe,Adobe,Adobe Inc.,,Tech,United States,1982,,
-toshiba,Toshiba,Toshiba,,Tech,Japan,1939,,
-fujifilm,Fujifilm,Fujifilm,,Tech,Japan,1934,,
-logitech,Logitech,Logitech,,Tech,Switzerland,1981,,
-asus,Asus,Asus,,Tech,Taiwan,1989,,
-acer,Acer,Acer Inc.,,Tech,Taiwan,1976,,
-dyson,Dyson,Dyson (company),,Tech,United Kingdom,1991,,
-bose,Bose,Bose Corporation,,Tech,United States,1964,,
-xerox,Xerox,Xerox,,Tech,United States,1906,,
-kodak,Kodak,Kodak,,Tech,United States,1888,,
-hitachi,Hitachi,Hitachi,,Tech,Japan,1910,,
-casio,Casio,Casio,,Tech,Japan,1946,,
-sharp,Sharp,Sharp Corporation,,Tech,Japan,1912,,
-garmin,Garmin,Garmin,,Tech,United States,1989,,
-gopro,GoPro,GoPro,,Tech,United States,2002,,
-google,Google,Google,,Internet,United States,1998,,
-youtube,YouTube,YouTube,,Internet,United States,2005,,
-facebook,Facebook,Facebook,,Internet,United States,2004,,
-instagram,Instagram,Instagram,,Internet,United States,2010,,
-whatsapp,WhatsApp,WhatsApp,,Internet,United States,2009,,
-twitter,Twitter,Twitter,,Internet,United States,2006,,X
-tiktok,TikTok,TikTok,,Internet,China,2016,,Douyin
-snapchat,Snapchat,Snapchat,,Internet,United States,2011,,
-reddit,Reddit,Reddit,,Internet,United States,2005,,
-amazon,Amazon,Amazon (company),,Internet,United States,1994,,
-ebay,eBay,EBay,,Internet,United States,1995,,
-airbnb,Airbnb,Airbnb,,Internet,United States,2008,,
-uber,Uber,Uber,,Internet,United States,2009,,
-linkedin,LinkedIn,LinkedIn,,Internet,United States,2002,,
-pinterest,Pinterest,Pinterest,,Internet,United States,2009,,
-discord,Discord,Discord,,Internet,United States,2015,,
-twitch,Twitch,Twitch (service),,Internet,United States,2011,,
-zoom,Zoom,Zoom Communications,,Internet,United States,2011,,
-skype,Skype,Skype,,Internet,Luxembourg,2003,,
-yahoo,Yahoo!,Yahoo,,Internet,United States,1994,,Yahoo
-telegram,Telegram,Telegram (software),,Internet,United Arab Emirates,2013,,
-dropbox,Dropbox,Dropbox,,Internet,United States,2007,,
-slack,Slack,Slack (software),,Internet,United States,2013,,
-shopify,Shopify,Shopify,,Internet,Canada,2006,,
-booking,Booking.com,Booking.com,,Internet,Netherlands,1996,,Booking
-tinder,Tinder,Tinder (app),,Internet,United States,2012,,
-duolingo,Duolingo,Duolingo,,Internet,United States,2011,,
-alibaba,Alibaba,Alibaba Group,,Internet,China,1999,,
-tencent,Tencent,Tencent,,Internet,China,1998,,
-mcdonalds,McDonald's,McDonald's,,Fast food,United States,1940,,McDonalds
-burger-king,Burger King,Burger King,,Fast food,United States,1954,,
-kfc,KFC,KFC,,Fast food,United States,1952,,Kentucky Fried Chicken
-subway,Subway,Subway (restaurant),,Fast food,United States,1965,,
-pizza-hut,Pizza Hut,Pizza Hut,,Fast food,United States,1958,,
-dominos,Domino's,Domino's,,Fast food,United States,1960,,Dominos Pizza
-starbucks,Starbucks,Starbucks,,Fast food,United States,1971,,
-taco-bell,Taco Bell,Taco Bell,,Fast food,United States,1962,,
-wendys,Wendy's,Wendy's,,Fast food,United States,1969,,Wendys
-dunkin,Dunkin',Dunkin' Donuts,,Fast food,United States,1950,,Dunkin Donuts
-tim-hortons,Tim Hortons,Tim Hortons,,Fast food,Canada,1964,,
-five-guys,Five Guys,Five Guys,,Fast food,United States,1986,,
-chipotle,Chipotle,Chipotle Mexican Grill,,Fast food,United States,1993,,
-popeyes,Popeyes,Popeyes,,Fast food,United States,1972,,
-nandos,Nando's,Nando's,,Fast food,South Africa,1987,,Nandos
-greggs,Greggs,Greggs,,Fast food,United Kingdom,1939,,
-krispy-kreme,Krispy Kreme,Krispy Kreme,,Fast food,United States,1937,,
-papa-johns,Papa John's,Papa John's,,Fast food,United States,1984,,Papa Johns
-costa,Costa Coffee,Costa Coffee,,Fast food,United Kingdom,1971,,Costa
-pret,Pret A Manger,Pret a Manger,,Fast food,United Kingdom,1983,,Pret
-in-n-out,In-N-Out Burger,In-N-Out Burger,,Fast food,United States,1948,,In N Out
-chick-fil-a,Chick-fil-A,Chick-fil-A,,Fast food,United States,1946,,Chick fil A
-dairy-queen,Dairy Queen,Dairy Queen,,Fast food,United States,1940,,
-baskin-robbins,Baskin-Robbins,Baskin-Robbins,,Fast food,United States,1945,,Baskin Robbins
-shake-shack,Shake Shack,Shake Shack,,Fast food,United States,2004,,
-nestle,Nestlé,Nestlé,,Food,Switzerland,1866,,Nestle
-kelloggs,Kellogg's,Kellogg's,,Food,United States,1906,,Kelloggs
-heinz,Heinz,Heinz,,Food,United States,1869,,
-nutella,Nutella,Nutella,,Food,Italy,1964,,
-oreo,Oreo,Oreo,,Food,United States,1912,,
-kitkat,KitKat,KitKat,,Food,United Kingdom,1935,,Kit Kat
-cadbury,Cadbury,Cadbury,,Food,United Kingdom,1824,,
-mars,Mars,"Mars, Incorporated",,Food,United States,1911,,
-mms,M&M's,M&M's,,Food,United States,1941,,M and Ms
-pringles,Pringles,Pringles,,Food,United States,1967,,
-lays,Lay's,Lay's,,Food,United States,1932,,Lays
-doritos,Doritos,Doritos,,Food,United States,1964,,
-haribo,Haribo,Haribo,,Food,Germany,1920,,
-ferrero,Ferrero,Ferrero SpA,,Food,Italy,1946,,
-kinder,Kinder,Kinder (brand),,Food,Italy,1968,,
-hersheys,Hershey's,The Hershey Company,,Food,United States,1894,,Hersheys
-lindt,Lindt,Lindt & Sprüngli,,Food,Switzerland,1845,,
-toblerone,Toblerone,Toblerone,,Food,Switzerland,1908,,
-danone,Danone,Danone,,Food,France,1919,,
-barilla,Barilla,Barilla,,Food,Italy,1877,,
-ben-jerrys,Ben & Jerry's,Ben & Jerry's,,Food,United States,1978,,Ben and Jerrys
-quaker,Quaker Oats,Quaker Oats Company,,Food,United States,1901,,Quaker
-skittles,Skittles,Skittles (confectionery),,Food,United Kingdom,1974,,
-snickers,Snickers,Snickers,,Food,United States,1930,,
-twix,Twix,Twix,,Food,United Kingdom,1967,,
-chupa-chups,Chupa Chups,Chupa Chups,,Food,Spain,1958,,
-tic-tac,Tic Tac,Tic Tac,,Food,Italy,1969,,
-mentos,Mentos,Mentos,,Food,Netherlands,1932,,
-walkers,Walkers,Walkers (snack foods),,Food,United Kingdom,1948,,
-marmite,Marmite,Marmite,,Food,United Kingdom,1902,,
-coca-cola,Coca-Cola,Coca-Cola,,Drinks,United States,1886,,Coke
-pepsi,Pepsi,Pepsi,,Drinks,United States,1893,,
-red-bull,Red Bull,Red Bull,,Drinks,Austria,1987,,
-monster,Monster Energy,Monster Energy,,Drinks,United States,2002,,Monster
-sprite,Sprite,Sprite (drink),,Drinks,United States,1961,,
-fanta,Fanta,Fanta,,Drinks,Germany,1940,,
-7up,7 Up,7 Up,,Drinks,United States,1929,,Seven Up
-dr-pepper,Dr Pepper,Dr Pepper,,Drinks,United States,1885,,
-heineken,Heineken,Heineken,,Drinks,Netherlands,1864,,
-budweiser,Budweiser,Budweiser,,Drinks,United States,1876,,
-guinness,Guinness,Guinness,,Drinks,Ireland,1759,,
-corona,Corona,Corona (beer),,Drinks,Mexico,1925,,
-carlsberg,Carlsberg,Carlsberg Group,,Drinks,Denmark,1847,,
-jack-daniels,Jack Daniel's,Jack Daniel's,,Drinks,United States,1875,,Jack Daniels
-johnnie-walker,Johnnie Walker,Johnnie Walker,,Drinks,United Kingdom,1820,,
-absolut,Absolut,Absolut Vodka,,Drinks,Sweden,1879,,
-bacardi,Bacardi,Bacardi,,Drinks,Cuba,1862,,
-smirnoff,Smirnoff,Smirnoff,,Drinks,Russia,1864,,
-nescafe,Nescafé,Nescafé,,Drinks,Switzerland,1938,,Nescafe
-lipton,Lipton,Lipton,,Drinks,United Kingdom,1890,,
-evian,Evian,Evian,,Drinks,France,1826,,
-gatorade,Gatorade,Gatorade,,Drinks,United States,1965,,
-schweppes,Schweppes,Schweppes,,Drinks,Switzerland,1783,,
-lucozade,Lucozade,Lucozade,,Drinks,United Kingdom,1927,,
-jagermeister,Jägermeister,Jägermeister,,Drinks,Germany,1934,,Jagermeister
-nespresso,Nespresso,Nespresso,,Drinks,Switzerland,1986,,
-toyota,Toyota,Toyota,,Cars,Japan,1937,,
-honda,Honda,Honda,,Cars,Japan,1948,,
-nissan,Nissan,Nissan,,Cars,Japan,1933,,
-ford,Ford,Ford Motor Company,,Cars,United States,1903,,
-chevrolet,Chevrolet,Chevrolet,,Cars,United States,1911,,Chevy
-volkswagen,Volkswagen,Volkswagen,,Cars,Germany,1937,,VW
-bmw,BMW,BMW,,Cars,Germany,1916,,
-mercedes-benz,Mercedes-Benz,Mercedes-Benz,,Cars,Germany,1926,,Mercedes
-audi,Audi,Audi,,Cars,Germany,1909,,
-porsche,Porsche,Porsche,,Cars,Germany,1931,,
-ferrari,Ferrari,Ferrari,,Cars,Italy,1939,,
-lamborghini,Lamborghini,Lamborghini,,Cars,Italy,1963,,
-tesla,Tesla,"Tesla, Inc.",,Cars,United States,2003,,
-volvo,Volvo,Volvo Cars,,Cars,Sweden,1927,,
-hyundai,Hyundai,Hyundai Motor Company,,Cars,South Korea,1967,,
-kia,Kia,Kia,,Cars,South Korea,1944,,
-mazda,Mazda,Mazda,,Cars,Japan,1920,,
-subaru,Subaru,Subaru,,Cars,Japan,1953,,
-mitsubishi,Mitsubishi,Mitsubishi Motors,,Cars,Japan,1970,,
-peugeot,Peugeot,Peugeot,,Cars,France,1810,,
-renault,Renault,Renault,,Cars,France,1899,,
-citroen,Citroën,Citroën,,Cars,France,1919,,Citroen
-fiat,Fiat,Fiat Automobiles,,Cars,Italy,1899,,
-alfa-romeo,Alfa Romeo,Alfa Romeo,,Cars,Italy,1910,,
-jeep,Jeep,Jeep,,Cars,United States,1941,,
-land-rover,Land Rover,Land Rover,,Cars,United Kingdom,1948,,
-jaguar,Jaguar,Jaguar Cars,,Cars,United Kingdom,1922,,
-rolls-royce,Rolls-Royce,Rolls-Royce Motor Cars,,Cars,United Kingdom,1906,,Rolls Royce
-bentley,Bentley,Bentley,,Cars,United Kingdom,1919,,
-aston-martin,Aston Martin,Aston Martin,,Cars,United Kingdom,1913,,
-mini,Mini,Mini (marque),,Cars,United Kingdom,1969,,
-maserati,Maserati,Maserati,,Cars,Italy,1914,,
-bugatti,Bugatti,Bugatti,,Cars,France,1909,,
-skoda,Škoda,Škoda Auto,,Cars,Czech Republic,1895,,Skoda
-seat,SEAT,SEAT,,Cars,Spain,1950,,
-opel,Opel,Opel,,Cars,Germany,1862,,Vauxhall
-lexus,Lexus,Lexus,,Cars,Japan,1989,,
-cadillac,Cadillac,Cadillac,,Cars,United States,1902,,
-dodge,Dodge,Dodge,,Cars,United States,1900,,
-harley-davidson,Harley-Davidson,Harley-Davidson,,Cars,United States,1903,,Harley Davidson
-ducati,Ducati,Ducati,,Cars,Italy,1926,,
-michelin,Michelin,Michelin,,Cars,France,1889,,
-goodyear,Goodyear,Goodyear Tire and Rubber Company,,Cars,United States,1898,,
-pirelli,Pirelli,Pirelli,,Cars,Italy,1872,,
-bridgestone,Bridgestone,Bridgestone,,Cars,Japan,1931,,
-nike,Nike,"Nike, Inc.",,Sportswear,United States,1964,,
-adidas,Adidas,Adidas,,Sportswear,Germany,1949,,
-puma,Puma,Puma (brand),,Sportswear,Germany,1948,,
-reebok,Reebok,Reebok,,Sportswear,United Kingdom,1958,,
-under-armour,Under Armour,Under Armour,,Sportswear,United States,1996,,
-new-balance,New Balance,New Balance,,Sportswear,United States,1906,,
-converse,Converse,Converse (shoe company),,Sportswear,United States,1908,,
-vans,Vans,Vans,,Sportswear,United States,1966,,
-asics,Asics,Asics,,Sportswear,Japan,1949,,
-fila,Fila,Fila (company),,Sportswear,Italy,1911,,
-lacoste,Lacoste,Lacoste,,Sportswear,France,1933,,
-umbro,Umbro,Umbro,,Sportswear,United Kingdom,1924,,
-north-face,The North Face,The North Face,,Sportswear,United States,1966,,North Face
-champion,Champion,Champion (sportswear),,Sportswear,United States,1919,,
-kappa,Kappa,Kappa (company),,Sportswear,Italy,1916,,
-air-jordan,Air Jordan,Air Jordan,,Sportswear,United States,1984,,Jordan
-patagonia,Patagonia,"Patagonia, Inc.",,Sportswear,United States,1973,,
-speedo,Speedo,Speedo,,Sportswear,Australia,1914,,
-wilson,Wilson,Wilson Sporting Goods,,Sportswear,United States,1913,,
-gucci,Gucci,Gucci,,Fashion,Italy,1921,,
-louis-vuitton,Louis Vuitton,Louis Vuitton,,Fashion,France,1854,,LV
-chanel,Chanel,Chanel,,Fashion,France,1910,,
-prada,Prada,Prada,,Fashion,Italy,1913,,
-versace,Versace,Versace,,Fashion,Italy,1978,,
-burberry,Burberry,Burberry,,Fashion,United Kingdom,1856,,
-hermes,Hermès,Hermès,,Fashion,France,1837,,Hermes
-dior,Dior,Dior,,Fashion,France,1946,,
-ralph-lauren,Ralph Lauren,Ralph Lauren Corporation,,Fashion,United States,1967,,Polo
-tommy-hilfiger,Tommy Hilfiger,Tommy Hilfiger (company),,Fashion,United States,1985,,
-levis,Levi's,Levi Strauss & Co.,,Fashion,United States,1853,,Levis
-zara,Zara,Zara (retailer),,Fashion,Spain,1975,,
-hm,H&M,H&M,,Fashion,Sweden,1947,,H and M
-uniqlo,Uniqlo,Uniqlo,,Fashion,Japan,1949,,
-gap,Gap,Gap Inc.,,Fashion,United States,1969,,
-calvin-klein,Calvin Klein,Calvin Klein (fashion house),,Fashion,United States,1968,,
-rolex,Rolex,Rolex,,Fashion,Switzerland,1905,,
-swatch,Swatch,Swatch,,Fashion,Switzerland,1983,,
-ray-ban,Ray-Ban,Ray-Ban,,Fashion,United States,1937,,Ray Ban
-crocs,Crocs,Crocs,,Fashion,United States,2002,,
-dr-martens,Dr. Martens,Dr. Martens,,Fashion,United Kingdom,1960,,Doc Martens
-timberland,Timberland,Timberland (company),,Fashion,United States,1952,,
-supreme,Supreme,Supreme (brand),,Fashion,United States,1994,,
-primark,Primark,Primark,,Fashion,Ireland,1969,,
-walmart,Walmart,Walmart,,Retail,United States,1962,,
-target,Target,Target Corporation,,Retail,United States,1902,,
-ikea,IKEA,IKEA,,Retail,Sweden,1943,,
-costco,Costco,Costco,,Retail,United States,1976,,
-tesco,Tesco,Tesco,,Retail,United Kingdom,1919,,
-carrefour,Carrefour,Carrefour,,Retail,France,1958,,
-aldi,Aldi,Aldi,,Retail,Germany,1946,,
-lidl,Lidl,Lidl,,Retail,Germany,1930,,
-sainsburys,Sainsbury's,Sainsbury's,,Retail,United Kingdom,1869,,Sainsburys
-marks-spencer,Marks & Spencer,Marks & Spencer,,Retail,United Kingdom,1884,,M&S
-best-buy,Best Buy,Best Buy,,Retail,United States,1966,,
-home-depot,The Home Depot,The Home Depot,,Retail,United States,1978,,Home Depot
-seven-eleven,7-Eleven,7-Eleven,,Retail,United States,1927,,Seven Eleven
-toys-r-us,Toys R Us,Toys R Us,,Retail,United States,1948,,
-sephora,Sephora,Sephora,,Retail,France,1970,,
-boots,Boots,Boots (company),,Retail,United Kingdom,1849,,
-argos,Argos,Argos (retailer),,Retail,United Kingdom,1973,,
-etsy,Etsy,Etsy,,Retail,United States,2005,,
-walgreens,Walgreens,Walgreens,,Retail,United States,1901,,
-asda,Asda,Asda,,Retail,United Kingdom,1949,,
-disney,Disney,The Walt Disney Company,,Media,United States,1923,,Walt Disney
-netflix,Netflix,Netflix,,Media,United States,1997,,
-spotify,Spotify,Spotify,,Media,Sweden,2006,,
-bbc,BBC,BBC,,Media,United Kingdom,1922,,
-cnn,CNN,CNN,,Media,United States,1980,,
-warner-bros,Warner Bros.,Warner Bros.,,Media,United States,1923,,Warner Brothers
-paramount,Paramount,Paramount Pictures,,Media,United States,1912,,
-universal,Universal,Universal Pictures,,Media,United States,1912,,
-20th-century,20th Century Studios,20th Century Studios,,Media,United States,1935,,20th Century Fox
-pixar,Pixar,Pixar,,Media,United States,1986,,
-dreamworks,DreamWorks,DreamWorks Animation,,Media,United States,1994,,
-hbo,HBO,HBO,,Media,United States,1972,,
-mtv,MTV,MTV,,Media,United States,1981,,
-marvel,Marvel,Marvel Comics,,Media,United States,1939,,
-dc-comics,DC Comics,DC Comics,,Media,United States,1934,,DC
-national-geographic,National Geographic,National Geographic,,Media,United States,1888,,
-nickelodeon,Nickelodeon,Nickelodeon,,Media,United States,1977,,
-cartoon-network,Cartoon Network,Cartoon Network,,Media,United States,1992,,
-espn,ESPN,ESPN,,Media,United States,1979,,
-sky,Sky,Sky Group,,Media,United Kingdom,1990,,
-hulu,Hulu,Hulu,,Media,United States,2007,,
-nintendo,Nintendo,Nintendo,,Games & toys,Japan,1889,,
-playstation,PlayStation,PlayStation,,Games & toys,Japan,1994,,
-xbox,Xbox,Xbox,,Games & toys,United States,2001,,
-pokemon,Pokémon,Pokémon,,Games & toys,Japan,1996,,Pokemon
-sega,Sega,Sega,,Games & toys,Japan,1960,,
-atari,Atari,Atari,,Games & toys,United States,1972,,
-ea,Electronic Arts,Electronic Arts,,Games & toys,United States,1982,,EA
-ubisoft,Ubisoft,Ubisoft,,Games & toys,France,1986,,
-rockstar,Rockstar Games,Rockstar Games,,Games & toys,United States,1998,,Rockstar
-activision,Activision,Activision,,Games & toys,United States,1979,,
-valve,Valve,Valve Corporation,,Games & toys,United States,1996,,Steam
-epic-games,Epic Games,Epic Games,,Games & toys,United States,1991,,Epic
-hasbro,Hasbro,Hasbro,,Games & toys,United States,1923,,
-mattel,Mattel,Mattel,,Games & toys,United States,1945,,
-lego,Lego,The Lego Group,,Games & toys,Denmark,1932,,
-barbie,Barbie,Barbie,,Games & toys,United States,1959,,
-hot-wheels,Hot Wheels,Hot Wheels,,Games & toys,United States,1968,,
-nerf,Nerf,Nerf,,Games & toys,United States,1969,,
-fisher-price,Fisher-Price,Fisher-Price,,Games & toys,United States,1930,,Fisher Price
-playmobil,Playmobil,Playmobil,,Games & toys,Germany,1974,,
-emirates,Emirates,Emirates (airline),,Travel,United Arab Emirates,1985,,
-lufthansa,Lufthansa,Lufthansa,,Travel,Germany,1953,,
-british-airways,British Airways,British Airways,,Travel,United Kingdom,1974,,BA
-delta,Delta Air Lines,Delta Air Lines,,Travel,United States,1925,,Delta
-american-airlines,American Airlines,American Airlines,,Travel,United States,1926,,
-united-airlines,United Airlines,United Airlines,,Travel,United States,1926,,United
-qantas,Qantas,Qantas,,Travel,Australia,1920,,
-ryanair,Ryanair,Ryanair,,Travel,Ireland,1984,,
-easyjet,easyJet,EasyJet,,Travel,United Kingdom,1995,,
-air-france,Air France,Air France,,Travel,France,1933,,
-klm,KLM,KLM,,Travel,Netherlands,1919,,
-singapore-airlines,Singapore Airlines,Singapore Airlines,,Travel,Singapore,1947,,
-southwest,Southwest Airlines,Southwest Airlines,,Travel,United States,1967,,Southwest
-turkish-airlines,Turkish Airlines,Turkish Airlines,,Travel,Turkey,1933,,
-virgin,Virgin,Virgin Group,,Travel,United Kingdom,1970,,
-boeing,Boeing,Boeing,,Travel,United States,1916,,
-airbus,Airbus,Airbus,,Travel,France,1970,,
-marriott,Marriott,Marriott International,,Travel,United States,1927,,
-hilton,Hilton,Hilton Hotels & Resorts,,Travel,United States,1919,,
-shell,Shell,Shell plc,,Energy,United Kingdom,1907,,
-bp,BP,BP,,Energy,United Kingdom,1909,,British Petroleum
-exxonmobil,ExxonMobil,ExxonMobil,,Energy,United States,1999,,Exxon; Esso
-chevron,Chevron,Chevron Corporation,,Energy,United States,1879,,
-texaco,Texaco,Texaco,,Energy,United States,1902,,
-totalenergies,TotalEnergies,TotalEnergies,,Energy,France,1924,,Total
-gulf,Gulf Oil,Gulf Oil,,Energy,United States,1901,,Gulf
-visa,Visa,Visa Inc.,,Finance,United States,1958,,
-mastercard,Mastercard,Mastercard,,Finance,United States,1966,,
-amex,American Express,American Express,,Finance,United States,1850,,Amex
-paypal,PayPal,PayPal,,Finance,United States,1998,,
-hsbc,HSBC,HSBC,,Finance,United Kingdom,1865,,
-barclays,Barclays,Barclays,,Finance,United Kingdom,1690,,
-goldman-sachs,Goldman Sachs,Goldman Sachs,,Finance,United States,1869,,
-santander,Santander,Banco Santander,,Finance,Spain,1857,,
-deutsche-bank,Deutsche Bank,Deutsche Bank,,Finance,Germany,1870,,
-ubs,UBS,UBS,,Finance,Switzerland,1862,,
-citi,Citi,Citigroup,,Finance,United States,1812,,Citibank; Citigroup
-bank-of-america,Bank of America,Bank of America,,Finance,United States,1904,,
-wells-fargo,Wells Fargo,Wells Fargo,,Finance,United States,1852,,
-revolut,Revolut,Revolut,,Finance,United Kingdom,2015,,
-monzo,Monzo,Monzo,,Finance,United Kingdom,2015,,
-western-union,Western Union,Western Union,,Finance,United States,1851,,
-dhl,DHL,DHL,,Delivery,Germany,1969,,
-fedex,FedEx,FedEx,,Delivery,United States,1971,,
-ups,UPS,United Parcel Service,,Delivery,United States,1907,,United Parcel Service
-royal-mail,Royal Mail,Royal Mail,,Delivery,United Kingdom,1516,,
-maersk,Maersk,Maersk,,Delivery,Denmark,1904,,
-gillette,Gillette,Gillette,,Household,United States,1901,,
-colgate,Colgate,Colgate (toothpaste),,Household,United States,1873,,
-nivea,Nivea,Nivea,,Household,Germany,1911,,
-loreal,L'Oréal,L'Oréal,,Household,France,1909,,Loreal
-dove,Dove,Dove (toiletries),,Household,United Kingdom,1957,,
-duracell,Duracell,Duracell,,Household,United States,1924,,
-pampers,Pampers,Pampers,,Household,United States,1961,,
-kleenex,Kleenex,Kleenex,,Household,United States,1924,,
-3m,3M,3M,,Household,United States,1902,,
-johnson-johnson,Johnson & Johnson,Johnson & Johnson,,Household,United States,1886,,J&J
-procter-gamble,Procter & Gamble,Procter & Gamble,,Household,United States,1837,,P&G
-unilever,Unilever,Unilever,,Household,United Kingdom,1929,,
-bic,Bic,Société Bic,,Household,France,1945,,BIC
-zippo,Zippo,Zippo,,Household,United States,1932,,
-tupperware,Tupperware,Tupperware Brands,,Household,United States,1946,,
+id,name,wiki,qid,file,industry,country,founded,wordmark,aliases
+apple,Apple,Apple Inc.,Q312,,Tech,United States,1976,,
+microsoft,Microsoft,Microsoft,Q2283,,Tech,United States,1975,,
+ibm,IBM,IBM,Q37156,,Tech,United States,1911,,
+intel,Intel,Intel,Q248,,Tech,United States,1968,,
+amd,AMD,AMD,Q128896,,Tech,United States,1969,,Advanced Micro Devices
+nvidia,Nvidia,Nvidia,Q182477,,Tech,United States,1993,,
+samsung,Samsung,Samsung,Q20716,,Tech,South Korea,1938,,
+sony,Sony,Sony,Q41187,,Tech,Japan,1946,,
+lg,LG,LG Electronics,Q162345,,Tech,South Korea,1958,,
+panasonic,Panasonic,Panasonic,Q53247,,Tech,Japan,1918,,
+dell,Dell,Dell,Q30873,,Tech,United States,1984,,
+hp,HP,Hewlett-Packard,Q80978,,Tech,United States,1939,,Hewlett-Packard
+lenovo,Lenovo,Lenovo,Q14799,,Tech,China,1984,,
+huawei,Huawei,Huawei,Q160120,,Tech,China,1987,,
+xiaomi,Xiaomi,Xiaomi,Q1636958,,Tech,China,2010,,
+canon,Canon,Canon Inc.,Q62621,,Tech,Japan,1937,,
+nikon,Nikon,Nikon,Q1218180,,Tech,Japan,1917,,
+philips,Philips,Philips,Q170416,,Tech,Netherlands,1891,,
+siemens,Siemens,Siemens,Q81230,,Tech,Germany,1847,,
+bosch,Bosch,Robert Bosch GmbH,Q234021,,Tech,Germany,1886,,
+motorola,Motorola,Motorola,Q259011,,Tech,United States,1928,,
+nokia,Nokia,Nokia,Q1418,,Tech,Finland,1865,,
+blackberry,BlackBerry,BlackBerry Limited,Q502121,,Tech,Canada,1984,,
+cisco,Cisco,Cisco,Q173395,,Tech,United States,1984,,
+oracle,Oracle,Oracle Corporation,Q19900,,Tech,United States,1977,,
+adobe,Adobe,Adobe Inc.,Q11463,,Tech,United States,1982,,
+toshiba,Toshiba,Toshiba,Q49125,,Tech,Japan,1939,,
+fujifilm,Fujifilm,Fujifilm,Q164740,,Tech,Japan,1934,,
+logitech,Logitech,Logitech,Q223127,,Tech,Switzerland,1981,,
+asus,Asus,Asus,Q152864,,Tech,Taiwan,1989,,
+acer,Acer,Acer Inc.,Q481778,,Tech,Taiwan,1976,,
+dyson,Dyson,Dyson (company),Q621429,,Tech,United Kingdom,1991,,
+bose,Bose,Bose Corporation,Q328568,,Tech,United States,1964,,
+xerox,Xerox,Xerox,Q152433,,Tech,United States,1906,,
+kodak,Kodak,Kodak,Q486269,,Tech,United States,1888,,
+hitachi,Hitachi,Hitachi,Q53238,,Tech,Japan,1910,,
+casio,Casio,Casio,Q217338,,Tech,Japan,1946,,
+sharp,Sharp,Sharp Corporation,Q53227,,Tech,Japan,1912,,
+garmin,Garmin,Garmin,Q658789,,Tech,United States,1989,,
+gopro,GoPro,GoPro,Q733482,,Tech,United States,2002,,
+google,Google,Google,Q95,,Internet,United States,1998,,
+youtube,YouTube,YouTube,Q866,,Internet,United States,2005,,
+facebook,Facebook,Facebook,Q355,,Internet,United States,2004,,
+instagram,Instagram,Instagram,Q209330,,Internet,United States,2010,,
+whatsapp,WhatsApp,WhatsApp,Q1049511,,Internet,United States,2009,,
+twitter,Twitter,Twitter,Q15718485,,Internet,United States,2006,,X
+tiktok,TikTok,TikTok,Q48938223,,Internet,China,2016,,Douyin
+snapchat,Snapchat,Snapchat,Q333618,,Internet,United States,2011,,
+reddit,Reddit,Reddit,Q1136,,Internet,United States,2005,,
+amazon,Amazon,Amazon (company),Q3884,,Internet,United States,1994,,
+ebay,eBay,EBay,Q58024,,Internet,United States,1995,,
+airbnb,Airbnb,Airbnb,Q63327,,Internet,United States,2008,,
+uber,Uber,Uber,Q780442,,Internet,United States,2009,,
+linkedin,LinkedIn,LinkedIn,Q213660,,Internet,United States,2002,,
+pinterest,Pinterest,Pinterest,Q255381,,Internet,United States,2009,,
+discord,Discord,Discord,Q22907849,,Internet,United States,2015,,
+twitch,Twitch,Twitch (service),Q4555537,,Internet,United States,2011,,
+zoom,Zoom,Zoom Communications,Q17460900,,Internet,United States,2011,,
+skype,Skype,Skype,Q40984,,Internet,Luxembourg,2003,,
+yahoo,Yahoo!,Yahoo,Q37093,,Internet,United States,1994,,Yahoo
+telegram,Telegram,Telegram (software),Q15616276,,Internet,United Arab Emirates,2013,,
+dropbox,Dropbox,Dropbox,Q142539,,Internet,United States,2007,,
+slack,Slack,Slack (software),Q17130715,,Internet,United States,2013,,
+shopify,Shopify,Shopify,Q7501150,,Internet,Canada,2006,,
+booking,Booking.com,Booking.com,Q4035313,,Internet,Netherlands,1996,,Booking
+tinder,Tinder,Tinder (app),Q15078152,,Internet,United States,2012,,
+duolingo,Duolingo,Duolingo,Q2918660,,Internet,United States,2011,,
+alibaba,Alibaba,Alibaba Group,Q1359568,,Internet,China,1999,,
+tencent,Tencent,Tencent,Q860580,,Internet,China,1998,,
+mcdonalds,McDonald's,McDonald's,Q38076,,Fast food,United States,1940,,McDonalds
+burger-king,Burger King,Burger King,Q177054,,Fast food,United States,1954,,
+kfc,KFC,KFC,Q524757,,Fast food,United States,1952,,Kentucky Fried Chicken
+subway,Subway,Subway (restaurant),Q244457,,Fast food,United States,1965,,
+pizza-hut,Pizza Hut,Pizza Hut,Q191615,,Fast food,United States,1958,,
+dominos,Domino's,Domino's,Q839466,,Fast food,United States,1960,,Dominos Pizza
+starbucks,Starbucks,Starbucks,Q37158,,Fast food,United States,1971,,
+taco-bell,Taco Bell,Taco Bell,Q752941,,Fast food,United States,1962,,
+wendys,Wendy's,Wendy's,Q550258,,Fast food,United States,1969,,Wendys
+dunkin,Dunkin',Dunkin' Donuts,Q847743,,Fast food,United States,1950,,Dunkin Donuts
+tim-hortons,Tim Hortons,Tim Hortons,Q175106,,Fast food,Canada,1964,,
+five-guys,Five Guys,Five Guys,Q1131810,,Fast food,United States,1986,,
+chipotle,Chipotle,Chipotle Mexican Grill,Q465751,,Fast food,United States,1993,,
+popeyes,Popeyes,Popeyes,Q1330910,,Fast food,United States,1972,,
+nandos,Nando's,Nando's,Q3472954,,Fast food,South Africa,1987,,Nandos
+greggs,Greggs,Greggs,Q3403981,,Fast food,United Kingdom,1939,,
+krispy-kreme,Krispy Kreme,Krispy Kreme,Q1192805,,Fast food,United States,1937,,
+papa-johns,Papa John's,Papa John's,Q2759586,,Fast food,United States,1984,,Papa Johns
+costa,Costa Coffee,Costa Coffee,Q608845,,Fast food,United Kingdom,1971,,Costa
+pret,Pret A Manger,Pret a Manger,Q2109109,,Fast food,United Kingdom,1983,,Pret
+in-n-out,In-N-Out Burger,In-N-Out Burger,Q1205312,,Fast food,United States,1948,,In N Out
+chick-fil-a,Chick-fil-A,Chick-fil-A,Q491516,,Fast food,United States,1946,,Chick fil A
+dairy-queen,Dairy Queen,Dairy Queen,Q1141226,,Fast food,United States,1940,,
+baskin-robbins,Baskin-Robbins,Baskin-Robbins,Q584601,,Fast food,United States,1945,,Baskin Robbins
+shake-shack,Shake Shack,Shake Shack,Q1058722,,Fast food,United States,2004,,
+nestle,Nestlé,Nestlé,Q160746,,Food,Switzerland,1866,,Nestle
+kelloggs,Kellogg's,Kellogg's,Q130326112,,Food,United States,1906,,Kelloggs
+heinz,Heinz,Heinz,Q850324,,Food,United States,1869,,
+nutella,Nutella,Nutella,Q212193,,Food,Italy,1964,,
+oreo,Oreo,Oreo,Q138585,,Food,United States,1912,,
+kitkat,KitKat,KitKat,Q367251,,Food,United Kingdom,1935,,Kit Kat
+cadbury,Cadbury,Cadbury,Q6677525,,Food,United Kingdom,1824,,
+mars,Mars,"Mars, Incorporated",Q695087,,Food,United States,1911,,
+mms,M&M's,M&M's,Q739550,,Food,United States,1941,,M and Ms
+pringles,Pringles,Pringles,Q528187,,Food,United States,1967,,
+lays,Lay's,Lay's,Q723513,,Food,United States,1932,,Lays
+doritos,Doritos,Doritos,Q776795,,Food,United States,1964,,
+haribo,Haribo,Haribo,Q169552,,Food,Germany,1920,,
+ferrero,Ferrero,Ferrero SpA,Q269792,,Food,Italy,1946,,
+kinder,Kinder,Kinder (brand),Q15410057,,Food,Italy,1968,,
+hersheys,Hershey's,The Hershey Company,Q1056637,,Food,United States,1894,,Hersheys
+lindt,Lindt,Lindt & Sprüngli,Q152822,,Food,Switzerland,1845,,
+toblerone,Toblerone,Toblerone,Q215707,,Food,Switzerland,1908,,
+danone,Danone,Danone,Q329426,,Food,France,1919,,
+barilla,Barilla,Barilla,Q64506735,,Food,Italy,1877,,
+ben-jerrys,Ben & Jerry's,Ben & Jerry's,Q816412,,Food,United States,1978,,Ben and Jerrys
+quaker,Quaker Oats,Quaker Oats Company,Q2699694,,Food,United States,1901,,Quaker
+skittles,Skittles,Skittles (confectionery),Q868612,,Food,United Kingdom,1974,,
+snickers,Snickers,Snickers,Q714179,,Food,United States,1930,,
+twix,Twix,Twix,Q869733,,Food,United Kingdom,1967,,
+chupa-chups,Chupa Chups,Chupa Chups,Q938535,,Food,Spain,1958,,
+tic-tac,Tic Tac,Tic Tac,Q1050530,,Food,Italy,1969,,
+mentos,Mentos,Mentos,Q1046535,,Food,Netherlands,1932,,
+walkers,Walkers,Walkers (snack foods),Q1296097,,Food,United Kingdom,1948,,
+marmite,Marmite,Marmite,Q1331998,,Food,United Kingdom,1902,,
+coca-cola,Coca-Cola,Coca-Cola,Q2813,,Drinks,United States,1886,,Coke
+pepsi,Pepsi,Pepsi,Q47719,,Drinks,United States,1893,,
+red-bull,Red Bull,Red Bull,Q51482,,Drinks,Austria,1987,,
+monster,Monster Energy,Monster Energy,Q544293,,Drinks,United States,2002,,Monster
+sprite,Sprite,Sprite (drink),Q206978,,Drinks,United States,1961,,
+fanta,Fanta,Fanta,Q9935,,Drinks,Germany,1940,,
+7up,7 Up,7 Up,Q270059,,Drinks,United States,1929,,Seven Up
+dr-pepper,Dr Pepper,Dr Pepper,Q623561,,Drinks,United States,1885,,
+heineken,Heineken,Heineken,Q854383,,Drinks,Netherlands,1864,,
+budweiser,Budweiser,Budweiser,Q610672,,Drinks,United States,1876,,
+guinness,Guinness,Guinness,Q194297,,Drinks,Ireland,1759,,
+corona,Corona,Corona (beer),Q864987,,Drinks,Mexico,1925,,
+carlsberg,Carlsberg,Carlsberg Group,Q113215,,Drinks,Denmark,1847,,
+jack-daniels,Jack Daniel's,Jack Daniel's,Q371068,,Drinks,United States,1875,,Jack Daniels
+johnnie-walker,Johnnie Walker,Johnnie Walker,Q502268,,Drinks,United Kingdom,1820,,
+absolut,Absolut,Absolut Vodka,Q332378,,Drinks,Sweden,1879,,
+bacardi,Bacardi,Bacardi,Q685395,,Drinks,Cuba,1862,,
+smirnoff,Smirnoff,Smirnoff,Q777721,,Drinks,Russia,1864,,
+nescafe,Nescafé,Nescafé,Q503191,,Drinks,Switzerland,1938,,Nescafe
+lipton,Lipton,Lipton,Q874407,,Drinks,United Kingdom,1890,,
+evian,Evian,Evian,Q1050918,,Drinks,France,1826,,
+gatorade,Gatorade,Gatorade,Q304992,,Drinks,United States,1965,,
+schweppes,Schweppes,Schweppes,Q838651,,Drinks,Switzerland,1783,,
+lucozade,Lucozade,Lucozade,Q1110171,,Drinks,United Kingdom,1927,,
+jagermeister,Jägermeister,Jägermeister,Q661871,,Drinks,Germany,1934,,Jagermeister
+nespresso,Nespresso,Nespresso,Q301301,,Drinks,Switzerland,1986,,
+toyota,Toyota,Toyota,Q53268,,Cars,Japan,1937,,
+honda,Honda,Honda,Q9584,,Cars,Japan,1948,,
+nissan,Nissan,Nissan,Q20165,,Cars,Japan,1933,,
+ford,Ford,Ford Motor Company,Q44294,,Cars,United States,1903,,
+chevrolet,Chevrolet,Chevrolet,Q29570,,Cars,United States,1911,,Chevy
+volkswagen,Volkswagen,Volkswagen,Q246,,Cars,Germany,1937,,VW
+bmw,BMW,BMW,Q26678,,Cars,Germany,1916,,
+mercedes-benz,Mercedes-Benz,Mercedes-Benz,Q36008,,Cars,Germany,1926,,Mercedes
+audi,Audi,Audi,Q23317,,Cars,Germany,1909,,
+porsche,Porsche,Porsche,Q40993,,Cars,Germany,1931,,
+ferrari,Ferrari,Ferrari,Q27586,,Cars,Italy,1939,,
+lamborghini,Lamborghini,Lamborghini,Q35886,,Cars,Italy,1963,,
+tesla,Tesla,"Tesla, Inc.",Q478214,,Cars,United States,2003,,
+volvo,Volvo,Volvo Cars,Q215293,,Cars,Sweden,1927,,
+hyundai,Hyundai,Hyundai Motor Company,Q55931,,Cars,South Korea,1967,,
+kia,Kia,Kia,Q35349,,Cars,South Korea,1944,,
+mazda,Mazda,Mazda,Q35996,,Cars,Japan,1920,,
+subaru,Subaru,Subaru,Q172741,,Cars,Japan,1953,,
+mitsubishi,Mitsubishi,Mitsubishi Motors,Q36033,,Cars,Japan,1970,,
+peugeot,Peugeot,Peugeot,Q6742,,Cars,France,1810,,
+renault,Renault,Renault,Q6686,,Cars,France,1899,,
+citroen,Citroën,Citroën,Q6746,,Cars,France,1919,,Citroen
+fiat,Fiat,Fiat Automobiles,Q27597,,Cars,Italy,1899,,
+alfa-romeo,Alfa Romeo,Alfa Romeo,Q26921,,Cars,Italy,1910,,
+jeep,Jeep,Jeep,Q30113,,Cars,United States,1941,,
+land-rover,Land Rover,Land Rover,Q35907,,Cars,United Kingdom,1948,,
+jaguar,Jaguar,Jaguar Cars,Q30055,,Cars,United Kingdom,1922,,
+rolls-royce,Rolls-Royce,Rolls-Royce Motor Cars,Q234803,,Cars,United Kingdom,1906,,Rolls Royce
+bentley,Bentley,Bentley,Q27224,,Cars,United Kingdom,1919,,
+aston-martin,Aston Martin,Aston Martin,Q27074,,Cars,United Kingdom,1913,,
+mini,Mini,Mini (marque),Q116232,,Cars,United Kingdom,1969,,
+maserati,Maserati,Maserati,Q35962,,Cars,Italy,1914,,
+bugatti,Bugatti,Bugatti,Q27401,,Cars,France,1909,,
+skoda,Škoda,Škoda Auto,Q29637,,Cars,Czech Republic,1895,,Skoda
+seat,SEAT,SEAT,Q188217,,Cars,Spain,1950,,
+opel,Opel,Opel,Q40966,,Cars,Germany,1862,,Vauxhall
+lexus,Lexus,Lexus,Q35919,,Cars,Japan,1989,,
+cadillac,Cadillac,Cadillac,Q27436,,Cars,United States,1902,,
+dodge,Dodge,Dodge,Q27564,,Cars,United States,1900,,
+harley-davidson,Harley-Davidson,Harley-Davidson,Q192814,,Cars,United States,1903,,Harley Davidson
+ducati,Ducati,Ducati,Q271812,,Cars,Italy,1926,,
+michelin,Michelin,Michelin,Q151107,,Cars,France,1889,,
+goodyear,Goodyear,Goodyear Tire and Rubber Company,Q620875,,Cars,United States,1898,,
+pirelli,Pirelli,Pirelli,Q207770,,Cars,Italy,1872,,
+bridgestone,Bridgestone,Bridgestone,Q179433,,Cars,Japan,1931,,
+nike,Nike,"Nike, Inc.",Q483915,,Sportswear,United States,1964,,
+adidas,Adidas,Adidas,Q3895,,Sportswear,Germany,1949,,
+puma,Puma,Puma (brand),Q157064,,Sportswear,Germany,1948,,
+reebok,Reebok,Reebok,Q466183,,Sportswear,United Kingdom,1958,,
+under-armour,Under Armour,Under Armour,Q2031485,,Sportswear,United States,1996,,
+new-balance,New Balance,New Balance,Q742988,,Sportswear,United States,1906,,
+converse,Converse,Converse (shoe company),Q319515,,Sportswear,United States,1908,,
+vans,Vans,Vans,Q1135366,,Sportswear,United States,1966,,
+asics,Asics,Asics,Q327247,,Sportswear,Japan,1949,,
+fila,Fila,Fila (company),Q482539,,Sportswear,Italy,1911,,
+lacoste,Lacoste,Lacoste,Q309031,,Sportswear,France,1933,,
+umbro,Umbro,Umbro,Q652047,,Sportswear,United Kingdom,1924,,
+north-face,The North Face,The North Face,Q152784,,Sportswear,United States,1966,,North Face
+champion,Champion,Champion (sportswear),Q2948688,,Sportswear,United States,1919,,
+kappa,Kappa,Kappa (company),Q735873,,Sportswear,Italy,1916,,
+air-jordan,Air Jordan,Air Jordan,Q420953,,Sportswear,United States,1984,,Jordan
+patagonia,Patagonia,"Patagonia, Inc.",Q1660552,,Sportswear,United States,1973,,
+speedo,Speedo,Speedo,Q1425519,,Sportswear,Australia,1914,,
+wilson,Wilson,Wilson Sporting Goods,Q1329777,,Sportswear,United States,1913,,
+gucci,Gucci,Gucci,Q178516,,Fashion,Italy,1921,,
+louis-vuitton,Louis Vuitton,Louis Vuitton,Q191485,,Fashion,France,1854,,LV
+chanel,Chanel,Chanel,Q218115,,Fashion,France,1910,,
+prada,Prada,Prada,Q193136,,Fashion,Italy,1913,,
+versace,Versace,Versace,Q696376,,Fashion,Italy,1978,,
+burberry,Burberry,Burberry,Q390107,,Fashion,United Kingdom,1856,,
+hermes,Hermès,Hermès,Q843887,,Fashion,France,1837,,Hermes
+dior,Dior,Dior,Q542767,,Fashion,France,1946,,
+ralph-lauren,Ralph Lauren,Ralph Lauren Corporation,Q1641437,,Fashion,United States,1967,,Polo
+tommy-hilfiger,Tommy Hilfiger,Tommy Hilfiger (company),Q634881,,Fashion,United States,1985,,
+levis,Levi's,Levi Strauss & Co.,Q127962,,Fashion,United States,1853,,Levis
+zara,Zara,Zara (retailer),Q147662,,Fashion,Spain,1975,,
+hm,H&M,H&M,Q188326,,Fashion,Sweden,1947,,H and M
+uniqlo,Uniqlo,Uniqlo,Q26070,,Fashion,Japan,1949,,
+gap,Gap,Gap Inc.,Q420822,,Fashion,United States,1969,,
+calvin-klein,Calvin Klein,Calvin Klein (fashion house),Q1068628,,Fashion,United States,1968,,
+rolex,Rolex,Rolex,Q62288,,Fashion,Switzerland,1905,,
+swatch,Swatch,Swatch,Q573422,,Fashion,Switzerland,1983,,
+ray-ban,Ray-Ban,Ray-Ban,Q653941,,Fashion,United States,1937,,Ray Ban
+crocs,Crocs,Crocs,Q926699,,Fashion,United States,2002,,
+dr-martens,Dr. Martens,Dr. Martens,Q1126126,,Fashion,United Kingdom,1960,,Doc Martens
+timberland,Timberland,Timberland (company),Q1539185,,Fashion,United States,1952,,
+supreme,Supreme,Supreme (brand),Q1659229,,Fashion,United States,1994,,
+primark,Primark,Primark,Q137023,,Fashion,Ireland,1969,,
+walmart,Walmart,Walmart,Q483551,,Retail,United States,1962,,
+target,Target,Target Corporation,Q1046951,,Retail,United States,1902,,
+ikea,IKEA,IKEA,Q54078,,Retail,Sweden,1943,,
+costco,Costco,Costco,Q715583,,Retail,United States,1976,,
+tesco,Tesco,Tesco,Q487494,,Retail,United Kingdom,1919,,
+carrefour,Carrefour,Carrefour,Q217599,,Retail,France,1958,,
+aldi,Aldi,Aldi,Q125054,,Retail,Germany,1946,,
+lidl,Lidl,Lidl,Q151954,,Retail,Germany,1930,,
+sainsburys,Sainsbury's,Sainsbury's,Q152096,,Retail,United Kingdom,1869,,Sainsburys
+marks-spencer,Marks & Spencer,Marks & Spencer,Q714491,,Retail,United Kingdom,1884,,M&S
+best-buy,Best Buy,Best Buy,Q533415,,Retail,United States,1966,,
+home-depot,The Home Depot,The Home Depot,Q864407,,Retail,United States,1978,,Home Depot
+seven-eleven,7-Eleven,7-Eleven,Q259340,,Retail,United States,1927,,Seven Eleven
+toys-r-us,Toys R Us,Toys R Us,Q696334,,Retail,United States,1948,,
+sephora,Sephora,Sephora,Q2408041,,Retail,France,1970,,
+boots,Boots,Boots (company),Q6123139,,Retail,United Kingdom,1849,,
+argos,Argos,Argos (retailer),Q4789707,,Retail,United Kingdom,1973,,
+etsy,Etsy,Etsy,Q1353939,,Retail,United States,2005,,
+walgreens,Walgreens,Walgreens,Q1591889,,Retail,United States,1901,,
+asda,Asda,Asda,Q297410,,Retail,United Kingdom,1949,,
+disney,Disney,The Walt Disney Company,Q7414,,Media,United States,1923,,Walt Disney
+netflix,Netflix,Netflix,Q907311,,Media,United States,1997,,
+spotify,Spotify,Spotify,Q689141,,Media,Sweden,2006,,
+bbc,BBC,BBC,Q9531,,Media,United Kingdom,1922,,
+cnn,CNN,CNN,Q48340,,Media,United States,1980,,
+warner-bros,Warner Bros.,Warner Bros.,Q137691184,,Media,United States,1923,,Warner Brothers
+paramount,Paramount,Paramount Pictures,Q159846,,Media,United States,1912,,
+universal,Universal,Universal Pictures,Q168383,,Media,United States,1912,,
+20th-century,20th Century Studios,20th Century Studios,Q434841,,Media,United States,1935,,20th Century Fox
+pixar,Pixar,Pixar,Q127552,,Media,United States,1986,,
+dreamworks,DreamWorks,DreamWorks Animation,Q500088,,Media,United States,1994,,
+hbo,HBO,HBO,Q23633,,Media,United States,1972,,
+mtv,MTV,MTV,Q43359,,Media,United States,1981,,
+marvel,Marvel,Marvel Comics,Q173496,,Media,United States,1939,,
+dc-comics,DC Comics,DC Comics,Q2924461,,Media,United States,1934,,DC
+national-geographic,National Geographic,National Geographic,Q5973845,,Media,United States,1888,,
+nickelodeon,Nickelodeon,Nickelodeon,Q154958,,Media,United States,1977,,
+cartoon-network,Cartoon Network,Cartoon Network,Q708290,,Media,United States,1992,,
+espn,ESPN,ESPN,Q217776,,Media,United States,1979,,
+sky,Sky,Sky Group,Q918390,,Media,United Kingdom,1990,,
+hulu,Hulu,Hulu,Q1630304,,Media,United States,2007,,
+nintendo,Nintendo,Nintendo,Q8093,,Games & toys,Japan,1889,,
+playstation,PlayStation,PlayStation,Q1323662,,Games & toys,Japan,1994,,
+xbox,Xbox,Xbox,Q15281614,,Games & toys,United States,2001,,
+pokemon,Pokémon,Pokémon,Q864,,Games & toys,Japan,1996,,Pokemon
+sega,Sega,Sega,Q122741,,Games & toys,Japan,1960,,
+atari,Atari,Atari,Q207922,,Games & toys,United States,1972,,
+ea,Electronic Arts,Electronic Arts,Q173941,,Games & toys,United States,1982,,EA
+ubisoft,Ubisoft,Ubisoft,Q188273,,Games & toys,France,1986,,
+rockstar,Rockstar Games,Rockstar Games,Q94912,,Games & toys,United States,1998,,Rockstar
+activision,Activision,Activision,Q200491,,Games & toys,United States,1979,,
+valve,Valve,Valve Corporation,Q193559,,Games & toys,United States,1996,,Steam
+epic-games,Epic Games,Epic Games,Q739711,,Games & toys,United States,1991,,Epic
+hasbro,Hasbro,Hasbro,Q501476,,Games & toys,United States,1923,,
+mattel,Mattel,Mattel,Q596139,,Games & toys,United States,1945,,
+lego,Lego,The Lego Group,Q1063455,,Games & toys,Denmark,1932,,
+barbie,Barbie,Barbie,Q167447,,Games & toys,United States,1959,,
+hot-wheels,Hot Wheels,Hot Wheels,Q585537,,Games & toys,United States,1968,,
+nerf,Nerf,Nerf,Q1891883,,Games & toys,United States,1969,,
+fisher-price,Fisher-Price,Fisher-Price,Q1420671,,Games & toys,United States,1930,,Fisher Price
+playmobil,Playmobil,Playmobil,Q160719,,Games & toys,Germany,1974,,
+emirates,Emirates,Emirates (airline),Q180432,,Travel,United Arab Emirates,1985,,
+lufthansa,Lufthansa,Lufthansa,,,Travel,Germany,1953,,
+british-airways,British Airways,British Airways,,,Travel,United Kingdom,1974,,BA
+delta,Delta Air Lines,Delta Air Lines,,,Travel,United States,1925,,Delta
+american-airlines,American Airlines,American Airlines,,,Travel,United States,1926,,
+united-airlines,United Airlines,United Airlines,,,Travel,United States,1926,,United
+qantas,Qantas,Qantas,,,Travel,Australia,1920,,
+ryanair,Ryanair,Ryanair,,,Travel,Ireland,1984,,
+easyjet,easyJet,EasyJet,,,Travel,United Kingdom,1995,,
+air-france,Air France,Air France,,,Travel,France,1933,,
+klm,KLM,KLM,,,Travel,Netherlands,1919,,
+singapore-airlines,Singapore Airlines,Singapore Airlines,,,Travel,Singapore,1947,,
+southwest,Southwest Airlines,Southwest Airlines,,,Travel,United States,1967,,Southwest
+turkish-airlines,Turkish Airlines,Turkish Airlines,,,Travel,Turkey,1933,,
+virgin,Virgin,Virgin Group,,,Travel,United Kingdom,1970,,
+boeing,Boeing,Boeing,,,Travel,United States,1916,,
+airbus,Airbus,Airbus,,,Travel,France,1970,,
+marriott,Marriott,Marriott International,,,Travel,United States,1927,,
+hilton,Hilton,Hilton Hotels & Resorts,,,Travel,United States,1919,,
+shell,Shell,Shell plc,,,Energy,United Kingdom,1907,,
+bp,BP,BP,,,Energy,United Kingdom,1909,,British Petroleum
+exxonmobil,ExxonMobil,ExxonMobil,,,Energy,United States,1999,,Exxon; Esso
+chevron,Chevron,Chevron Corporation,,,Energy,United States,1879,,
+texaco,Texaco,Texaco,,,Energy,United States,1902,,
+totalenergies,TotalEnergies,TotalEnergies,,,Energy,France,1924,,Total
+gulf,Gulf Oil,Gulf Oil,,,Energy,United States,1901,,Gulf
+visa,Visa,Visa Inc.,,,Finance,United States,1958,,
+mastercard,Mastercard,Mastercard,,,Finance,United States,1966,,
+amex,American Express,American Express,,,Finance,United States,1850,,Amex
+paypal,PayPal,PayPal,,,Finance,United States,1998,,
+hsbc,HSBC,HSBC,,,Finance,United Kingdom,1865,,
+barclays,Barclays,Barclays,,,Finance,United Kingdom,1690,,
+goldman-sachs,Goldman Sachs,Goldman Sachs,,,Finance,United States,1869,,
+santander,Santander,Banco Santander,,,Finance,Spain,1857,,
+deutsche-bank,Deutsche Bank,Deutsche Bank,,,Finance,Germany,1870,,
+ubs,UBS,UBS,,,Finance,Switzerland,1862,,
+citi,Citi,Citigroup,,,Finance,United States,1812,,Citibank; Citigroup
+bank-of-america,Bank of America,Bank of America,,,Finance,United States,1904,,
+wells-fargo,Wells Fargo,Wells Fargo,,,Finance,United States,1852,,
+revolut,Revolut,Revolut,,,Finance,United Kingdom,2015,,
+monzo,Monzo,Monzo,,,Finance,United Kingdom,2015,,
+western-union,Western Union,Western Union,,,Finance,United States,1851,,
+dhl,DHL,DHL,,,Delivery,Germany,1969,,
+fedex,FedEx,FedEx,,,Delivery,United States,1971,,
+ups,UPS,United Parcel Service,,,Delivery,United States,1907,,United Parcel Service
+royal-mail,Royal Mail,Royal Mail,,,Delivery,United Kingdom,1516,,
+maersk,Maersk,Maersk,,,Delivery,Denmark,1904,,
+gillette,Gillette,Gillette,,,Household,United States,1901,,
+colgate,Colgate,Colgate (toothpaste),,,Household,United States,1873,,
+nivea,Nivea,Nivea,,,Household,Germany,1911,,
+loreal,L'Oréal,L'Oréal,,,Household,France,1909,,Loreal
+dove,Dove,Dove (toiletries),,,Household,United Kingdom,1957,,
+duracell,Duracell,Duracell,,,Household,United States,1924,,
+pampers,Pampers,Pampers,,,Household,United States,1961,,
+kleenex,Kleenex,Kleenex,,,Household,United States,1924,,
+3m,3M,3M,,,Household,United States,1902,,
+johnson-johnson,Johnson & Johnson,Johnson & Johnson,,,Household,United States,1886,,J&J
+procter-gamble,Procter & Gamble,Procter & Gamble,,,Household,United States,1837,,P&G
+unilever,Unilever,Unilever,,,Household,United Kingdom,1929,,
+bic,Bic,Société Bic,,,Household,France,1945,,BIC
+zippo,Zippo,Zippo,,,Household,United States,1932,,
+tupperware,Tupperware,Tupperware Brands,,,Household,United States,1946,,

@@ -15,7 +15,6 @@ are public, so they never name a day's brand.
 
 import argparse
 import datetime as dt
-import io
 import json
 import os
 import sys
@@ -58,105 +57,66 @@ def generate_day(date, brands, launch, seed, out, cache):
     raise SystemExit(f"logos {date}: no brand in the pool could be used")
 
 
-def check_pool(brands, cache, sheet_dir=None):
-    """Look every brand up on Wikidata and its logo on Commons; report anything that disagrees with the pool."""
+def check_pool(brands, cache):
+    """Look every brand up on Wikidata and its logo on Commons; report anything that disagrees with the pool.
+
+    Each line starts with OK (in use and checked), CHECK (in use, but something disagrees),
+    NEW (no logo file chosen yet, with Wikidata's logo and icon and their licences) or NOITEM.
+    """
     from logos_gen import puzzle
 
-    entities = commons.entities_by_enwiki([b.wiki for b in brands])
-    country_names = commons.labels([q for e in entities.values() for q in e.countries])
-    wanted = {}
+    entities = commons.entities_for(brands)
+    country_names = commons.labels([q for e in entities.values() if e for q in e.countries])
+    wanted = []
     for b in brands:
-        e = entities.get(b.wiki)
-        for name in ([b.file] if b.file else []) + list(e.logos[:1] if e else []) + list(e.icons[:1] if e else []):
-            wanted[name] = None
-    infos = commons.file_info(list(wanted))
+        e = entities[b.id]
+        wanted += ([b.file] if b.file else []) + list(e.logos[:1] if e else []) + list(e.icons[:1] if e else [])
+    infos = commons.file_info(wanted)
+
+    def describe(name):
+        i = infos[name]
+        if i.missing:
+            return f"{name} MISSING"
+        return f"{name} {'PD' if i.public_domain else 'X:' + (i.licence_code or i.licence)} {i.width}x{i.height}"
 
     lines, usable = [], 0
     for b in brands:
-        e = entities.get(b.wiki)
+        e = entities[b.id]
         if not e:
             lines.append(f"NOITEM {b.id} [{b.wiki}]")
             continue
-        notes = []
+        notes = [] if b.qid else [f"qid {e.qid}"]
         if e.inception is not None and abs(e.inception - b.founded) > 1:
             notes.append(f"year {e.inception}")
         names = [country_names.get(q, q) for q in e.countries]
         if names and b.country not in names:
             notes.append(f"country {'/'.join(names[:3])}")
-        logo = e.logos[0] if e.logos else ""
-        if b.file and logo and commons.file_key(b.file) != commons.file_key(logo):
-            notes.append(f"P154 now {logo}")
+        if b.file:
+            try:
+                puzzle.prepare(b, puzzle.fetch(b, cache)[1])
+                usable += 1
+            except Rejected as err:
+                notes.append(f"REJECTED {str(err)[len(b.id) + 2:]}")
+            tag = "CHECK" if notes else "OK"
+            lines.append(f"{tag} {b.id}{' wordmark' if b.wordmark else ''} {'; '.join(notes)}".rstrip())
+        else:
+            found = [describe(n) for n in (e.logos[:1] + e.icons[:1])]
+            lines.append(f"NEW {b.id} {' | '.join(found) or 'no logo'} {'; '.join(notes)}".rstrip())
 
-        def describe(name):
-            i = infos.get(name)
-            if not i:
-                return "-"
-            if i.missing:
-                return "missing"
-            return f"{'PD' if i.public_domain else 'X'}:{i.licence_code or i.licence}:{i.width}x{i.height}"
-
-        icon = e.icons[0] if e.icons else ""
-        chosen = b.file or logo
-        if chosen and not infos[chosen].missing and infos[chosen].public_domain:
-            if b.file:
-                try:
-                    puzzle.prepare(b, puzzle.fetch(b, cache)[1])
-                    usable += 1
-                except Rejected as err:
-                    notes.append(f"REJECTED {err}")
-        tag = "OK" if b.file and not notes else "NEW" if not b.file else "CHECK"
-        lines.append(
-            f"{tag} {b.id} {e.qid} | logo={chosen or '-'} {describe(chosen) if chosen else ''}"
-            f" | icon={icon or '-'} {describe(icon) if icon else ''} | {'; '.join(notes)} [{e.label}: {e.description[:40]}]"
-        )
-
-    if sheet_dir:
-        contact_sheets(brands, entities, infos, sheet_dir)
     for line in lines:
         print(line)
-    chunk = 15
-    for i in range(0, len(lines), chunk):
-        kind = "warning" if i // chunk < 10 else "notice"
-        annotate(kind, "\n".join(lines[i:i + chunk]), title=f"logos pool {i // chunk + 1}")
+    # Annotations are capped at 4 KB and 10 of each kind per step; the summary goes first.
     answerable = len(answer_pool(brands))
     annotate("notice", f"logos pool: {len(brands)} brands, {answerable} answerable, {usable} logos pass the licence and image checks")
-
-
-def contact_sheets(brands, entities, infos, out_dir, per_sheet=60, cols=6, cell=(150, 80)):
-    """Every candidate logo (pool file or Wikidata logo, then Wikidata icon) as it will be framed, labelled."""
-    from PIL import Image, ImageDraw
-
-    from logos_gen import render
-
-    small = commons.file_info(list(infos), width=250)
-    tiles = []
-    for b in brands:
-        e = entities.get(b.wiki)
-        names = [b.file or (e.logos[0] if e and e.logos else "")] + [e.icons[0] if e and e.icons else ""]
-        for tag, name in zip(("", "+icon"), names):
-            info = small.get(name)
-            if not name or not info or info.missing or not info.public_domain:
-                continue
-            try:
-                img = Image.open(io.BytesIO(commons.get_bytes(info.thumb_url)))
-                img.load()
-            except (commons.Unusable, OSError):
-                continue
-            flat, bg = render.flatten(img)
-            framed = render.frame(flat, bg)
-            framed.thumbnail((cell[0] - 8, cell[1] - 18))
-            tiles.append((f"{b.id}{tag}", framed))
-    out_dir.mkdir(parents=True, exist_ok=True)
-    for s in range(0, len(tiles), per_sheet):
-        batch = tiles[s:s + per_sheet]
-        rows = -(-len(batch) // cols)
-        sheet = Image.new("RGB", (cols * cell[0], rows * cell[1]), (128, 128, 128))
-        draw = ImageDraw.Draw(sheet)
-        for i, (label, img) in enumerate(batch):
-            x, y = (i % cols) * cell[0], (i // cols) * cell[1]
-            sheet.paste(img, (x + (cell[0] - img.width) // 2, y + 2))
-            draw.text((x + 4, y + cell[1] - 14), label[:24], fill=(0, 0, 0))
-        sheet.convert("P", palette=Image.ADAPTIVE, colors=64).save(out_dir / f"sheet{s // per_sheet + 1:02d}.png", optimize=True)
+    chunks, chunk = [], []
+    for line in lines:
+        if sum(len(x) + 1 for x in chunk) + len(line) > 3900:
+            chunks.append(chunk)
+            chunk = []
+        chunk.append(line[:300])
+    chunks.append(chunk)
+    for i, c in enumerate(chunks):
+        annotate("warning" if i < 10 else "notice", "\n".join(c), title=f"logos pool {i + 1}")
 
 
 def main():
@@ -169,7 +129,6 @@ def main():
     ap.add_argument("--days", type=int, default=3)
     ap.add_argument("--cache", type=Path, default=HERE / ".cache")
     ap.add_argument("--check-pool", action="store_true", help="look up every brand on Wikidata and Commons")
-    ap.add_argument("--sheet", type=Path, help="with --check-pool: write contact sheets of every logo here (a folder)")
     ap.add_argument("--guess-list", type=Path, help="write the game's list of guessable brands here")
     args = ap.parse_args()
 
@@ -177,7 +136,7 @@ def main():
     if args.guess_list:
         args.guess_list.write_text(json.dumps(guess_list(brands), ensure_ascii=False, separators=(",", ":")) + "\n")
     if args.check_pool:
-        check_pool(brands, args.cache, args.sheet)
+        check_pool(brands, args.cache)
     if not args.out:
         return
 

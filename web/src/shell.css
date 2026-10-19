@@ -248,6 +248,11 @@ kbd {
     transition: opacity 300ms;
   }
   .module-row:hover .hero-palette em { opacity: 0.8; }
+  .hero-logo { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: #fff; overflow: hidden; }
+  .hero-logo img, .hero-logo svg { height: 72%; max-width: 86%; object-fit: contain; display: block; animation: logo-focus 1400ms var(--ease-out) 500ms backwards; }
+  .module-row:hover .hero-logo img, .module-row:hover .hero-logo svg { transform: scale(1.04); transition: transform 400ms var(--ease-out); }
+  @keyframes logo-focus { from { opacity: 0; filter: blur(6px); } }
+  .clues-four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .hero-night { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; animation: city-pulse 6s ease-in-out infinite; }
   .module-night-lights .module-row-name { color: #f2c66d; }
   .module-night-lights:hover { border-color: #f2c66d !important; box-shadow: 0 0 0 1px rgba(242, 198, 109, 0.25), 0 18px 60px -20px rgba(242, 198, 109, 0.4) !important; }
@@ -328,5 +333,5 @@ kbd {
 }
 
 @media (min-width: 1024px) and (min-height: 600px) and (prefers-reduced-motion: reduce) {
-  .hero-trace-line, .hero-palette span, .hero-night { animation: none; }
+  .hero-trace-line, .hero-palette span, .hero-night, .hero-logo img, .hero-logo svg { animation: none; }
 }

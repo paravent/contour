@@ -29,6 +29,7 @@ class Brand:
     id: str
     name: str
     wiki: str  # English Wikipedia title, for --check-pool
+    qid: str  # Wikidata item, for --check-pool; blank until it has been looked up
     file: str  # Commons logo file; blank means guessable but never an answer
     industry: str
     country: str
@@ -49,7 +50,7 @@ def load_pool(path: Path):
     with path.open(newline="", encoding="utf-8") as f:
         return [
             Brand(
-                r["id"], r["name"], r["wiki"], r["file"].strip(), r["industry"], r["country"], int(r["founded"]),
+                r["id"], r["name"], r["wiki"], r["qid"].strip(), r["file"].strip(), r["industry"], r["country"], int(r["founded"]),
                 r.get("wordmark", "").strip().lower() == "yes",
                 tuple(a.strip() for a in (r.get("aliases") or "").split(";") if a.strip()),
             )
