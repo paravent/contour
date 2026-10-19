@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'preact/hooks'
+import { Bit } from './Bit'
 import { localDate, untilMidnight } from '../lib/day'
 import { bearingDeg, compass, haversineKm } from '../lib/geo'
 import {
@@ -239,6 +240,7 @@ export function NightLights() {
 
       {finished && (
         <div class="terminal">
+          <Bit mood={day.status === 'won' ? 'happy' : 'sad'} blink={false} class="bit-result" />
           <div class="dim">$ share --pass {puzzle.number}</div>
           <div>
             NIGHT LIGHTS #{puzzle.number} <span class="dim">·</span> {day.status === 'won' ? `${day.guesses.length}/${MAX_GUESSES}` : `X/${MAX_GUESSES}`}

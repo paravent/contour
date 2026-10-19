@@ -1,5 +1,6 @@
 import { useMemo, useRef, useState } from 'preact/hooks'
 import { BitCaret } from './Bit'
+import { MAX_GUESSES } from '../lib/puzzle'
 import { type Article, searchArticles } from '../lib/spike'
 
 type Props = { articles: Article[]; exclude: string[]; onGuess: (id: string) => void }
@@ -69,7 +70,7 @@ export function ArticleInput({ articles, exclude, onGuess }: Props) {
             onInput={(e) => { setQuery((e.target as HTMLInputElement).value); setActive(0) }}
             onKeyDown={onKeyDown}
           />
-          <BitCaret input={field} value={query} misses={exclude.length} />
+          <BitCaret input={field} value={query} misses={exclude.length} max={MAX_GUESSES} found={matches.length > 0} />
         </div>
         <button type="submit" class="exec" disabled={matches.length === 0}>EXEC</button>
       </div>
