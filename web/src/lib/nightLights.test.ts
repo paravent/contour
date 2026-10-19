@@ -37,8 +37,8 @@ describe('night share text', () => {
       { id: 'c', name: 'Medellín', km: 210, direction: 'E', correct: false },
       { id: 'd', name: 'Caracas', km: 0, direction: 'N', correct: true },
     ]
-    expect(nightShareText(12, results, true)).toBe('NIGHT LIGHTS #12 4/6\n⬛🟫🟧🟨')
-    expect(nightShareText(12, results.slice(0, 2), false)).toBe('NIGHT LIGHTS #12 X/6\n⬛🟫')
+    expect(nightShareText(12, results, true)).toBe('▮ NIGHT LIGHTS #12 4/6\n⬛🟫🟧🟨')
+    expect(nightShareText(12, results.slice(0, 2), false)).toBe('▮ NIGHT LIGHTS #12 X/6\n⬛🟫')
   })
 })
 

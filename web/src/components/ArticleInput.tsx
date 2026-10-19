@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'preact/hooks'
+import { useMemo, useRef, useState } from 'preact/hooks'
+import { BitCaret } from './Bit'
 import { type Article, searchArticles } from '../lib/spike'
 
 type Props = { articles: Article[]; exclude: string[]; onGuess: (id: string) => void }
@@ -6,6 +7,7 @@ type Props = { articles: Article[]; exclude: string[]; onGuess: (id: string) => 
 /** Type-ahead over the answer pool: every possible answer is in the list, and nothing else is. */
 export function ArticleInput({ articles, exclude, onGuess }: Props) {
   const [query, setQuery] = useState('')
+  const field = useRef<HTMLInputElement>(null)
   const [active, setActive] = useState(0)
   const found = useMemo(() => searchArticles(articles, query, 30), [articles, query])
   const matches = useMemo(() => found.filter((a) => !exclude.includes(a.id)).slice(0, 6), [found, exclude])
@@ -53,6 +55,7 @@ export function ArticleInput({ articles, exclude, onGuess }: Props) {
         <div class="prompt-field">
           <span class="cyan" aria-hidden="true">&gt;</span>
           <input
+            ref={field}
             id="guess"
             type="text"
             autocomplete="off"
@@ -66,6 +69,7 @@ export function ArticleInput({ articles, exclude, onGuess }: Props) {
             onInput={(e) => { setQuery((e.target as HTMLInputElement).value); setActive(0) }}
             onKeyDown={onKeyDown}
           />
+          <BitCaret input={field} value={query} misses={exclude.length} />
         </div>
         <button type="submit" class="exec" disabled={matches.length === 0}>EXEC</button>
       </div>

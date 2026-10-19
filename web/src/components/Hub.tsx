@@ -144,7 +144,7 @@ export function Hub() {
 
       <header class="hub-head">
         <div class="stack hero">
-          <div class="dim small"><Typed text="$ load --daily" delay={350} /></div>
+          <div class="dim small"><Typed text="$ load --daily" delay={350} bit={playedToday === games.length ? 'sleep' : 'idle'} /></div>
           <h1 class="hero-title glitch-in">TODAY'S<br /><span class="magenta glow-magenta">FOUR MODULES</span></h1>
           <div class="dim small hub-sub">Same puzzles for every player. Next drop in <span class="amber">{untilMidnight(now)}</span>.</div>
         </div>

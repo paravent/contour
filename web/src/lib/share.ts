@@ -11,11 +11,14 @@ export function closeness(g: GuessResult): Closeness {
   return 'far'
 }
 
+/** Bit's glyph: signs every share text. */
+export const BIT = '▮'
+
 const SQUARE: Record<Closeness, string> = { hit: '🟦', near: '🟨', mid: '🟧', far: '⬛' }
 
 export function shareText(number: number, results: GuessResult[], won: boolean, pinScore?: number): string {
   const tries = won ? `${results.length}/${MAX_GUESSES}` : `X/${MAX_GUESSES}`
   const pin = pinScore !== undefined ? ` · pin ${pinScore}` : ''
   const squares = results.map((g) => SQUARE[closeness(g)]).join('')
-  return `CONTOUR #${number} ${tries}${pin}\n${squares}`
+  return `${BIT} CONTOUR #${number} ${tries}${pin}\n${squares}`
 }

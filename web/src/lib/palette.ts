@@ -1,4 +1,5 @@
 import { normalise } from './puzzle'
+import { BIT } from './share'
 
 export type PaletteStage = { image: string; kind: 'stripes' | 'grid' | 'blur' | 'detail'; grid?: [number, number] }
 
@@ -139,5 +140,5 @@ const SQUARE: Record<Closeness, string> = { hit: '🟦', near: '🟨', mid: '�
 
 export function paletteShareText(number: number, results: PaintingResult[], won: boolean): string {
   const tries = won ? `${results.length}/${MAX_GUESSES}` : `X/${MAX_GUESSES}`
-  return `PALETTE #${number} ${tries}\n${results.map((r) => SQUARE[paintingCloseness(r)]).join('')}`
+  return `${BIT} PALETTE #${number} ${tries}\n${results.map((r) => SQUARE[paintingCloseness(r)]).join('')}`
 }
