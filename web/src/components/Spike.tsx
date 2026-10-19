@@ -3,6 +3,7 @@ import { addDays, localDate, untilMidnight } from '../lib/day'
 import { MAX_GUESSES } from '../lib/puzzle'
 import {
   type Article,
+  SPIKE_CLUES,
   STAGES,
   type SpikePuzzle,
   type Verdict,
@@ -11,6 +12,7 @@ import {
   loadArticles,
   loadSpikePuzzle,
   nameWords,
+  nextSpikeClue,
   shortDate,
   spikeShareText,
   verdict,
@@ -23,9 +25,6 @@ import { StatusBar } from './StatusBar'
 import './spike.css'
 
 const GAME = 'spike'
-
-// What the next wrong guess unlocks, by stage.
-const NEXT_CLUE = ['Y-AXIS SCALE', 'SPIKE DATES', 'ARTICLE CLASS', 'NAME SHAPE', 'FIRST LETTER']
 
 function useClock() {
   const [now, setNow] = useState(() => new Date())
@@ -131,7 +130,7 @@ export function Spike() {
           <>The chart shows how many people read one <span class="cyan">English Wikipedia article</span> each day over a year. It's the same article for everyone.</>,
           <>Name the article. Big <span class="magenta">spikes</span> are your best clue: a holiday, a match, a release, a birthday, an award night.</>,
           <>Start typing and pick from the list. Every answer is a well-known article in the index. You have 6 guesses, and a guess in the right <span class="amber">category</span> lights up amber.</>,
-          <>Each wrong guess unlocks a clue: the views scale, the spike dates, the article's category and description, the shape of its name, and its first letter.</>,
+          <>You always see the article's <span class="amber">category</span> (an actor, a place, a holiday…). Each wrong guess unlocks another clue: the views scale, the spike dates, its short description, the shape of its name, and its first letter.</>,
           <>A new trace arrives at midnight. Share your result, and keep your streak going.</>,
         ]}
       />
@@ -161,7 +160,10 @@ export function Spike() {
       )}
 
       <div class="monitor">
-        <SpikeChart views={puzzle.views} start={puzzle.start} spikes={puzzle.spikes} showScale={stage >= 1} showDates={stage >= 2}
+        <div class="category-tag" aria-label={`Category: ${answer.category}`}>
+          <span class="dim">CATEGORY:</span> {answer.category.toUpperCase()}
+        </div>
+        <SpikeChart views={puzzle.views} start={puzzle.start} spikes={puzzle.spikes} showScale={stage >= SPIKE_CLUES.scale} showDates={stage >= SPIKE_CLUES.dates}
           channel={`CH ${String(stage + 1).padStart(2, '0')}/${String(STAGES).padStart(2, '0')}`} />
         <div class="scanlines" />
         <span class="bracket tl" /><span class="bracket tr" /><span class="bracket bl" /><span class="bracket br" />
@@ -178,13 +180,13 @@ export function Spike() {
       )}
 
       <div class="intel">
-        {stage >= 1 && (
+        {stage >= SPIKE_CLUES.scale && (
           <div class="intel-row">
             <span class="dim">SCALE</span>
             <span>PEAK <span class="cyan">{compact(peak)}</span>/DAY · TYPICAL <span class="cyan">{compact(median(puzzle.views))}</span>/DAY</span>
           </div>
         )}
-        {stage >= 2 && (
+        {stage >= SPIKE_CLUES.dates && (
           <div class="intel-row">
             <span class="dim">SPIKES</span>
             <span class="stack tight">
@@ -194,13 +196,15 @@ export function Spike() {
             </span>
           </div>
         )}
-        {stage >= 3 && (
+        {stage >= SPIKE_CLUES.description && (
           <div class="intel-row">
-            <span class="dim">CLASS</span>
-            <span><span class="amber">{answer.category.toUpperCase()}</span>{answer.description && <span class="dim"> · “{answer.description}”</span>}</span>
+            <span class="dim">ABOUT</span>
+            {answer.description
+              ? <span>“{answer.description}”</span>
+              : <span class="dim">NO DESCRIPTION ON FILE · {words.length} {words.length === 1 ? 'WORD' : 'WORDS'} IN THE NAME</span>}
           </div>
         )}
-        {stage >= 4 && (
+        {stage >= SPIKE_CLUES.shape && (
           <div class="intel-row">
             <span class="dim">SHAPE</span>
             <span class="stack tight">
@@ -208,7 +212,7 @@ export function Spike() {
                 {shape.map((n, w) => (
                   <span key={w} class="word">
                     {Array.from({ length: n }, (_, c) => (
-                      <span key={c} class="cell">{finished || (w === 0 && c === 0 && stage >= 5) ? words[w][c].toUpperCase() : ''}</span>
+                      <span key={c} class="cell">{finished || (w === 0 && c === 0 && stage >= SPIKE_CLUES.letter) ? words[w][c].toUpperCase() : ''}</span>
                     ))}
                   </span>
                 ))}
@@ -217,10 +221,10 @@ export function Spike() {
             </span>
           </div>
         )}
-        {!finished && stage < STAGES - 1 && (
+        {!finished && nextSpikeClue(stage) && (
           <div class="intel-row locked">
             <span class="dim">NEXT</span>
-            <span class="dim">▒▒ {NEXT_CLUE[stage]} UNLOCKS ON A MISS</span>
+            <span class="dim">▒▒ {nextSpikeClue(stage)} UNLOCKS ON A MISS</span>
           </div>
         )}
       </div>

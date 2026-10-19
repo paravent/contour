@@ -25,6 +25,27 @@ export type Article = { id: string; name: string; category: string; aliases: str
 
 export const STAGES = 6
 
+/**
+ * Wrong guesses made before each clue shows. The article's category is there from the
+ * start, so the chart is never "literally anything"; each miss then adds one more.
+ */
+export const SPIKE_CLUES = { category: 0, scale: 1, dates: 2, description: 3, shape: 4, letter: 5 } as const
+
+const CLUE_NAMES: Record<keyof typeof SPIKE_CLUES, string> = {
+  category: 'CATEGORY',
+  scale: 'Y-AXIS SCALE',
+  dates: 'SPIKE DATES',
+  description: 'DESCRIPTION',
+  shape: 'NAME SHAPE',
+  letter: 'FIRST LETTER',
+}
+
+/** What the next wrong guess unlocks at this stage, or null when every clue is out. */
+export function nextSpikeClue(stage: number): string | null {
+  const next = (Object.keys(SPIKE_CLUES) as (keyof typeof SPIKE_CLUES)[]).find((k) => SPIKE_CLUES[k] === stage + 1)
+  return next ? CLUE_NAMES[next] : null
+}
+
 export function spikeDir(date: string): string {
   return `puzzles/spike/${date}/`
 }
